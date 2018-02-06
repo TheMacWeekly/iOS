@@ -1,0 +1,5 @@
+*.xcuserstate
+*.xcbkptlist
+*.lock
+Pods
+*.xcuserdata*
