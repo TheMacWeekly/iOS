@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "The_Mac_WeeklyTests.testExample():The_Mac_WeeklyTests.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "test.progress.fractionComplete">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "getPosts(_:completion:):api.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "url!.url(relativeTo: API_ROOT)!.absoluteString">
+            </PersistentString>
+            <PersistentString
+               value = "API_ROOT.path">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Post.init(json:):api.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "json[&quot;title&quot;]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PostTableViewController.tableView(_:cellForRowAt:):PostTableViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "formatter.string(from: post.time)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in getPost(postID:completion:):api.swift">
+      </ContextState>
+      <ContextState
+         contextName = "Author.init(json:):api.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "json[&quot;id&quot;].number">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PostTableViewController.removeExpiredRequests():PostTableViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "requests[0].progress.isFinished">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PostViewController.webView(_:didFinish:):PostViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "postWebView.scrollView.contentSize.height">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PostViewController.observeValue(forKeyPath:of:change:context:):PostViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "postWebView.superview.frame.size.height">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PostViewController.viewDidLoad():PostViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "postWebView.scrollView.contentSize.height">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PostTableViewController.prepare(for:sender:):PostTableViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "segue.destination">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

@@ -1,0 +1,6 @@
+framework module Pods_The_Mac_WeeklyTests {
+  umbrella header "Pods-The Mac WeeklyTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
