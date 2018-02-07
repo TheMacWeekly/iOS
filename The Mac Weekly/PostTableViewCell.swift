@@ -14,7 +14,7 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var authorNameLabel: UILabel!
-    @IBOutlet weak var previewLabel: UILabel!
+    @IBOutlet weak var excerptLabel: UILabel!
     @IBOutlet weak var thumbnailView: UIImageView!
     @IBOutlet weak var thumbnailContainer: UIView!
     @IBOutlet weak var thumbnailProgress: UIActivityIndicatorView!

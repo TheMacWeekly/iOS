@@ -16,6 +16,7 @@ import Kingfisher
 public struct Author {
     var id: Int
     var name: String
+    var imgURL: URL?
     
     init?(json:JSON) {
         if let idString = json["id"].string, let name = json["name"].string {
@@ -24,6 +25,11 @@ public struct Author {
             }
             self.id = id
             self.name = name
+            if let imgURLString = json["img_url"].string {
+                imgURL = URL(string: imgURLString)
+            } else {
+                imgURL = nil
+            }
         } else {
             return nil
         }
@@ -38,12 +44,16 @@ public struct Post {
     var body: String
     var time: Date
     var thumbnailURL: URL?
+    var link: URL
+    var excerpt: String
     
     init?(json:JSON) {
-        if let id=json["id"].number, let title = json["title"]["rendered"].string, let body = json["content"]["rendered"].string, let timeString = json["date"].string {
+        if let id=json["id"].number, let title = json["title"]["rendered"].string, let body = json["content"]["rendered"].string, let timeString = json["date"].string, let linkString = json["link"].string, let excerpt = json["excerpt_plaintext"].string {
             self.id = Int(truncating: id)
             self.title = title
             self.body = body
+            self.excerpt = excerpt
+            
             let formatter = DateFormatter()
             formatter.locale = Locale(identifier: "en_US_POSIX")
             formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
@@ -52,6 +62,7 @@ public struct Post {
                 return nil
             }
             self.time = time
+            
             self.author = Author(json: json["guest_author"])
             
             if let thumbnailURL = json["normal_thumbnail_url"].string {
@@ -60,6 +71,10 @@ public struct Post {
                 self.thumbnailURL = nil
             }
             
+            guard let link = URL(string: linkString) else {
+                fatalError("Could not parse post link")
+            }
+            self.link = link
             
         } else {
             return nil

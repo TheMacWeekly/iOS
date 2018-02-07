@@ -14,16 +14,14 @@ class PostTableViewController: UITableViewController {
     
     
     var posts: [Post?] = []
-    var requests: [DataRequest] = []
+    var pageRequest: DataRequest?
     var page = 0
     
     let infinitescroll_margin = 20
     
     func refresh(completion: @escaping ([Post?]) -> Void = {_ in }) {
-        requests.forEach {request in
-            request.cancel()
-        }
-        requests = []
+        pageRequest?.cancel()
+        pageRequest = nil
         posts = []
         page = 0
         
@@ -32,25 +30,19 @@ class PostTableViewController: UITableViewController {
         nextPage(completion: completion)
     }
     
-    func removeExpiredRequests() {
-        requests = requests.filter { request in
-            return !request.progress.isFinished
-        }
-    }
-    
     func nextPage(completion: @escaping ([Post?]) -> Void = { _ in }) {
-        removeExpiredRequests()
-        if requests.count == 0 {
+        if pageRequest == nil {
             let nextPage = page + 1
             
-            requests.append(getPosts(nextPage) { posts in
+            pageRequest = getPosts(nextPage) { posts in
                 if posts.count > 0 {
                     self.posts += posts
                     self.page = nextPage
                     self.tableView.reloadData()
                     completion(posts)
                 }
-            })
+                self.pageRequest = nil
+            }
         }
     }
     
@@ -95,11 +87,11 @@ class PostTableViewController: UITableViewController {
         }
         if let post = posts[indexPath.row] {
             let formatter = DateFormatter()
-            formatter.dateFormat = "MM/dd/YY"
+            formatter.dateFormat = defaultDateFormat
             cell.dateLabel.text = formatter.string(from: post.time)
             cell.authorNameLabel.text = post.author != nil ? ("By \(post.author!.name)" as String?) : (nil as String?)
             cell.titleLabel.text = post.title
-            cell.previewLabel.text = String(post.body.prefix(140))
+            cell.excerptLabel.text = String(post.excerpt)
             cell.thumbnailContainer.isHidden = false
             post.thumbnail { thumbnail in
                 if let thumbnail = thumbnail {
@@ -112,12 +104,12 @@ class PostTableViewController: UITableViewController {
                 }
             }
             cell.titleLabel.isEnabled = true
-            cell.previewLabel.isEnabled = true
+            cell.excerptLabel.isEnabled = true
         } else {
             cell.titleLabel.text = "Error: Could not fetch post"
-            cell.previewLabel.text = "There was an error fetching this post. Please refresh and report this incident."
+            cell.excerptLabel.text = "There was an error fetching this post. Please refresh and report this incident."
             cell.titleLabel.isEnabled = false
-            cell.previewLabel.isEnabled = false
+            cell.excerptLabel.isEnabled = false
             cell.dateLabel.text = nil
             cell.authorNameLabel.text = nil
             cell.thumbnailContainer.isHidden = true

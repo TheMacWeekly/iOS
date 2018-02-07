@@ -9,15 +9,39 @@
 import UIKit
 import WebKit
 
-class PostViewController: UIViewController {
+class PostViewController: UIViewController, UIScrollViewDelegate, WKNavigationDelegate {
     
     var post: Post?
     
     @IBOutlet weak var postWebView: WKWebView!
     @IBOutlet weak var postTitleLabel: UILabel!
+    @IBOutlet weak var postDateLabel: UILabel!
+    @IBOutlet weak var postAuthorImage: UIImageView!
     @IBOutlet weak var postAuthorLabel: UILabel!
     @IBOutlet weak var webviewHeight: NSLayoutConstraint!
     
+    @IBAction func sharePost(_ sender: Any) {
+        guard let post = post else {
+            fatalError("Should not be clickable without loaded post")
+        }
+        let shareActivity = UIActivityViewController.init(activityItems: ["OMG!!! Read \"\(post.title)\" on The Mac Weekly.", post.link], applicationActivities: nil)
+        present(shareActivity, animated: true)
+    }
+    
+    //open article links in safari
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        if navigationAction.navigationType == .linkActivated, let url = navigationAction.request.url {
+            decisionHandler(.cancel)
+            UIApplication.shared.open(url)
+        }
+        
+    }
+    
+    //disable pinch to zoom for webview
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return nil
+    }
+    // resize webview based on content size
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         switch (keyPath ?? "") {
         case "contentSize":
@@ -29,6 +53,7 @@ class PostViewController: UIViewController {
             break
         }
     }
+    // styling for post content
     func prepHTML(_ html: String) -> String {
         return """
         <html>
@@ -38,25 +63,26 @@ class PostViewController: UIViewController {
                 <style>
                     body {
                         font-family: sans-serif;
-                        margin-left: 1em;
-                        margin-right: 1em;
+                        margin:0;
                     }
                     img {
                         max-width: 100%;
         height: auto;
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
                     }
         figure {
         margin-left: 0.5em;
         margin-right: 0.5em;
         }
                     figcaption {
-                        color: darkgrey;
-                        font-size: 12pt;
+                        color: grey;
+                        font-size: 10pt;
                         font-weight: lighter;
                     }
         
                     p {
-                        font-size: 18pt;
+                        font-size: 16pt;
                         line-height: 1.25;
                         margin-bottom: 1em;
                     }
@@ -70,17 +96,34 @@ class PostViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+//        navigationController?.hidesBarsOnSwipe = true
         guard let post = post else {
             fatalError("Requires Post")
         }
         postTitleLabel.text = post.title
-        postAuthorLabel.text = post.author != nil ? "By \(post.author!.name)" : nil
+        let formatter = DateFormatter()
+        formatter.dateFormat = defaultDateFormat
+        postDateLabel.text = formatter.string(from: post.time)
+        if let author = post.author {
+            postAuthorLabel.text = author.name
+            if let imgURL = author.imgURL {
+                postAuthorImage.layer.cornerRadius = postAuthorImage.bounds.width / 2
+                postAuthorImage.kf.setImage(with: imgURL)
+            } else {
+                postAuthorImage.isHidden = true
+            }
+        } else {
+            postAuthorImage.isHidden = true
+            postAuthorLabel.isHidden = true
+        }
+        
+        
         postWebView.loadHTMLString(prepHTML(post.body), baseURL: nil)
         postWebView.scrollView.isScrollEnabled = false
         postWebView.translatesAutoresizingMaskIntoConstraints = false
-//        postWebView.
         // Never removed... memory leak?
         postWebView.scrollView.addObserver(self, forKeyPath: "contentSize", context: nil)
+        postWebView.scrollView.delegate = self
         
 //        postWebView.scrollView.observe
 //        let constraint = NSLayoutConstraint.init(item: postWebView, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: postWebView.scrollView.contentSize.height)
@@ -106,8 +149,5 @@ class PostViewController: UIViewController {
     */
     
     // MARK: Actions
-    @IBAction func showFromPostTable(sender: UIStoryboardSegue) {
-        
-    }
 
 }
