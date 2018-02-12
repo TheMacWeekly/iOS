@@ -18,6 +18,9 @@
 		673F70CA202745900030E5F4 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673F70C9202745900030E5F4 /* PostTableViewCell.swift */; };
 		673F70CC2027473F0030E5F4 /* PostTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673F70CB2027473F0030E5F4 /* PostTableViewController.swift */; };
 		678868322026C734006FCF93 /* api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678868312026C734006FCF93 /* api.swift */; };
+		67E2FC1F202FCC39000FD5BE /* AuthorDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E2FC1E202FCC39000FD5BE /* AuthorDetailsViewController.swift */; };
+		67E2FC2320303277000FD5BE /* InfiniteTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E2FC2220303277000FD5BE /* InfiniteTableView.swift */; };
+		67E2FC262030E423000FD5BE /* PostTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67E2FC242030E422000FD5BE /* PostTableViewController.storyboard */; };
 		AE7E53254523D4266FBF195F /* Pods_The_Mac_Weekly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BAAC00BD8C48F155EEFCA94 /* Pods_The_Mac_Weekly.framework */; };
 		CBFB36ABF45CD017F26735B5 /* Pods_The_Mac_WeeklyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC1B70C2E1F13089716348D /* Pods_The_Mac_WeeklyUITests.framework */; };
 		FC129842C382CCC0B5715925 /* Pods_The_Mac_WeeklyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F064AFB1504B1B2B0F0DA185 /* Pods_The_Mac_WeeklyTests.framework */; };
@@ -60,6 +63,9 @@
 		673F70C9202745900030E5F4 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		673F70CB2027473F0030E5F4 /* PostTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewController.swift; sourceTree = "<group>"; };
 		678868312026C734006FCF93 /* api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = api.swift; sourceTree = "<group>"; };
+		67E2FC1E202FCC39000FD5BE /* AuthorDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorDetailsViewController.swift; sourceTree = "<group>"; };
+		67E2FC2220303277000FD5BE /* InfiniteTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfiniteTableView.swift; sourceTree = "<group>"; };
+		67E2FC252030E423000FD5BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "The Mac Weekly/Base.lproj/PostTableViewController.storyboard"; sourceTree = "<group>"; };
 		6F207B3E1B8E3F0EDB8610E4 /* Pods-The Mac WeeklyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-The Mac WeeklyUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-The Mac WeeklyUITests/Pods-The Mac WeeklyUITests.release.xcconfig"; sourceTree = "<group>"; };
 		97D9A86A5E26DA4CE10195BD /* Pods-The Mac WeeklyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-The Mac WeeklyUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-The Mac WeeklyUITests/Pods-The Mac WeeklyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		BBFDD34752FA0A1EAFB6BC6C /* Pods-The Mac WeeklyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-The Mac WeeklyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-The Mac WeeklyTests/Pods-The Mac WeeklyTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -132,9 +138,12 @@
 		6716CA022026BE3300F008C0 /* The Mac Weekly */ = {
 			isa = PBXGroup;
 			children = (
+				67E2FC2220303277000FD5BE /* InfiniteTableView.swift */,
 				6716CA032026BE3300F008C0 /* AppDelegate.swift */,
 				678868312026C734006FCF93 /* api.swift */,
+				67E2FC242030E422000FD5BE /* PostTableViewController.storyboard */,
 				6716CA072026BE3400F008C0 /* Main.storyboard */,
+				67E2FC1E202FCC39000FD5BE /* AuthorDetailsViewController.swift */,
 				67039EC12028BB7C009357FF /* PostViewController.swift */,
 				67039EC3202AD158009357FF /* utils.swift */,
 				673F70CB2027473F0030E5F4 /* PostTableViewController.swift */,
@@ -295,6 +304,7 @@
 			files = (
 				6716CA0E2026BE3400F008C0 /* LaunchScreen.storyboard in Resources */,
 				6716CA0B2026BE3400F008C0 /* Assets.xcassets in Resources */,
+				67E2FC262030E423000FD5BE /* PostTableViewController.storyboard in Resources */,
 				6716CA092026BE3400F008C0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -409,12 +419,20 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-The Mac Weekly/Pods-The Mac Weekly-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Siesta/Siesta.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Siesta.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -476,6 +494,8 @@
 			files = (
 				673F70CC2027473F0030E5F4 /* PostTableViewController.swift in Sources */,
 				678868322026C734006FCF93 /* api.swift in Sources */,
+				67E2FC1F202FCC39000FD5BE /* AuthorDetailsViewController.swift in Sources */,
+				67E2FC2320303277000FD5BE /* InfiniteTableView.swift in Sources */,
 				6716CA042026BE3300F008C0 /* AppDelegate.swift in Sources */,
 				67039EC4202AD158009357FF /* utils.swift in Sources */,
 				673F70CA202745900030E5F4 /* PostTableViewCell.swift in Sources */,
@@ -529,6 +549,14 @@
 				6716CA0D2026BE3400F008C0 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		67E2FC242030E422000FD5BE /* PostTableViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				67E2FC252030E423000FD5BE /* Base */,
+			);
+			name = PostTableViewController.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

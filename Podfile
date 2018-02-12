@@ -8,7 +8,6 @@ use_frameworks!
 
 target 'The Mac Weekly' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
-  use_frameworks!
 
   # Pods for The Mac Weekly
   
@@ -16,6 +15,13 @@ target 'The Mac Weekly' do
   pod 'SwiftyJSON'
   pod 'Kingfisher', '~> 4.0'
   
+  pod 'RxSwift',    '~> 4.0'
+  pod 'RxCocoa',    '~> 4.0'
+  
+  pod 'Result', '~> 3.2.4'
+  
+  pod 'Siesta', '~> 1.0'
+    
   target 'The Mac WeeklyTests' do
     inherit! :search_paths
     # Pods for testing

@@ -9,58 +9,32 @@
 import UIKit
 import Kingfisher
 import Alamofire
+import RxSwift
+import RxCocoa
+
+
+class InfinitePostTableView: InfiniteTableView<Post?> {
+}
 
 class PostTableViewController: UITableViewController {
     
-    
-    var posts: [Post?] = []
-    var pageRequest: DataRequest?
-    var page = 0
-    
-    let infinitescroll_margin = 20
-    
-    func refresh(completion: @escaping ([Post?]) -> Void = {_ in }) {
-        pageRequest?.cancel()
-        pageRequest = nil
-        posts = []
-        page = 0
-        
-        self.tableView.reloadData()
-        
-        nextPage(completion: completion)
+    var infiniteTableView: InfinitePostTableView {
+        return self.tableView as! InfinitePostTableView
     }
     
-    func nextPage(completion: @escaping ([Post?]) -> Void = { _ in }) {
-        if pageRequest == nil {
-            let nextPage = page + 1
-            
-            pageRequest = getPosts(nextPage) { posts in
-                if posts.count > 0 {
-                    self.posts += posts
-                    self.page = nextPage
-                    self.tableView.reloadData()
-                    completion(posts)
-                }
-                self.pageRequest = nil
-            }
-        }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        nextPage()
+        infiniteTableView.fetchPage = { (pageNum, pageLen) in
+            return TMWAPI.postsAPI.page(pageNum).pageLen(pageLen).loadSingle()
+        }
+        infiniteTableView.initPageFetcher()
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-    }
-    
-    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row > self.posts.count - self.infinitescroll_margin {
-            self.nextPage()
-        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -77,7 +51,7 @@ class PostTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return posts.count
+        return infiniteTableView.data.count
     }
 
     
@@ -85,18 +59,22 @@ class PostTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "PostTableViewCell", for: indexPath) as? PostTableViewCell else {
             fatalError("The dequed cell is not an instance of  PostTableViewCell.")
         }
-        if let post = posts[indexPath.row] {
+        if let post = infiniteTableView.dataAt(index: indexPath.row) {
             let formatter = DateFormatter()
             formatter.dateFormat = defaultDateFormat
             cell.dateLabel.text = formatter.string(from: post.time)
-            cell.authorNameLabel.text = post.author != nil ? ("By \(post.author!.name)" as String?) : (nil as String?)
+            if let authorName = post.author?.name {
+                cell.authorNameLabel.text = "By \(authorName)"
+                cell.authorNameLabel.isHidden = false
+            } else {
+                cell.authorNameLabel.isHidden = true
+            }
             cell.titleLabel.text = post.title
-            cell.excerptLabel.text = String(post.excerpt)
             cell.thumbnailContainer.isHidden = false
             post.thumbnail { thumbnail in
                 if let thumbnail = thumbnail {
                     cell.thumbnailView.image = thumbnail
-                    cell.thumbnailView.layer.cornerRadius = 5
+                    cell.thumbnailView.layer.cornerRadius = 8
                     cell.thumbnailProgress.isHidden = true
                     cell.thumbnailContainer.isHidden = false
                 } else {
@@ -104,12 +82,9 @@ class PostTableViewController: UITableViewController {
                 }
             }
             cell.titleLabel.isEnabled = true
-            cell.excerptLabel.isEnabled = true
         } else {
             cell.titleLabel.text = "Error: Could not fetch post"
-            cell.excerptLabel.text = "There was an error fetching this post. Please refresh and report this incident."
             cell.titleLabel.isEnabled = false
-            cell.excerptLabel.isEnabled = false
             cell.dateLabel.text = nil
             cell.authorNameLabel.text = nil
             cell.thumbnailContainer.isHidden = true
@@ -174,7 +149,7 @@ class PostTableViewController: UITableViewController {
             guard let indexPath = tableView.indexPath(for: postTableCellView) else {
                 fatalError()
             }
-            destination.post = posts[indexPath.row]!
+            destination.post = infiniteTableView.dataAt(index: indexPath.row)
         default:
             break
         }
@@ -191,7 +166,7 @@ class PostTableViewController: UITableViewController {
             guard let indexPath = tableView.indexPath(for: postTableCellView) else {
                 fatalError()
             }
-            let post = posts[indexPath.row]
+            let post = infiniteTableView.dataAt(index: indexPath.row)
             return post != nil
         default:
             return true
@@ -199,9 +174,11 @@ class PostTableViewController: UITableViewController {
     }
  
     @IBAction func refreshView(_ sender: UIRefreshControl) {
-        refresh { _ in
+        var disposer: Disposable?
+        disposer = infiniteTableView.refresh().drive(onNext: { _ in
             sender.endRefreshing()
-        }
+            disposer?.dispose()
+        })
     }
     
 }
