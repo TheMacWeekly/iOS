@@ -9,6 +9,8 @@
 import Foundation
 import SystemConfiguration
 
+// https://stackoverflow.com/questions/30743408/check-for-internet-connection-with-swift
+
 public class Reachability {
     
     class func isConnectedToNetwork() -> Bool {
