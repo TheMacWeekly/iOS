@@ -16,6 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        if Reachability.isConnectedToNetwork() {
+            print("=====> Network connection is ok")
+            return false
+        } else {
+            print("====> Network connection is FAILED ")
+            return true
+        }
         return true
     }
 

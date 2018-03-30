@@ -175,10 +175,16 @@ class PostTableViewController: UITableViewController {
  
     @IBAction func refreshView(_ sender: UIRefreshControl) {
         var disposer: Disposable?
-        disposer = infiniteTableView.refresh().drive(onNext: { _ in
+        if Reachability.isConnectedToNetwork() {
+            disposer = infiniteTableView.refresh().drive(onNext: { _ in
+                sender.endRefreshing()
+                disposer?.dispose()
+            })
+        } else {
+            print("======> Cannot connect to the INTERNET")
             sender.endRefreshing()
-            disposer?.dispose()
-        })
+        }
+        
     }
     
 }
