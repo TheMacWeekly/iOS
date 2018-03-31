@@ -15,7 +15,7 @@ import enum Result.Result
 import struct Result.AnyError
 import Siesta
 
-let API_ROOT = URL(string: "http://themacweekly.com/wp-json/wp/v2/")!
+let API_ROOT = URL(string: "https://themacweekly.com/wp-json/wp/v2/")!
 
 enum APIError : Error {
     case parsingError(description: String)
@@ -116,9 +116,9 @@ class TMWAPI {
                 })
         }
         
-        func author(_ authorID: Int) -> Self {
-            return self.withParam(key: "filter[meta_key]", value: "_molongui_guest_author_id")
-                .withParam(key: "filter[meta_value]", value: String(authorID))
+        func author(_ authorID: Int, _ type: String) -> Self {
+            return self.withParam(key: "filter[meta_key]", value: "_molongui_main_author")
+                .withParam(key: "filter[meta_value]", value: "\(type)-\(String(authorID))")
         }
         func page(_ pageNum: Int) -> Self {
             return self.withParam(key: "page", value: String(pageNum))
@@ -140,26 +140,25 @@ public struct Author {
     var name: String
     var bioHTML: String?
     var imgURL: URL?
+    var type: String
     
     init?(json:JSON) {
-        if let idString = json["id"].string, let name = json["name"].string {
+        if let idString = json["id"].string, let name = json["name"].string, let type = json["type"].string {
             guard let id = Int(idString) else {
                 return nil
             }
             self.id = id
             self.name = name
-            
-            if let bioHTML = json["bio"].string {
-                self.bioHTML = bioHTML
-            } else {
-                self.bioHTML = nil
-            }
-            
+            self.type = type
+
+            bioHTML = json["bio"].string
+
             if let imgURLString = json["img_url"].string {
                 imgURL = URL(string: imgURLString)
             } else {
                 imgURL = nil
             }
+            
         } else {
             return nil
         }
