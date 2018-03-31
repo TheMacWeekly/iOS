@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2424856420701860000A37A1 /* PostSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2424856320701860000A37A1 /* PostSearchViewController.swift */; };
 		46E48C9520327EB4003F96E9 /* DemoSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E48C9420327EB4003F96E9 /* DemoSearchViewController.swift */; };
 		4C7FA9FC206EC557008695C1 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7FA9FB206EC557008695C1 /* Reachability.swift */; };
 		67039EC22028BB7C009357FF /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67039EC12028BB7C009357FF /* PostViewController.swift */; };
@@ -48,6 +49,7 @@
 /* Begin PBXFileReference section */
 		1BAAC00BD8C48F155EEFCA94 /* Pods_The_Mac_Weekly.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_The_Mac_Weekly.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2045A2157C41EF5C39A058D3 /* Pods-The Mac WeeklyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-The Mac WeeklyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-The Mac WeeklyTests/Pods-The Mac WeeklyTests.release.xcconfig"; sourceTree = "<group>"; };
+		2424856320701860000A37A1 /* PostSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSearchViewController.swift; sourceTree = "<group>"; };
 		46E48C9420327EB4003F96E9 /* DemoSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoSearchViewController.swift; sourceTree = "<group>"; };
 		4C7FA9FB206EC557008695C1 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		67039EC12028BB7C009357FF /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				6716CA072026BE3400F008C0 /* Main.storyboard */,
 				46E48C9420327EB4003F96E9 /* DemoSearchViewController.swift */,
 				67E2FC1E202FCC39000FD5BE /* AuthorDetailsViewController.swift */,
+				2424856320701860000A37A1 /* PostSearchViewController.swift */,
 				67039EC12028BB7C009357FF /* PostViewController.swift */,
 				67039EC3202AD158009357FF /* utils.swift */,
 				673F70CB2027473F0030E5F4 /* PostTableViewController.swift */,
@@ -500,6 +503,7 @@
 			files = (
 				673F70CC2027473F0030E5F4 /* PostTableViewController.swift in Sources */,
 				678868322026C734006FCF93 /* api.swift in Sources */,
+				2424856420701860000A37A1 /* PostSearchViewController.swift in Sources */,
 				67E2FC1F202FCC39000FD5BE /* AuthorDetailsViewController.swift in Sources */,
 				67E2FC2320303277000FD5BE /* InfiniteTableView.swift in Sources */,
 				6716CA042026BE3300F008C0 /* AppDelegate.swift in Sources */,
@@ -683,11 +687,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8Z7KYT9YVF;
+				DEVELOPMENT_TEAM = 2KVXFURPPL;
 				INFOPLIST_FILE = "The Mac Weekly/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.tmw.The-Mac-Weekly";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.tmw.The-Mac-Weekly.hherman1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -700,11 +704,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8Z7KYT9YVF;
+				DEVELOPMENT_TEAM = 2KVXFURPPL;
 				INFOPLIST_FILE = "The Mac Weekly/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.tmw.The-Mac-Weekly";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.tmw.The-Mac-Weekly.hherman1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
