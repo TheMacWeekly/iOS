@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		46E48C9520327EB4003F96E9 /* DemoSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E48C9420327EB4003F96E9 /* DemoSearchViewController.swift */; };
+		4C7FA9FC206EC557008695C1 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7FA9FB206EC557008695C1 /* Reachability.swift */; };
 		67039EC22028BB7C009357FF /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67039EC12028BB7C009357FF /* PostViewController.swift */; };
 		67039EC4202AD158009357FF /* utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67039EC3202AD158009357FF /* utils.swift */; };
 		6716CA042026BE3300F008C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6716CA032026BE3300F008C0 /* AppDelegate.swift */; };
@@ -48,6 +49,7 @@
 		1BAAC00BD8C48F155EEFCA94 /* Pods_The_Mac_Weekly.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_The_Mac_Weekly.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2045A2157C41EF5C39A058D3 /* Pods-The Mac WeeklyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-The Mac WeeklyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-The Mac WeeklyTests/Pods-The Mac WeeklyTests.release.xcconfig"; sourceTree = "<group>"; };
 		46E48C9420327EB4003F96E9 /* DemoSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoSearchViewController.swift; sourceTree = "<group>"; };
+		4C7FA9FB206EC557008695C1 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		67039EC12028BB7C009357FF /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		67039EC3202AD158009357FF /* utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = utils.swift; sourceTree = "<group>"; };
 		6716CA002026BE3300F008C0 /* The Mac Weekly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "The Mac Weekly.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -154,6 +156,7 @@
 				6716CA0A2026BE3400F008C0 /* Assets.xcassets */,
 				6716CA0C2026BE3400F008C0 /* LaunchScreen.storyboard */,
 				6716CA0F2026BE3400F008C0 /* Info.plist */,
+				4C7FA9FB206EC557008695C1 /* Reachability.swift */,
 			);
 			path = "The Mac Weekly";
 			sourceTree = "<group>";
@@ -503,6 +506,7 @@
 				67039EC4202AD158009357FF /* utils.swift in Sources */,
 				673F70CA202745900030E5F4 /* PostTableViewCell.swift in Sources */,
 				67039EC22028BB7C009357FF /* PostViewController.swift in Sources */,
+				4C7FA9FC206EC557008695C1 /* Reachability.swift in Sources */,
 				46E48C9520327EB4003F96E9 /* DemoSearchViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

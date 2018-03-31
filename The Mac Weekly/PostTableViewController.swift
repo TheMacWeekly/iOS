@@ -175,10 +175,26 @@ class PostTableViewController: UITableViewController {
  
     @IBAction func refreshView(_ sender: UIRefreshControl) {
         var disposer: Disposable?
-        disposer = infiniteTableView.refresh().drive(onNext: { _ in
-            sender.endRefreshing()
-            disposer?.dispose()
-        })
+        if Reachability.isConnectedToNetwork() {
+            disposer = infiniteTableView.refresh().drive(onNext: { _ in
+                sender.endRefreshing()
+                disposer?.dispose()
+            })
+        } else {
+            print("======> Cannot connect to the INTERNET")
+            self.alertNoInternet(refresher: sender)
+//            sender.endRefreshing()
+        }
+        
     }
     
+    // Pop up an alert if there is no internet connection and ask user to retry
+    private func alertNoInternet(refresher: UIRefreshControl) {
+        let alertView = UIAlertController(title: "Failed to connect", message: "There is no internet connection. Please check your network and try again.", preferredStyle: .alert)
+        alertView.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alertView.addAction(UIAlertAction(title: "Retry", style: .destructive, handler: {_ in
+            self.refreshView(refresher)
+        }))
+        self.present(alertView, animated: true, completion: refresher.endRefreshing)
+    }
 }
