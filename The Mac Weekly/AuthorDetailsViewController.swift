@@ -37,7 +37,7 @@ class AuthorDetailsViewController: UIViewController {
             fatalError("Child view controller 0 is not the PostTableViewController")
         }
         postsView.infiniteTableView.fetchPage = { (pageNum, pageLen) in
-            return TMWAPI.postsAPI.author(self.author.id).page(pageNum).pageLen(pageLen).loadSingle()
+            return TMWAPI.postsAPI.author(self.author.id, self.author.type).page(pageNum).pageLen(pageLen).loadSingle()
         }
         postsView.infiniteTableView.refresh()
         
