@@ -37,17 +37,12 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="64.5" height="64.5"/>
                                                             <color key="backgroundColor" red="0.83792098445595853" green="0.83792098445595853" blue="0.83792098445595853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </imageView>
-                                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="6Uf-UG-5nA">
-                                                            <rect key="frame" x="22.5" y="22.5" width="20" height="20"/>
-                                                        </activityIndicatorView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="bottom" secondItem="bgc-FE-ht4" secondAttribute="bottom" id="7Gv-0y-IIr"/>
                                                         <constraint firstItem="bgc-FE-ht4" firstAttribute="top" secondItem="XMj-E1-DMZ" secondAttribute="top" id="8Rr-wN-MY9"/>
                                                         <constraint firstItem="bgc-FE-ht4" firstAttribute="leading" secondItem="XMj-E1-DMZ" secondAttribute="leading" id="KFh-bQ-dxm"/>
-                                                        <constraint firstItem="6Uf-UG-5nA" firstAttribute="centerY" secondItem="bgc-FE-ht4" secondAttribute="centerY" id="UdS-yf-hnR"/>
-                                                        <constraint firstItem="6Uf-UG-5nA" firstAttribute="centerX" secondItem="bgc-FE-ht4" secondAttribute="centerX" id="Yrk-eQ-GYO"/>
                                                         <constraint firstAttribute="trailing" secondItem="bgc-FE-ht4" secondAttribute="trailing" id="r2h-Se-n67"/>
                                                         <constraint firstAttribute="width" secondItem="XMj-E1-DMZ" secondAttribute="height" multiplier="1:1" id="zA4-Sx-mC2"/>
                                                     </constraints>
@@ -99,7 +94,6 @@
                                     <outlet property="authorNameLabel" destination="2Zr-ua-T3w" id="Y7g-Ia-kGM"/>
                                     <outlet property="dateLabel" destination="VUX-OF-ddx" id="htr-bt-6vd"/>
                                     <outlet property="thumbnailContainer" destination="XMj-E1-DMZ" id="7NU-X4-8Wy"/>
-                                    <outlet property="thumbnailProgress" destination="6Uf-UG-5nA" id="kiy-pZ-GZr"/>
                                     <outlet property="thumbnailView" destination="bgc-FE-ht4" id="YJO-AR-TPe"/>
                                     <outlet property="titleLabel" destination="Txn-IY-cev" id="YcW-Aq-cc4"/>
                                     <segue destination="Wt2-PR-snD" kind="show" identifier="ShowPost" id="vKV-L2-RUk"/>

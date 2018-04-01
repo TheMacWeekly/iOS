@@ -38,7 +38,7 @@ extension RxAPI {
         self.init(asResource:service.resource(Self.path))
     }
     
-    func withParam(key: String, value: String) -> Self {
+    func withParam(key: String, value: String?) -> Self {
         return Self.init(asResource: self.resource.withParam(key, value))
     }
     
@@ -88,6 +88,76 @@ extension RxAPI {
     }
 }
 
+enum PostCategory {
+    case all
+    case news
+    case sports
+    case features
+    case opinion
+    case arts
+    case foodAndDrink
+    case media
+    
+    static let order = [
+        PostCategory.all,
+        PostCategory.news,
+        PostCategory.sports,
+        PostCategory.features,
+        PostCategory.opinion,
+        PostCategory.arts,
+        PostCategory.foodAndDrink,
+        PostCategory.media
+    ]
+    
+    var displayName: String {
+        get {
+            switch self {
+            case .all:
+                return "All Posts"
+            case .news:
+                return "News"
+            case .sports:
+                return "Sports"
+            case .features:
+                return "Features"
+            case .opinion:
+                return "Opinion"
+            case .arts:
+                return "Arts"
+            case .foodAndDrink:
+                return "Food & Drink"
+            case .media:
+                return "Media"
+            }
+        }
+    }
+    
+    var id: Int? {
+        get {
+            switch self {
+            case .all:
+                return nil
+            case .news:
+                return 3
+            case .sports:
+                return 5
+            case .features:
+                return 4
+            case .opinion:
+                return 7
+            case .arts:
+                return 6
+            case .foodAndDrink:
+                return 28
+            case .media:
+                return 5292
+            }
+        }
+    }
+}
+    
+    
+
 
 class TMWAPI {
 
@@ -128,6 +198,16 @@ class TMWAPI {
         }
         func search(_ searchString: String) -> Self {
             return self.withParam(key: "search", value: searchString)
+        }
+        
+        func category(_ category: PostCategory) -> Self {
+            if category == PostCategory.all {
+                return self.withParam(key: "categories", value: nil)
+            }
+            return self.category(forID: category.id!)
+        }
+        func category(forID id: Int) -> Self {
+            return self.withParam(key: "categories", value: String(id))
         }
         
     }

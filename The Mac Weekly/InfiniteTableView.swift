@@ -48,7 +48,7 @@ class InfiniteTableView<T>: UITableView {
     open var fetchPage: ((Int, Int) -> Single<Result<[T], AnyError>>)?
     
     var pageTriggerStream = PublishRelay<()>()
-    var pager: Disposable?
+    var pager: Disposable!
     
     open var infiniteScrollMargin = 20
     open var pageLen = 10

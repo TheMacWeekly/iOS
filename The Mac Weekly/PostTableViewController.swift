@@ -59,35 +59,11 @@ class PostTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "PostTableViewCell", for: indexPath) as? PostTableViewCell else {
             fatalError("The dequed cell is not an instance of  PostTableViewCell.")
         }
+        
         if let post = infiniteTableView.dataAt(index: indexPath.row) {
-            let formatter = DateFormatter()
-            formatter.dateFormat = defaultDateFormat
-            cell.dateLabel.text = formatter.string(from: post.time)
-            if let authorName = post.author?.name {
-                cell.authorNameLabel.text = "By \(authorName)"
-                cell.authorNameLabel.isHidden = false
-            } else {
-                cell.authorNameLabel.isHidden = true
-            }
-            cell.titleLabel.text = post.title
-            cell.thumbnailContainer.isHidden = false
-            post.thumbnail { thumbnail in
-                if let thumbnail = thumbnail {
-                    cell.thumbnailView.image = thumbnail
-                    cell.thumbnailView.layer.cornerRadius = 8
-                    cell.thumbnailProgress.isHidden = true
-                    cell.thumbnailContainer.isHidden = false
-                } else {
-                    cell.thumbnailContainer.isHidden = true
-                }
-            }
-            cell.titleLabel.isEnabled = true
+            cell.loadPost(post)
         } else {
-            cell.titleLabel.text = "Error: Could not fetch post"
-            cell.titleLabel.isEnabled = false
-            cell.dateLabel.text = nil
-            cell.authorNameLabel.text = nil
-            cell.thumbnailContainer.isHidden = true
+            cell.loadErrorPost()
         }
         
         return cell
