@@ -263,6 +263,7 @@ public struct Post {
     var body: String
     var time: Date
     var thumbnailURL: URL?
+    var displayImageURL: URL?
     var link: URL
     var excerptHTML: String
     var categories: [PostCategory] = []
@@ -291,6 +292,12 @@ public struct Post {
                 self.thumbnailURL = nil
             }
             
+            if let displayImageURL = json["full_thumbnail_url"].string {
+                self.displayImageURL = URL(string: displayImageURL)
+            } else {
+                self.displayImageURL = nil
+            }
+            
             if let categories = json["categories"].array {
                 self.categories = categories.flatMap { category in PostCategory.fromId(category.intValue) }
             }
@@ -304,21 +311,20 @@ public struct Post {
             return nil
         }
     }
+    
     func thumbnail(completion: @escaping  (Image?) -> Void) {
         let key = "thumbnail:post-\(self.id)"
-        ImageCache.default.retrieveImage(forKey: key, options: nil) { (thumbnail, cacheType) in
-            if let thumbnail = thumbnail {
-                completion(thumbnail)
-                return
-            } else if let thumbnailURL = self.thumbnailURL {
-                ImageDownloader.default.downloadImage(with: thumbnailURL) { (thumbnail, error, url, data) in
-                    if let thumbnail = thumbnail {
-                        ImageCache.default.store(thumbnail, forKey: key)
-                        completion(thumbnail)
-                        return
-                    }
-                }
-            }
+        if let url = self.thumbnailURL {
+            getImageFromURLWithCache(key: key, url: url, completion: completion)
+        } else {
+            completion(nil)
+        }
+    }
+    func displayImage(completion: @escaping  (Image?) -> Void) {
+        let key = "displayImage:post-\(self.id)"
+        if let url = self.displayImageURL {
+            getImageFromURLWithCache(key: key, url: url, completion: completion)
+        } else {
             completion(nil)
         }
     }

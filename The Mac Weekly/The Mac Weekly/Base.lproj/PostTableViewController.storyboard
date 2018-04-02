@@ -33,14 +33,17 @@
                                                 <view clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="XMj-E1-DMZ">
                                                     <rect key="frame" x="0.0" y="0.0" width="355" height="153.5"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bgc-FE-ht4">
-                                                            <rect key="frame" x="0.0" y="0.0" width="355" height="184.5"/>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bgc-FE-ht4">
+                                                            <rect key="frame" x="0.0" y="0.0" width="355" height="153.5"/>
                                                             <color key="backgroundColor" red="0.83792098445595853" green="0.83792098445595853" blue="0.83792098445595853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstItem="bgc-FE-ht4" firstAttribute="leading" secondItem="XMj-E1-DMZ" secondAttribute="leading" id="KFh-bQ-dxm"/>
+                                                        <constraint firstItem="bgc-FE-ht4" firstAttribute="width" secondItem="XMj-E1-DMZ" secondAttribute="width" id="MI8-zV-G8A"/>
+                                                        <constraint firstItem="bgc-FE-ht4" firstAttribute="top" secondItem="XMj-E1-DMZ" secondAttribute="top" id="Yka-Ie-z2U"/>
+                                                        <constraint firstAttribute="bottom" secondItem="bgc-FE-ht4" secondAttribute="bottom" id="aaL-T2-CjG"/>
                                                         <constraint firstAttribute="trailing" secondItem="bgc-FE-ht4" secondAttribute="trailing" id="r2h-Se-n67"/>
                                                         <constraint firstItem="bgc-FE-ht4" firstAttribute="centerY" secondItem="XMj-E1-DMZ" secondAttribute="centerY" id="xe9-yA-lVH"/>
                                                     </constraints>
@@ -92,8 +95,8 @@
                                 <connections>
                                     <outlet property="authorNameLabel" destination="2Zr-ua-T3w" id="Y7g-Ia-kGM"/>
                                     <outlet property="dateLabel" destination="VUX-OF-ddx" id="htr-bt-6vd"/>
-                                    <outlet property="thumbnailContainer" destination="XMj-E1-DMZ" id="7NU-X4-8Wy"/>
-                                    <outlet property="thumbnailView" destination="bgc-FE-ht4" id="YJO-AR-TPe"/>
+                                    <outlet property="previewImage" destination="bgc-FE-ht4" id="YJO-AR-TPe"/>
+                                    <outlet property="previewImageContainer" destination="XMj-E1-DMZ" id="7NU-X4-8Wy"/>
                                     <outlet property="titleLabel" destination="Txn-IY-cev" id="YcW-Aq-cc4"/>
                                     <segue destination="Wt2-PR-snD" kind="show" identifier="ShowPost" id="vKV-L2-RUk"/>
                                 </connections>
@@ -171,8 +174,8 @@
                                 <connections>
                                     <outlet property="authorNameLabel" destination="sQv-eu-yvK" id="ApG-AQ-7gb"/>
                                     <outlet property="dateLabel" destination="VMC-XA-NjB" id="JlZ-ZH-BN7"/>
-                                    <outlet property="thumbnailContainer" destination="xWv-gK-1cy" id="ihu-nW-t3i"/>
-                                    <outlet property="thumbnailView" destination="v1a-rl-Thf" id="HSr-Xl-mAS"/>
+                                    <outlet property="previewImage" destination="v1a-rl-Thf" id="HSr-Xl-mAS"/>
+                                    <outlet property="previewImageContainer" destination="xWv-gK-1cy" id="ihu-nW-t3i"/>
                                     <outlet property="titleLabel" destination="XKs-5t-ivk" id="M05-yu-EjI"/>
                                 </connections>
                             </tableViewCell>

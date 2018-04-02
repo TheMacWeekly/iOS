@@ -31,11 +31,10 @@ class PostTableViewController: UITableViewController {
             return TMWAPI.postsAPI.page(pageNum).pageLen(pageLen).loadSingle()
         }
         infiniteTableView.addData = { (old, new) in
+            var newPosts: [Post?] = new
+
             if old.count == 0 {
                 self.leadPost = nil
-            }
-            var newPosts: [Post?] = new
-            if self.leadPost == nil {
                 for (idx, post) in new.enumerated() {
                     if post != nil && post!.categories.contains(PostCategory.home) {
                         self.leadPost = post
@@ -45,6 +44,7 @@ class PostTableViewController: UITableViewController {
                     }
                 }
             }
+
             return old + newPosts
         }
         infiniteTableView.initPageFetcher()
@@ -77,13 +77,14 @@ class PostTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let identifier = (indexPath.row == 0 && leadPost != nil) ? "PostTableViewCellBig" : "PostTableViewCell"
+        let isBigCell = (indexPath.row == 0 && leadPost != nil)
+        let identifier = isBigCell ? "PostTableViewCellBig" : "PostTableViewCell"
         guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? PostTableViewCell else {
             fatalError("The dequed cell is not an instance of PostTableViewCell.")
         }
         
         if let post = infiniteTableView.dataAt(index: indexPath.row) {
-            cell.loadPost(post)
+            cell.loadPost(post, shouldUseLargeImage: isBigCell)
         } else {
             cell.loadErrorPost()
         }

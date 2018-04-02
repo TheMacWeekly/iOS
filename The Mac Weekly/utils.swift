@@ -8,6 +8,7 @@
 
 import Foundation
 import Result
+import Kingfisher
 
 let defaultDateFormat = "MM/dd/YY"
 
@@ -52,6 +53,24 @@ func fixShadowImage(inView view: UIView) {
     }
     for subview in view.subviews {
         fixShadowImage(inView: subview)
+    }
+}
+
+func getImageFromURLWithCache(key: String, url:URL, completion: @escaping  (Image?) -> Void) {
+    ImageCache.default.retrieveImage(forKey: key, options: nil) { (img, cacheType) in
+        if let img = img {
+            completion(img)
+            return
+        } else {
+            ImageDownloader.default.downloadImage(with: url) { (img, error, url, data) in
+                if let img = img {
+                    ImageCache.default.store(img, forKey: key)
+                    completion(img)
+                    return
+                }
+            }
+        }
+        completion(nil)
     }
 }
 

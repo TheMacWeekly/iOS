@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class PostTableViewCell: UITableViewCell {
     
@@ -16,10 +17,10 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var authorNameLabel: UILabel!
-    @IBOutlet weak var thumbnailView: UIImageView!
-    @IBOutlet weak var thumbnailContainer: UIView!
+    @IBOutlet weak var previewImage: UIImageView!
+    @IBOutlet weak var previewImageContainer: UIView!
     
-    func loadPost(_ post: Post) {
+    func loadPost(_ post: Post, shouldUseLargeImage: Bool = false) {
         let formatter = DateFormatter()
         formatter.dateFormat = defaultDateFormat
         dateLabel.text = formatter.string(from: post.time)
@@ -30,17 +31,25 @@ class PostTableViewCell: UITableViewCell {
             authorNameLabel.isHidden = true
         }
         titleLabel.text = post.title
-        thumbnailContainer.isHidden = false
-        post.thumbnail { thumbnail in
-            if let thumbnail = thumbnail {
-                self.thumbnailView.image = thumbnail
-                self.thumbnailView.layer.cornerRadius = 8
-                self.thumbnailContainer.isHidden = false
-            } else {
-                self.thumbnailContainer.isHidden = true
-            }
+        previewImageContainer.isHidden = false
+        
+        if shouldUseLargeImage {
+            post.displayImage(completion: { self.setPreviewImage(img: $0) } )
+        } else {
+            post.thumbnail(completion: { self.setPreviewImage(img: $0) } )
         }
+        
         titleLabel.isEnabled = true
+    }
+    
+    func setPreviewImage(img: Image?) {
+        if let img = img {
+            self.previewImage.image = img
+            self.previewImage.layer.cornerRadius = 8
+            self.previewImageContainer.isHidden = false
+        } else {
+            self.previewImageContainer.isHidden = true
+        }
     }
     
     func loadErrorPost() {
@@ -48,7 +57,7 @@ class PostTableViewCell: UITableViewCell {
         titleLabel.isEnabled = false
         dateLabel.text = nil
         authorNameLabel.text = nil
-        thumbnailContainer.isHidden = true
+        previewImageContainer.isHidden = true
     }
     
     override func awakeFromNib() {
