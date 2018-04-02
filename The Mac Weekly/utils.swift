@@ -35,3 +35,23 @@ func collapse<T>(_ opt: T??) -> T? {
         return res
     }
 }
+
+func fixShadowImage(inView view: UIView) {
+    if let imageView = view as? UIImageView {
+        let size = imageView.bounds.size.height
+        if size <= 1 && size > 0 &&
+            imageView.subviews.count == 0,
+            let components = imageView.backgroundColor?.cgColor.components, components == [1, 1, 1, 0.15]
+        {
+            print("Fixing shadow image")
+            let forcedBackground = UIView(frame: imageView.bounds)
+            forcedBackground.backgroundColor = .white
+            imageView.addSubview(forcedBackground)
+            forcedBackground.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        }
+    }
+    for subview in view.subviews {
+        fixShadowImage(inView: subview)
+    }
+}
+

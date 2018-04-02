@@ -163,7 +163,7 @@ class PostTableViewController: UITableViewController {
         }
         
     }
-    
+
     // Pop up an alert if there is no internet connection and ask user to retry
     private func alertNoInternet(refresher: UIRefreshControl) {
         let alertView = UIAlertController(title: "Failed to connect", message: "There is no internet connection. Please check your network and try again.", preferredStyle: .alert)

@@ -24,7 +24,11 @@ extension CALayer {
 
 }
 
-class LandingViewController: UIViewController {
+class LandingViewController: UIViewController, UISearchResultsUpdating {
+    
+    
+    
+    
 
     @IBOutlet weak var categoriesScrollView: UIScrollView!
     @IBOutlet weak var categoryView: UIStackView!
@@ -32,32 +36,48 @@ class LandingViewController: UIViewController {
     var postTableView: PostTableViewController!
     
     var selectedButton: UIButton!
+    var searchController: UISearchController!
+    
+    var curPostsAPI: TMWAPI.PostsAPI!
 
+    func refresh() {
+        postTableView.infiniteTableView.refresh()
+    }
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        do {
-            navigationController!.navigationBar.isTranslucent = false
-            
-            // The navigation bar's shadowImage is set to a transparent image.  In
-            // addition to providing a custom background image, this removes
-            // the grey hairline at the bottom of the navigation bar.  The
-            // ExtendedNavBarView will draw its own hairline.
-            navigationController!.navigationBar.shadowImage = UIImage()
-            
-//            let layer = categoriesScrollView.layer
-//            // Use the layer shadow to draw a one pixel hairline under this view.
-//            layer.shadowOffset = CGSize(width: 0, height: CGFloat(1) / UIScreen.main.scale)
-//            layer.shadowRadius = 0
-//
-//            // UINavigationBar's hairline is adaptive, its properties change with
-//            // the contents it overlies.  You may need to experiment with these
-//            // values to best match your content.
-//            layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).cgColor
-//            layer.shadowOpacity = 0.25
+        curPostsAPI = TMWAPI.postsAPI
+        postTableView.infiniteTableView.fetchPage = {(pageNum, pageLen) in
+            return self.curPostsAPI.page(pageNum).pageLen(pageLen).loadSingle()
         }
         
+        do {
+            navigationController?.view.backgroundColor = UIColor.white
+            navigationController!.navigationBar.isTranslucent = false
+            navigationController!.navigationBar.shadowImage = UIImage()
+            navigationItem.largeTitleDisplayMode = .never
+        }
         
+        do {
+            navigationController?.navigationBar.isTranslucent = false
+            
+            searchController = UISearchController(searchResultsController: nil)
+            
+            searchController.dimsBackgroundDuringPresentation = false
+            searchController.hidesNavigationBarDuringPresentation = false
+            
+            searchController.searchResultsUpdater = self
+            navigationItem.searchController = searchController
+//            navigationItem.searchController.shado
+            searchController.isActive = true
+            navigationItem.hidesSearchBarWhenScrolling = true
+            extendedLayoutIncludesOpaqueBars = true
+            postTableView.refreshControl = nil
+        }
+
+                
         categoriesScrollView.canCancelContentTouches = true
         
         PostCategory.order.enumerated().forEach {(idx, cat) in
@@ -86,17 +106,29 @@ class LandingViewController: UIViewController {
         selectedButton.isSelected = true
         
         let cat = PostCategory.order[sender.tag]
-        postTableView.infiniteTableView.fetchPage = { (pageNum, pageLen) in
-            return TMWAPI.postsAPI.page(pageNum).pageLen(pageLen).category(cat).loadSingle()
-        }
-        postTableView.infiniteTableView.refresh()
+        
+        curPostsAPI = curPostsAPI.category(cat)
+        refresh()
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         navigationController?.navigationBar.shadowImage = nil
     }
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if #available(iOS 11.0, *) {
+            navigationItem.hidesSearchBarWhenScrolling = false
+        }
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         navigationController?.navigationBar.shadowImage = UIImage()
+
+        if #available(iOS 11.0, *) {
+            navigationItem.hidesSearchBarWhenScrolling = true
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -108,10 +140,11 @@ class LandingViewController: UIViewController {
         }
     }
     
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func updateSearchResults(for searchController: UISearchController) {
+        
+        curPostsAPI = curPostsAPI.search(searchController.searchBar.text)
+        
+        refresh()
     }
     
 

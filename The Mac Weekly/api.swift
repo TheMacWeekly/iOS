@@ -196,8 +196,8 @@ class TMWAPI {
         func pageLen(_ pageLen: Int) -> Self {
             return self.withParam(key: "per_page", value: String(pageLen))
         }
-        func search(_ searchString: String) -> Self {
-            return self.withParam(key: "search", value: searchString)
+        func search(_ searchString: String?) -> Self {
+            return self.withParam(key: "search", value: searchString == "" ? nil : searchString)
         }
         
         func category(_ category: PostCategory) -> Self {

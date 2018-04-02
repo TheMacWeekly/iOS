@@ -194,6 +194,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2lM-vR-bdd">
+                                <rect key="frame" x="0.0" y="41" width="375" height="562"/>
+                                <connections>
+                                    <segue destination="DOP-hx-CPB" kind="embed" id="Qbs-n0-I6A"/>
+                                </connections>
+                            </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gwE-DA-GCn" customClass="NavbarExtensionView" customModule="The_Mac_Weekly" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
                                 <subviews>
@@ -224,12 +230,6 @@
                                     <constraint firstAttribute="bottom" secondItem="fWh-hh-npi" secondAttribute="bottom" id="x33-1D-o1J"/>
                                 </constraints>
                             </view>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2lM-vR-bdd">
-                                <rect key="frame" x="0.0" y="41" width="375" height="562"/>
-                                <connections>
-                                    <segue destination="DOP-hx-CPB" kind="embed" id="Qbs-n0-I6A"/>
-                                </connections>
-                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -245,26 +245,24 @@
                     </view>
                     <navigationItem key="navigationItem" id="GQa-IN-uUa">
                         <nil key="title"/>
-                        <view key="titleView" contentMode="scaleToFill" ambiguous="YES" id="lRB-vu-aQw">
+                        <view key="titleView" contentMode="scaleToFill" id="6UF-en-coe">
                             <rect key="frame" x="187.5" y="22" width="0.0" height="0.0"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="logo_window" translatesAutoresizingMaskIntoConstraints="NO" id="3vM-Ut-mS9">
-                                    <rect key="frame" x="-1819.5" y="5" width="3639" height="427"/>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_window" translatesAutoresizingMaskIntoConstraints="NO" id="3RH-TL-1ag">
+                                    <rect key="frame" x="5" y="5" width="3639" height="427"/>
                                 </imageView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstItem="3vM-Ut-mS9" firstAttribute="top" secondItem="lRB-vu-aQw" secondAttribute="top" constant="5" id="Ioz-lC-OK5"/>
-                                <constraint firstItem="3vM-Ut-mS9" firstAttribute="centerX" secondItem="lRB-vu-aQw" secondAttribute="centerX" id="eJ6-YV-q2M"/>
-                                <constraint firstItem="3vM-Ut-mS9" firstAttribute="centerY" secondItem="lRB-vu-aQw" secondAttribute="centerY" id="rDR-O8-Nbe"/>
+                                <constraint firstItem="3RH-TL-1ag" firstAttribute="centerY" secondItem="6UF-en-coe" secondAttribute="centerY" id="3HS-k4-eaQ"/>
+                                <constraint firstItem="3RH-TL-1ag" firstAttribute="top" secondItem="6UF-en-coe" secondAttribute="top" constant="5" id="5gK-dO-xB9"/>
+                                <constraint firstItem="3RH-TL-1ag" firstAttribute="leading" secondItem="6UF-en-coe" secondAttribute="leading" constant="5" id="AgC-wx-CJu"/>
+                                <constraint firstItem="3RH-TL-1ag" firstAttribute="centerX" secondItem="6UF-en-coe" secondAttribute="centerX" id="OD3-7V-3ZA"/>
+                                <constraint firstAttribute="trailing" secondItem="3RH-TL-1ag" secondAttribute="trailing" constant="5" id="sKz-s4-Ugo"/>
+                                <constraint firstAttribute="bottom" secondItem="3RH-TL-1ag" secondAttribute="bottom" constant="5" id="sYx-YI-DRr"/>
                             </constraints>
                         </view>
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="RN8-AG-BBF">
-                            <connections>
-                                <segue destination="rVk-1w-SLU" kind="show" id="4Wj-Ku-zyL"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="categoriesScrollView" destination="fWh-hh-npi" id="ghO-ZM-Vn6"/>
@@ -275,59 +273,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Adc-u2-4fv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-276" y="-233.43328335832086"/>
-        </scene>
-        <!--Search-->
-        <scene sceneID="fcp-S9-RfQ">
-            <objects>
-                <viewController id="rVk-1w-SLU" customClass="PostSearchViewController" customModule="The_Mac_Weekly" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="dog-6s-obS">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <searchBar contentMode="redraw" searchBarStyle="prominent" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="BjY-BM-x55">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="rVk-1w-SLU" id="2PV-V3-tDy"/>
-                                </connections>
-                            </searchBar>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6aO-ER-TaI">
-                                <rect key="frame" x="0.0" y="56" width="375" height="547"/>
-                                <connections>
-                                    <segue destination="DOP-hx-CPB" kind="embed" id="aml-XC-lX7"/>
-                                </connections>
-                            </containerView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="BjY-BM-x55" firstAttribute="trailing" secondItem="FWH-c9-rxF" secondAttribute="trailing" id="F3n-7g-8UF"/>
-                            <constraint firstItem="FWH-c9-rxF" firstAttribute="bottom" secondItem="6aO-ER-TaI" secondAttribute="bottom" id="OFA-ad-A0O"/>
-                            <constraint firstItem="FWH-c9-rxF" firstAttribute="trailing" secondItem="6aO-ER-TaI" secondAttribute="trailing" id="WDs-DB-hOk"/>
-                            <constraint firstItem="BjY-BM-x55" firstAttribute="leading" secondItem="FWH-c9-rxF" secondAttribute="leading" id="fJE-ef-C3A"/>
-                            <constraint firstItem="BjY-BM-x55" firstAttribute="top" secondItem="FWH-c9-rxF" secondAttribute="top" id="kqL-Ox-Jhi"/>
-                            <constraint firstItem="6aO-ER-TaI" firstAttribute="top" secondItem="BjY-BM-x55" secondAttribute="bottom" id="yLt-Uv-p69"/>
-                            <constraint firstItem="6aO-ER-TaI" firstAttribute="leading" secondItem="FWH-c9-rxF" secondAttribute="leading" id="yd6-O4-quU"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="FWH-c9-rxF"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Search" id="2rM-CH-8QV"/>
-                    <connections>
-                        <outlet property="postSearchView" destination="6aO-ER-TaI" id="5Xj-Ii-ueo"/>
-                        <outlet property="searchBar" destination="BjY-BM-x55" id="s1q-b9-6BL"/>
-                        <outlet property="searchDisplayController" destination="B0c-J2-oWx" id="aQC-Cb-ywR"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="U39-gh-6Vu" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="B0c-J2-oWx">
-                    <connections>
-                        <outlet property="delegate" destination="rVk-1w-SLU" id="Xdu-DE-B5f"/>
-                        <outlet property="searchContentsController" destination="rVk-1w-SLU" id="tpT-JV-TBe"/>
-                        <outlet property="searchResultsDataSource" destination="rVk-1w-SLU" id="LT8-ol-uE6"/>
-                        <outlet property="searchResultsDelegate" destination="rVk-1w-SLU" id="hIW-mQ-RFn"/>
-                    </connections>
-                </searchDisplayController>
-            </objects>
-            <point key="canvasLocation" x="-482" y="538"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sGi-IZ-5K0">
@@ -346,35 +291,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zF1-Na-GJg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="492" y="-575"/>
-        </scene>
-        <!--Demo Search View Controller-->
-        <scene sceneID="WI8-nl-bl4">
-            <objects>
-                <viewController id="2Bt-DW-ikv" customClass="DemoSearchViewController" customModule="The_Mac_Weekly" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Ux0-6T-665">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tZS-6J-p2y">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                                <connections>
-                                    <segue destination="85n-ck-v6d" kind="embed" id="fi8-H5-El8"/>
-                                </connections>
-                            </containerView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="tZS-6J-p2y" firstAttribute="leading" secondItem="98w-0Z-P2G" secondAttribute="leading" id="Bue-sh-6LB"/>
-                            <constraint firstItem="98w-0Z-P2G" firstAttribute="trailing" secondItem="tZS-6J-p2y" secondAttribute="trailing" id="iw0-wv-6GB"/>
-                            <constraint firstItem="98w-0Z-P2G" firstAttribute="bottom" secondItem="tZS-6J-p2y" secondAttribute="bottom" id="rfg-cx-5qz"/>
-                            <constraint firstItem="tZS-6J-p2y" firstAttribute="top" secondItem="98w-0Z-P2G" secondAttribute="top" id="xBi-sj-ymx"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="98w-0Z-P2G"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6JT-3S-Pyi" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2902" y="-528"/>
         </scene>
         <!--Author Details View Controller-->
         <scene sceneID="bGQ-fX-1Rg">
@@ -479,8 +395,6 @@
         <image name="logo_window" width="3639" height="427"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Qbs-n0-I6A"/>
-        <segue reference="fi8-H5-El8"/>
         <segue reference="VXN-qG-xFL"/>
     </inferredMetricsTieBreakers>
 </document>
