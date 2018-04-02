@@ -46,6 +46,9 @@ class InfiniteTableView<T>: UITableView {
     var data: [T] = []
     
     open var fetchPage: ((Int, Int) -> Single<Result<[T], AnyError>>)?
+    open var addData: ([T], [T]) -> [T] = { (old, new) in
+        return old + new
+    }
     
     var pageTriggerStream = PublishRelay<()>()
     var pager: Disposable!
@@ -67,7 +70,7 @@ class InfiniteTableView<T>: UITableView {
         let result = pageFetcher(pageTriggerStream.asObservable(), fetchPage: {self.fetchPage!($0, self.pageLen)}).asDriver(onErrorJustReturn: [])
         
         pager = result.drive(onNext: {posts in
-            self.data += posts
+            self.data = self.addData(self.data, posts)
             self.reloadData()
         })
         pageTriggerStream.accept(())

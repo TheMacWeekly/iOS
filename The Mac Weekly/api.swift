@@ -97,6 +97,7 @@ enum PostCategory {
     case arts
     case foodAndDrink
     case media
+    case home // Not a displayed category
     
     static let order = [
         PostCategory.all,
@@ -108,8 +109,28 @@ enum PostCategory {
         PostCategory.foodAndDrink,
         PostCategory.media
     ]
+    static let ids: [PostCategory: Int?] = [
+        .all: nil,
+        .news: 3,
+        .sports: 5,
+        .features: 4,
+        .opinion: 7,
+        .arts: 6,
+        .foodAndDrink: 28,
+        .media: 5292,
+        .home: 5271
+    ]
+    static var categoriesFromIds: [Int: PostCategory] =  {
+        var result: [Int: PostCategory] = [:]
+        for (key, value) in PostCategory.ids {
+            if let v = value {
+                result[v] = key
+            }
+        }
+        return result
+    }()
     
-    var displayName: String {
+    var displayName: String? {
         get {
             switch self {
             case .all:
@@ -128,31 +149,20 @@ enum PostCategory {
                 return "Food & Drink"
             case .media:
                 return "Media"
+            case .home:
+                return nil
             }
         }
     }
     
     var id: Int? {
         get {
-            switch self {
-            case .all:
-                return nil
-            case .news:
-                return 3
-            case .sports:
-                return 5
-            case .features:
-                return 4
-            case .opinion:
-                return 7
-            case .arts:
-                return 6
-            case .foodAndDrink:
-                return 28
-            case .media:
-                return 5292
-            }
+            return PostCategory.ids[self]!
         }
+    }
+    
+    static func fromId(_ id: Int) -> PostCategory? {
+        return PostCategory.categoriesFromIds[id]
     }
 }
     
@@ -255,6 +265,7 @@ public struct Post {
     var thumbnailURL: URL?
     var link: URL
     var excerptHTML: String
+    var categories: [PostCategory] = []
     
     init?(json:JSON) {
         if let id=json["id"].number, let title = json["title"]["rendered"].string, let body = json["content"]["rendered"].string, let timeString = json["date"].string, let linkString = json["link"].string, let excerpt = json["excerpt_plaintext"].string {
@@ -278,6 +289,10 @@ public struct Post {
                 self.thumbnailURL = URL(string: thumbnailURL)
             } else {
                 self.thumbnailURL = nil
+            }
+            
+            if let categories = json["categories"].array {
+                self.categories = categories.flatMap { category in PostCategory.fromId(category.intValue) }
             }
             
             guard let link = URL(string: linkString) else {

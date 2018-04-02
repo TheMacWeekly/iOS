@@ -18,6 +18,8 @@ class InfinitePostTableView: InfiniteTableView<Post?> {
 
 class PostTableViewController: UITableViewController {
     
+    var leadPost: Post?
+    
     var infiniteTableView: InfinitePostTableView {
         return self.tableView as! InfinitePostTableView
     }
@@ -28,13 +30,25 @@ class PostTableViewController: UITableViewController {
         infiniteTableView.fetchPage = { (pageNum, pageLen) in
             return TMWAPI.postsAPI.page(pageNum).pageLen(pageLen).loadSingle()
         }
+        infiniteTableView.addData = { (old, new) in
+            if old.count == 0 {
+                self.leadPost = nil
+            }
+            var newPosts: [Post?] = new
+            if self.leadPost == nil {
+                for (idx, post) in new.enumerated() {
+                    if post != nil && post!.categories.contains(PostCategory.home) {
+                        self.leadPost = post
+                        newPosts.remove(at: idx)
+                        newPosts = [self.leadPost] + newPosts
+                        break
+                    }
+                }
+            }
+            return old + newPosts
+        }
         infiniteTableView.initPageFetcher()
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,10 +68,18 @@ class PostTableViewController: UITableViewController {
         return infiniteTableView.data.count
     }
 
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 0 && leadPost != nil {
+            return 250
+        } else {
+            return 90
+        }
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "PostTableViewCell", for: indexPath) as? PostTableViewCell else {
-            fatalError("The dequed cell is not an instance of  PostTableViewCell.")
+        let identifier = (indexPath.row == 0 && leadPost != nil) ? "PostTableViewCellBig" : "PostTableViewCell"
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? PostTableViewCell else {
+            fatalError("The dequed cell is not an instance of PostTableViewCell.")
         }
         
         if let post = infiniteTableView.dataAt(index: indexPath.row) {
@@ -68,43 +90,6 @@ class PostTableViewController: UITableViewController {
         
         return cell
     }
- 
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
     
     // MARK: - Navigation
 
