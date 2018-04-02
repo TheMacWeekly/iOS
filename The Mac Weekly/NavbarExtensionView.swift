@@ -14,6 +14,9 @@ class NavbarExtensionView: UIView {
      *  Called when the view is about to be displayed.  May be called more than
      *  once.
      */
+    
+    
+    
     override func willMove(toWindow newWindow: UIWindow?) {
         super.willMove(toWindow: newWindow)
         

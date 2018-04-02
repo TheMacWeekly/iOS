@@ -92,6 +92,12 @@ class LandingViewController: UIViewController {
         postTableView.infiniteTableView.refresh()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.navigationBar.shadowImage = nil
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.shadowImage = UIImage()
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.destination {
