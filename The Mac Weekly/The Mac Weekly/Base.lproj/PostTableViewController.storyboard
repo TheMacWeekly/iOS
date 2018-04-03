@@ -177,6 +177,7 @@
                                     <outlet property="previewImage" destination="v1a-rl-Thf" id="HSr-Xl-mAS"/>
                                     <outlet property="previewImageContainer" destination="xWv-gK-1cy" id="ihu-nW-t3i"/>
                                     <outlet property="titleLabel" destination="XKs-5t-ivk" id="M05-yu-EjI"/>
+                                    <segue destination="Wt2-PR-snD" kind="show" identifier="ShowPost" id="2P7-yV-9No"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -230,4 +231,7 @@
     <resources>
         <image name="logo_window" width="3639" height="427"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="2P7-yV-9No"/>
+    </inferredMetricsTieBreakers>
 </document>

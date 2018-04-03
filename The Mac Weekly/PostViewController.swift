@@ -124,7 +124,6 @@ class PostViewController: UIViewController, UIScrollViewDelegate, WKNavigationDe
             postAuthorLabel.isHidden = true
         }
         
-        
         postWebView.loadHTMLString(prepHTML(post.body), baseURL: nil)
         postWebView.scrollView.isScrollEnabled = false
         postWebView.translatesAutoresizingMaskIntoConstraints = false
