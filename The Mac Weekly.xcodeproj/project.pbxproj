@@ -697,7 +697,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2KVXFURPPL;
 				INFOPLIST_FILE = "The Mac Weekly/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.tmw.The-Mac-Weekly.hherman1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -714,7 +714,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2KVXFURPPL;
 				INFOPLIST_FILE = "The Mac Weekly/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.tmw.The-Mac-Weekly.hherman1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
