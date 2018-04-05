@@ -78,6 +78,9 @@ class PostViewController: UIViewController, UIScrollViewDelegate, WKNavigationDe
         margin-left: 0.5em;
         margin-right: 0.5em;
         }
+        
+        iframe { width:100% } 
+        
                     figcaption {
                         color: grey;
                         font-size: 10pt;
@@ -90,6 +93,7 @@ class PostViewController: UIViewController, UIScrollViewDelegate, WKNavigationDe
                         margin-bottom: 1em;
                     }
                 </style>
+
             </head>
             <body>
                 \(html)
