@@ -110,6 +110,7 @@ class PostViewController: UIViewController, UIScrollViewDelegate, WKNavigationDe
         postTitleLabel.text = post.title
         let formatter = DateFormatter()
         formatter.dateFormat = defaultDateFormat
+        formatter.dateStyle = .long     // make date look nicer
         postDateLabel.text = formatter.string(from: post.time)
         if let author = post.author {
             authorTopButton.setTitle(author.name, for: .normal)
