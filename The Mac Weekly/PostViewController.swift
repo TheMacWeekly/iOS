@@ -108,10 +108,25 @@ class PostViewController: UIViewController, UIScrollViewDelegate, WKNavigationDe
             fatalError("Requires Post")
         }
         postTitleLabel.text = post.title
-        let formatter = DateFormatter()
-        formatter.dateFormat = defaultDateFormat
-        formatter.dateStyle = .long     // make date look nicer
-        postDateLabel.text = formatter.string(from: post.time)
+        
+        // Format the date nicely - Gabriel Brown
+        let postTimeInterval = -(post.time.timeIntervalSinceNow)  // Minus sign in front to flip the negative, since everything happened in the past
+        let timeUnit = getTimeUnitToUse(timeInterval: postTimeInterval)
+        
+        if timeUnit != nil {
+            let formatter = DateComponentsFormatter()
+            formatter.unitsStyle = .short
+            formatter.includesTimeRemainingPhrase = false
+            formatter.allowedUnits = timeUnit!      // I feel like there should be a better way to do this but idk how. At least I'm explicitly checking that it's not nil?
+            
+            postDateLabel.text = formatter.string(from: postTimeInterval)
+        }
+        else {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = .long
+            postDateLabel.text = dateFormatter.string(from: post.time)
+        }
+        
         if let author = post.author {
             authorTopButton.setTitle(author.name, for: .normal)
             authorTopButton.isHidden = false
@@ -182,5 +197,6 @@ class PostViewController: UIViewController, UIScrollViewDelegate, WKNavigationDe
     }
     
     // MARK: Actions
+    
 
 }

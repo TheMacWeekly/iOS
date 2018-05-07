@@ -10,7 +10,8 @@ import Foundation
 import Result
 import Kingfisher
 
-let defaultDateFormat = "MM/dd/YY"
+
+    let defaultDateFormat = "MM/dd/YY"
 
 // Source: https://stackoverflow.com/a/30711288
 extension UILabel {
@@ -27,7 +28,7 @@ extension UILabel {
         self.attributedText = attrStr
     }
 }
-
+    
 func collapse<T>(_ opt: T??) -> T? {
     switch opt {
     case .none:
@@ -72,5 +73,50 @@ func getImageFromURLWithCache(key: String, url:URL, completion: @escaping  (Imag
         }
         completion(nil)
     }
+}
+
+// Used in conjunction with displaying posts
+// Written by Gabriel Brown
+func getTimeUnitToUse(timeInterval: TimeInterval) -> NSCalendar.Unit? {
+    
+    var timeUnit: NSCalendar.Unit
+    
+    let numSecsInMinute = 60.0
+    let numSecsInHour = 3600.0
+    let numSecsInDay = 86400.0
+    
+    // Figure out which time intervals to use. If more than 3 days or negative return as nil (indicates date should be used)
+    if timeInterval < 0 {return nil}
+    else if timeInterval < (numSecsInDay * 3) {
+        
+        debugPrint("Less than 3 days!")
+        
+        if timeInterval >= numSecsInDay {
+            
+            debugPrint("Days unit chosen")
+            timeUnit = NSCalendar.Unit.day
+        } else if timeInterval >= numSecsInHour {
+            
+            debugPrint("hours unit chosen")
+            timeUnit = NSCalendar.Unit.hour
+        }
+        else if timeInterval >= numSecsInMinute {
+            
+            debugPrint("minutes unit chosen")
+            timeUnit = NSCalendar.Unit.minute
+        }
+        else {
+            
+            debugPrint("seconds unit chosen")
+            timeUnit = NSCalendar.Unit.second
+        }
+        
+        return timeUnit
+    }
+    else {
+        debugPrint("Just use date")
+        return nil
+    }
+    
 }
 
