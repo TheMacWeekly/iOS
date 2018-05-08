@@ -119,7 +119,7 @@ class PostViewController: UIViewController, UIScrollViewDelegate, WKNavigationDe
             formatter.includesTimeRemainingPhrase = false
             formatter.allowedUnits = timeUnit!      // I feel like there should be a better way to do this but idk how. At least I'm explicitly checking that it's not nil?
             
-            postDateLabel.text = formatter.string(from: postTimeInterval)
+            postDateLabel.text = formatter.string(from: postTimeInterval)! + " ago"
         }
         else {
             let dateFormatter = DateFormatter()
