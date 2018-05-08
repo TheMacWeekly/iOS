@@ -111,7 +111,7 @@ class PostViewController: UIViewController, UIScrollViewDelegate, WKNavigationDe
         
         // Format the date nicely - Gabriel Brown
         let postTimeInterval = -(post.time.timeIntervalSinceNow)  // Minus sign in front to flip the negative, since everything happened in the past
-        let timeUnit = getTimeUnitToUse(timeInterval: postTimeInterval)
+        let timeUnit = TestableUtils.getTimeUnitToUse(timeInterval: postTimeInterval)
         
         if timeUnit != nil {
             let formatter = DateComponentsFormatter()

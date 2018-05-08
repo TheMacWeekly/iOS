@@ -75,48 +75,44 @@ func getImageFromURLWithCache(key: String, url:URL, completion: @escaping  (Imag
     }
 }
 
-// Used in conjunction with displaying posts
-// Written by Gabriel Brown
-func getTimeUnitToUse(timeInterval: TimeInterval) -> NSCalendar.Unit? {
-    
-    var timeUnit: NSCalendar.Unit
-    
-    let numSecsInMinute = 60.0
-    let numSecsInHour = 3600.0
-    let numSecsInDay = 86400.0
-    
-    // Figure out which time intervals to use. If more than 3 days or negative return as nil (indicates date should be used)
-    if timeInterval < 0 {return nil}
-    else if timeInterval < (numSecsInDay * 3) {
+// I had a hard time getting test files to work with utils as is, so I made a class just to test in the time being. I suspect utils could do with a large refactoring
+public class TestableUtils {
+    // Used in conjunction with displaying posts
+    // Written by Gabriel Brown
+    static func getTimeUnitToUse(timeInterval: TimeInterval) -> NSCalendar.Unit? {
         
-        debugPrint("Less than 3 days!")
+        var timeUnit: NSCalendar.Unit
         
-        if timeInterval >= numSecsInDay {
+        let numSecsInMinute = 60.0
+        let numSecsInHour = 3600.0
+        let numSecsInDay = 86400.0
+        
+        // Figure out which time intervals to use. If more than 3 days or negative return as nil (indicates date should be used)
+        if timeInterval < 0 {return nil}
+        else if timeInterval < (numSecsInDay * 3) {
             
-            debugPrint("Days unit chosen")
-            timeUnit = NSCalendar.Unit.day
-        } else if timeInterval >= numSecsInHour {
+            if timeInterval >= numSecsInDay {
+                
+                timeUnit = NSCalendar.Unit.day
+            } else if timeInterval >= numSecsInHour {
+                
+                timeUnit = NSCalendar.Unit.hour
+            }
+            else if timeInterval >= numSecsInMinute {
+                
+                timeUnit = NSCalendar.Unit.minute
+            }
+            else {
+                
+                timeUnit = NSCalendar.Unit.second
+            }
             
-            debugPrint("hours unit chosen")
-            timeUnit = NSCalendar.Unit.hour
-        }
-        else if timeInterval >= numSecsInMinute {
-            
-            debugPrint("minutes unit chosen")
-            timeUnit = NSCalendar.Unit.minute
+            return timeUnit
         }
         else {
-            
-            debugPrint("seconds unit chosen")
-            timeUnit = NSCalendar.Unit.second
+            return nil
         }
         
-        return timeUnit
     }
-    else {
-        debugPrint("Just use date")
-        return nil
-    }
-    
 }
 
