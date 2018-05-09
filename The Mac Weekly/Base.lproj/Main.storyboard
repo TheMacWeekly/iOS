@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ax5-cg-byA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ax5-cg-byA">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,45 +21,60 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="1136"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IgA-Ap-A6f">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="731"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="736"/>
                                         <subviews>
                                             <stackView autoresizesSubviews="NO" opaque="NO" contentMode="top" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="40A-ad-nqB">
-                                                <rect key="frame" x="15" y="15" width="345" height="711"/>
+                                                <rect key="frame" x="15" y="15" width="345" height="716"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="100" placeholderIntrinsicHeight="33.5" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="awf-PA-sn6">
-                                                        <rect key="frame" x="0.0" y="0.0" width="345" height="33.5"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uwv-Jq-7fD">
-                                                        <rect key="frame" x="0.0" y="38.5" width="345" height="38"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                                        <state key="normal" title="Johnny Appleseed"/>
-                                                        <state key="selected" title="Johnny Appleseed"/>
-                                                        <connections>
-                                                            <segue destination="zEO-md-Vua" kind="show" identifier="ShowAuthor" id="VXN-qG-xFL"/>
-                                                        </connections>
-                                                    </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dS8-AV-ktt">
-                                                        <rect key="frame" x="0.0" y="81.5" width="345" height="19.5"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                        <color key="textColor" red="0.65240446891191706" green="0.65240446891191706" blue="0.65240446891191706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <wkWebView contentMode="top" translatesAutoresizingMaskIntoConstraints="NO" id="M7T-KO-P1p">
-                                                        <rect key="frame" x="0.0" y="106" width="345" height="500"/>
-                                                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="500" id="M2a-rK-sQy"/>
-                                                        </constraints>
-                                                        <wkWebViewConfiguration key="configuration">
-                                                            <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                                            <wkPreferences key="preferences"/>
-                                                        </wkWebViewConfiguration>
-                                                    </wkWebView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="LcK-yr-b1Q">
+                                                        <rect key="frame" x="0.0" y="0.0" width="345" height="611"/>
+                                                        <subviews>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="jJf-QF-r8f">
+                                                                <rect key="frame" x="0.0" y="0.0" width="345" height="101"/>
+                                                                <subviews>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="6k9-pm-0MR">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="345" height="81.5"/>
+                                                                        <subviews>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="100" placeholderIntrinsicHeight="33.5" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="awf-PA-sn6">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="345" height="33.5"/>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                                                                <nil key="textColor"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uwv-Jq-7fD">
+                                                                                <rect key="frame" x="0.0" y="43.5" width="345" height="38"/>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                                                <state key="normal" title="Johnny Appleseed"/>
+                                                                                <state key="selected" title="Johnny Appleseed"/>
+                                                                                <connections>
+                                                                                    <segue destination="zEO-md-Vua" kind="show" identifier="ShowAuthor" id="VXN-qG-xFL"/>
+                                                                                </connections>
+                                                                            </button>
+                                                                        </subviews>
+                                                                    </stackView>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dS8-AV-ktt">
+                                                                        <rect key="frame" x="0.0" y="81.5" width="345" height="19.5"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                                        <color key="textColor" red="0.65240446891191706" green="0.65240446891191706" blue="0.65240446891191706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                            </stackView>
+                                                            <wkWebView contentMode="top" translatesAutoresizingMaskIntoConstraints="NO" id="M7T-KO-P1p">
+                                                                <rect key="frame" x="0.0" y="111" width="345" height="500"/>
+                                                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="500" id="M2a-rK-sQy"/>
+                                                                </constraints>
+                                                                <wkWebViewConfiguration key="configuration">
+                                                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                                                    <wkPreferences key="preferences"/>
+                                                                </wkWebViewConfiguration>
+                                                            </wkWebView>
+                                                        </subviews>
+                                                    </stackView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yzj-2D-QMf">
-                                                        <rect key="frame" x="0.0" y="611" width="345" height="100"/>
+                                                        <rect key="frame" x="0.0" y="616" width="345" height="100"/>
                                                         <subviews>
                                                             <button opaque="NO" alpha="0.20000000000000001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MWx-fE-Wec">
                                                                 <rect key="frame" x="0.0" y="0.0" width="345" height="100"/>
@@ -113,10 +127,6 @@
                                                         </constraints>
                                                     </view>
                                                 </subviews>
-                                                <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="M7T-KO-P1p" secondAttribute="trailing" constant="5" id="GGk-4m-vzK"/>
-                                                    <constraint firstItem="M7T-KO-P1p" firstAttribute="leading" secondItem="40A-ad-nqB" secondAttribute="leading" constant="5" id="znb-Da-HhH"/>
-                                                </constraints>
                                             </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
