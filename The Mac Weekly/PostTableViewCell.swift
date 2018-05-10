@@ -23,22 +23,7 @@ class PostTableViewCell: UITableViewCell {
     func loadPost(_ post: Post, shouldUseLargeImage: Bool = false) {
         
         // Format the date nicely - Gabriel Brown
-        let postTimeInterval = -(post.time.timeIntervalSinceNow)  // Minus sign in front to flip the negative, since everything happened in the past
-        let timeUnit = TestableUtils.getTimeUnitToUse(timeInterval: postTimeInterval)
-        
-        if timeUnit != nil {
-            let formatter = DateComponentsFormatter()
-            formatter.unitsStyle = .short
-            formatter.includesTimeRemainingPhrase = false
-            formatter.allowedUnits = timeUnit!      // I feel like there should be a better way to do this but idk how. At least I'm explicitly checking that it's not nil?
-            
-            dateLabel.text = formatter.string(from: postTimeInterval)! + " ago"
-        }
-        else {
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateStyle = .short
-            dateLabel.text = dateFormatter.string(from: post.time)
-        }
+        dateLabel.text = TestableUtils.getTextForDateLabel(postDate: post.time, dateStyle: .short)
         
         if let authorName = post.author?.name {
             authorNameLabel.text = "By \(authorName)"

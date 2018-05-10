@@ -75,8 +75,11 @@ func getImageFromURLWithCache(key: String, url:URL, completion: @escaping  (Imag
     }
 }
 
+
+
 // I had a hard time getting test files to work with utils as is, so I made a class just to test in the time being. I suspect utils could do with a large refactoring
 public class TestableUtils {
+    
     // Used in conjunction with displaying posts
     // Written by Gabriel Brown
     static func getTimeUnitToUse(timeInterval: TimeInterval) -> NSCalendar.Unit? {
@@ -112,7 +115,29 @@ public class TestableUtils {
         else {
             return nil
         }
+    
+    }
+    
+    // Returns text to be used in the datelabel for posts. If the post was released more than a few days ago, the date style defaults to short
+    //
+    static func getTextForDateLabel(postDate: Date, dateStyle: DateFormatter.Style = DateFormatter.Style.short) -> String {
+        let postTimeInterval = -(postDate.timeIntervalSinceNow)  // Minus sign in front to flip the negative, since everything happened in the past
+        
+        if let timeUnit = getTimeUnitToUse(timeInterval: postTimeInterval) {
+            let formatter = DateComponentsFormatter()
+            formatter.unitsStyle = .short
+            formatter.includesTimeRemainingPhrase = false
+            formatter.allowedUnits = timeUnit
+            
+            return formatter.string(from: postTimeInterval)! + " ago"
+        }
+        else {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = dateStyle
+            return dateFormatter.string(from: postDate)
+        }
         
     }
+
 }
 

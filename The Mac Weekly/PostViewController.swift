@@ -110,22 +110,7 @@ class PostViewController: UIViewController, UIScrollViewDelegate, WKNavigationDe
         postTitleLabel.text = post.title
         
         // Format the date nicely - Gabriel Brown
-        let postTimeInterval = -(post.time.timeIntervalSinceNow)  // Minus sign in front to flip the negative, since everything happened in the past
-        let timeUnit = TestableUtils.getTimeUnitToUse(timeInterval: postTimeInterval)
-        
-        if timeUnit != nil {
-            let formatter = DateComponentsFormatter()
-            formatter.unitsStyle = .short
-            formatter.includesTimeRemainingPhrase = false
-            formatter.allowedUnits = timeUnit!      // I feel like there should be a better way to do this but idk how. At least I'm explicitly checking that it's not nil?
-            
-            postDateLabel.text = formatter.string(from: postTimeInterval)! + " ago"
-        }
-        else {
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateStyle = .long
-            postDateLabel.text = dateFormatter.string(from: post.time)
-        }
+        postDateLabel.text = TestableUtils.getTextForDateLabel(postDate: post.time, dateStyle: .long)
         
         if let author = post.author {
             authorTopButton.setTitle(author.name, for: .normal)
