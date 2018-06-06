@@ -10,6 +10,9 @@
 		00A0CAD520C879180040216A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A0CAD420C879180040216A /* LoginViewController.swift */; };
 		00A0CAD620C879180040216A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A0CAD420C879180040216A /* LoginViewController.swift */; };
 		00A0CAD720C879180040216A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A0CAD420C879180040216A /* LoginViewController.swift */; };
+		00A0CAD920C87C6D0040216A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00A0CAD820C87C6D0040216A /* GoogleService-Info.plist */; };
+		00A0CADA20C87C6D0040216A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00A0CAD820C87C6D0040216A /* GoogleService-Info.plist */; };
+		00A0CADB20C87C6D0040216A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00A0CAD820C87C6D0040216A /* GoogleService-Info.plist */; };
 		2441FE8720717F4700FFF7D4 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2441FE8620717F4700FFF7D4 /* LandingViewController.swift */; };
 		2441FE8920719FE300FFF7D4 /* NavbarExtensionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2441FE8820719FE300FFF7D4 /* NavbarExtensionView.swift */; };
 		24D46E5520704D0600457038 /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24D46E5420704D0600457038 /* PostTableViewCell.xib */; };
@@ -53,6 +56,7 @@
 
 /* Begin PBXFileReference section */
 		00A0CAD420C879180040216A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		00A0CAD820C87C6D0040216A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1BAAC00BD8C48F155EEFCA94 /* Pods_The_Mac_Weekly.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_The_Mac_Weekly.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2045A2157C41EF5C39A058D3 /* Pods-The Mac WeeklyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-The Mac WeeklyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-The Mac WeeklyTests/Pods-The Mac WeeklyTests.release.xcconfig"; sourceTree = "<group>"; };
 		2441FE8620717F4700FFF7D4 /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
@@ -152,6 +156,7 @@
 		6716CA022026BE3300F008C0 /* The Mac Weekly */ = {
 			isa = PBXGroup;
 			children = (
+				00A0CAD820C87C6D0040216A /* GoogleService-Info.plist */,
 				67E2FC2220303277000FD5BE /* InfiniteTableView.swift */,
 				6716CA032026BE3300F008C0 /* AppDelegate.swift */,
 				678868312026C734006FCF93 /* api.swift */,
@@ -218,7 +223,6 @@
 				6716C9FD2026BE3300F008C0 /* Frameworks */,
 				6716C9FE2026BE3300F008C0 /* Resources */,
 				BD9C3BAA9C60E0096418AADF /* [CP] Embed Pods Frameworks */,
-				D0168B9AA7073B877282710E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -237,8 +241,6 @@
 				6716CA102026BE3400F008C0 /* Sources */,
 				6716CA112026BE3400F008C0 /* Frameworks */,
 				6716CA122026BE3400F008C0 /* Resources */,
-				D4E79A0778188A01C8CAFCFF /* [CP] Embed Pods Frameworks */,
-				1B4A75E162D7EA7C223EA10B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -258,8 +260,6 @@
 				6716CA1B2026BE3400F008C0 /* Sources */,
 				6716CA1C2026BE3400F008C0 /* Frameworks */,
 				6716CA1D2026BE3400F008C0 /* Resources */,
-				FD7B0BE4E363ADA360DF9D72 /* [CP] Embed Pods Frameworks */,
-				902F6FBEC2AE4E36DC7AEA00 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -327,6 +327,7 @@
 				6716CA0B2026BE3400F008C0 /* Assets.xcassets in Resources */,
 				67E2FC262030E423000FD5BE /* PostTableViewController.storyboard in Resources */,
 				6716CA092026BE3400F008C0 /* Main.storyboard in Resources */,
+				00A0CAD920C87C6D0040216A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,6 +335,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00A0CADA20C87C6D0040216A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,27 +343,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00A0CADB20C87C6D0040216A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1B4A75E162D7EA7C223EA10B /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-The Mac WeeklyTests/Pods-The Mac WeeklyTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		72CEAA139273D7301432AEB7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -398,21 +386,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		902F6FBEC2AE4E36DC7AEA00 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-The Mac WeeklyUITests/Pods-The Mac WeeklyUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		B1CB637FB66212B9D9110B43 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -439,71 +412,30 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-The Mac Weekly/Pods-The Mac Weekly-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Siesta/Siesta.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Siesta.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-The Mac Weekly/Pods-The Mac Weekly-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D0168B9AA7073B877282710E /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-The Mac Weekly/Pods-The Mac Weekly-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D4E79A0778188A01C8CAFCFF /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-The Mac WeeklyTests/Pods-The Mac WeeklyTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FD7B0BE4E363ADA360DF9D72 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-The Mac WeeklyUITests/Pods-The Mac WeeklyUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

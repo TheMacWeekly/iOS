@@ -21,6 +21,8 @@ target 'The Mac Weekly' do
   pod 'Result', '~> 3.2.4'
   
   pod 'Siesta', '~> 1.0'
+
+  pod 'Firebase/Core'
     
   target 'The Mac WeeklyTests' do
     inherit! :search_paths

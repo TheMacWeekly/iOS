@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         if Reachability.isConnectedToNetwork() {
             print("=====> Network connection is ok")
+            FirebaseApp.configure()
             return false
         } else {
             print("====> Network connection is FAILED ")
