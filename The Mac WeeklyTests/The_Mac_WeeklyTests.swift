@@ -39,7 +39,6 @@ class The_Mac_WeeklyTests: XCTestCase {
 //    }
     
     // MARK: Date Formatting Tests
-    
     func testMoreThanThreeDays() {
         let timeInterval: TimeInterval = 300000.0
         XCTAssertNil(TestableUtils.getTimeUnitToUse(timeInterval: timeInterval))
@@ -68,6 +67,16 @@ class The_Mac_WeeklyTests: XCTestCase {
     func testRejectNegativeInput() {
         let timeInterval: TimeInterval = -5.0
         XCTAssertNil(TestableUtils.getTimeUnitToUse(timeInterval: timeInterval))
+    }
+    
+    // MARK: User login tests
+    
+    func testRejectNonMacEmail() {
+        XCTAssertFalse(TestableUtils.validateLogin(email: "example@yahoo.com"))
+    }
+    
+    func testAcceptMacEmail() {
+        XCTAssertTrue(TestableUtils.validateLogin(email: "example@macalester.edu"))
     }
     
     
