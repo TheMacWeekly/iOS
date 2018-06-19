@@ -21,9 +21,10 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var previewImageContainer: UIView!
     
     func loadPost(_ post: Post, shouldUseLargeImage: Bool = false) {
-        let formatter = DateFormatter()
-        formatter.dateFormat = defaultDateFormat
-        dateLabel.text = formatter.string(from: post.time)
+        
+        // Format the date nicely - Gabriel Brown
+        dateLabel.text = TestableUtils.getTextForDateLabel(postDate: post.time, dateStyle: .short)
+        
         if let authorName = post.author?.name {
             authorNameLabel.text = "By \(authorName)"
             authorNameLabel.isHidden = false

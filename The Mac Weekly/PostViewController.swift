@@ -108,9 +108,10 @@ class PostViewController: UIViewController, UIScrollViewDelegate, WKNavigationDe
             fatalError("Requires Post")
         }
         postTitleLabel.text = post.title
-        let formatter = DateFormatter()
-        formatter.dateFormat = defaultDateFormat
-        postDateLabel.text = formatter.string(from: post.time)
+        
+        // Format the date nicely - Gabriel Brown
+        postDateLabel.text = TestableUtils.getTextForDateLabel(postDate: post.time, dateStyle: .long)
+        
         if let author = post.author {
             authorTopButton.setTitle(author.name, for: .normal)
             authorTopButton.isHidden = false
@@ -181,5 +182,6 @@ class PostViewController: UIViewController, UIScrollViewDelegate, WKNavigationDe
     }
     
     // MARK: Actions
+    
 
 }
