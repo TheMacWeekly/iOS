@@ -10,8 +10,11 @@ import Foundation
 import Result
 import Kingfisher
 
+import Firebase
+import FirebaseAuth
 
-    let defaultDateFormat = "MM/dd/YY"
+
+let defaultDateFormat = "MM/dd/YY"
 
 // Source: https://stackoverflow.com/a/30711288
 extension UILabel {
@@ -137,6 +140,87 @@ public class TestableUtils {
             return dateFormatter.string(from: postDate)
         }
         
+    }
+    
+    // Verify that a user's email meets our standards (ie is a mac.edu email)
+    static func validateLogin(email: String) -> Bool {
+        
+        let pattern = "^[A-Z0-9._%+-]+@macalester.edu$"
+        //let pattern = "^\\S+@macalester.edu$"  -- My original version, in case the above has some trouble
+        
+        
+        // "/S" - nonwhitespace characters- makes sense because emails never have whitespace.
+        // The "^" and "$" characters indicate the start and end of the string, ensuring that the whole string must fit this pattern
+        // ALSO: two slashes are used here instead of one because swift gets weird about regular expressions
+        
+        let doesMatch = email.range(of: pattern, options: [.regularExpression, .caseInsensitive]) != nil
+        
+        return doesMatch
+        
+        
+        
+        // My attempts to use NSRegularExpression. It seems overkill for something as simple as this, but I'll leave this here for now in case we need it later.
+        
+        //        let regex = try! NSRegularExpression(pattern: pattern, options: [])
+        //
+        //        let matches = regex.matches(in: email, options: [], range: NSRange(location: 0, length: email.count))
+        //
+        //        // TODO: may need to replace 0 condition with a nil check
+        //        // If there are no matches or there are multiple
+        //        if (matches.count == 0) || (matches.count > 1) {
+        //
+        //        }
+        
+    }
+    
+    // Log in a user through Firebase
+    static func login(email: String, password: String) {
+        
+        print("About to sign in user")
+        Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
+            
+            if let error = error {
+                //TODO: figure out what to show if login doesn't work
+                print("============ ERROR LOGGING IN ============")
+                print(error)
+            }
+            else {
+                print("User signed in")
+            }
+        }
+    }
+    
+    // Register a new user
+    static func register(email: String, password: String) {
+        
+        if validateLogin(email: email) {
+            // Currently just makes sure email is a mac.edu email,
+            // password restrictions etc can be added to validateLogin later
+            
+            // Send verification email first? What is control flow here?
+            
+            // NOTE: this automatically signs in this new user
+            Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
+                
+                if let error = error {
+                    
+                    print(error)
+                }
+                else {
+                    // Assuming nothing goes wrong with creating/signing in a new user, send them an email
+                    print("New user created, about to send email verification")
+                    Auth.auth().currentUser?.sendEmailVerification { (error) in
+                        
+                        
+                    }
+                    print("Email verification sent")
+                }
+            }
+        }
+            
+        else {
+            print("Not a valid email")
+        }
     }
 
 }
