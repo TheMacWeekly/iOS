@@ -79,6 +79,10 @@ class The_Mac_WeeklyTests: XCTestCase {
         XCTAssertTrue(TestableUtils.validateLogin(email: "example@macalester.edu"))
     }
     
+    func testCaseInsensitive() {
+        XCTAssertTrue(TestableUtils.validateLogin(email: "example@MaCaLeStEr.EdU"))
+    }
+    
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
