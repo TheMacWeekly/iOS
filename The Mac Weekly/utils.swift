@@ -12,6 +12,7 @@ import Kingfisher
 
 import Firebase
 import FirebaseAuth
+import GoogleSignIn
 
 
 let defaultDateFormat = "MM/dd/YY"
@@ -197,6 +198,24 @@ public class TestableUtils {
         else {
             print("Not a valid email")
         }
+    }
+    
+    // Log current user out of firebase and out of their google account
+    static func logout() {
+        
+        // Sign out of firebase
+        print("About to log out of firebase")
+        do {
+            try Auth.auth().signOut()
+        } catch let signOutError as NSError {
+            print(signOutError)
+        }
+        print("Logged out of Firebase")
+        
+        // Sign out of Google account (without this user gets locked out of trying another account)
+        print("About to log out of Google account")
+        GIDSignIn.sharedInstance().signOut()
+        print("Logged out of Google account")
     }
 
 }

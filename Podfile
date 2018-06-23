@@ -24,6 +24,7 @@ target 'The Mac Weekly' do
 
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
+  pod 'GoogleSignIn'
     
   target 'The Mac WeeklyTests' do
     inherit! :search_paths

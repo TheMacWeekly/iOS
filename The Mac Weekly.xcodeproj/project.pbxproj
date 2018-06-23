@@ -7,9 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00A0CAD520C879180040216A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A0CAD420C879180040216A /* LoginViewController.swift */; };
-		00A0CAD620C879180040216A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A0CAD420C879180040216A /* LoginViewController.swift */; };
-		00A0CAD720C879180040216A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A0CAD420C879180040216A /* LoginViewController.swift */; };
+		003CB0EC20DDAF18001A790B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003CB0EB20DDAF18001A790B /* LoginViewController.swift */; };
 		00A0CAD920C87C6D0040216A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00A0CAD820C87C6D0040216A /* GoogleService-Info.plist */; };
 		00A0CADA20C87C6D0040216A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00A0CAD820C87C6D0040216A /* GoogleService-Info.plist */; };
 		00A0CADB20C87C6D0040216A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00A0CAD820C87C6D0040216A /* GoogleService-Info.plist */; };
@@ -55,7 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00A0CAD420C879180040216A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		003CB0EB20DDAF18001A790B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		00A0CAD820C87C6D0040216A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1BAAC00BD8C48F155EEFCA94 /* Pods_The_Mac_Weekly.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_The_Mac_Weekly.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2045A2157C41EF5C39A058D3 /* Pods-The Mac WeeklyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-The Mac WeeklyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-The Mac WeeklyTests/Pods-The Mac WeeklyTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -162,7 +160,6 @@
 				678868312026C734006FCF93 /* api.swift */,
 				67E2FC242030E422000FD5BE /* PostTableViewController.storyboard */,
 				6716CA072026BE3400F008C0 /* Main.storyboard */,
-				00A0CAD420C879180040216A /* LoginViewController.swift */,
 				2441FE8620717F4700FFF7D4 /* LandingViewController.swift */,
 				2441FE8820719FE300FFF7D4 /* NavbarExtensionView.swift */,
 				46E48C9420327EB4003F96E9 /* DemoSearchViewController.swift */,
@@ -176,6 +173,7 @@
 				6716CA0C2026BE3400F008C0 /* LaunchScreen.storyboard */,
 				6716CA0F2026BE3400F008C0 /* Info.plist */,
 				4C7FA9FB206EC557008695C1 /* Reachability.swift */,
+				003CB0EB20DDAF18001A790B /* LoginViewController.swift */,
 			);
 			path = "The Mac Weekly";
 			sourceTree = "<group>";
@@ -223,6 +221,7 @@
 				6716C9FD2026BE3300F008C0 /* Frameworks */,
 				6716C9FE2026BE3300F008C0 /* Resources */,
 				BD9C3BAA9C60E0096418AADF /* [CP] Embed Pods Frameworks */,
+				742E9A5C464A1798E825C6CB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -368,6 +367,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		742E9A5C464A1798E825C6CB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-The Mac Weekly/Pods-The Mac Weekly-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-The Mac Weekly/Pods-The Mac Weekly-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		826E864CFB6014A1F01F4058 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -412,6 +429,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-The Mac Weekly/Pods-The Mac Weekly-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
@@ -425,6 +443,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
@@ -458,7 +477,7 @@
 				67039EC22028BB7C009357FF /* PostViewController.swift in Sources */,
 				4C7FA9FC206EC557008695C1 /* Reachability.swift in Sources */,
 				2441FE8720717F4700FFF7D4 /* LandingViewController.swift in Sources */,
-				00A0CAD520C879180040216A /* LoginViewController.swift in Sources */,
+				003CB0EC20DDAF18001A790B /* LoginViewController.swift in Sources */,
 				46E48C9520327EB4003F96E9 /* DemoSearchViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -467,7 +486,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00A0CAD620C879180040216A /* LoginViewController.swift in Sources */,
 				6716CA192026BE3400F008C0 /* The_Mac_WeeklyTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -476,7 +494,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00A0CAD720C879180040216A /* LoginViewController.swift in Sources */,
 				6716CA242026BE3400F008C0 /* The_Mac_WeeklyUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -645,7 +662,7 @@
 				INFOPLIST_FILE = "The Mac Weekly/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.tmw.The-Mac-Weekly.gabe";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.tmw.The-Mac-Weekly";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -662,7 +679,7 @@
 				INFOPLIST_FILE = "The Mac Weekly/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.tmw.The-Mac-Weekly.gabe";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.tmw.The-Mac-Weekly";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
