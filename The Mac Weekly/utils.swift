@@ -174,13 +174,15 @@ public class TestableUtils {
     // Register a new user
     static func register(email: String, password: String) {
         
+        // TODO: Replace all print statements with logs once we have that set up
+        
         if isMacalesterEmail(email: email) {
             
             // NOTE: this automatically signs in this new user
             Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
                 
                 if let error = error {
-                    
+                    // TODO: replace this with a logging system
                     print(error)
                 }
                 else {
@@ -202,6 +204,8 @@ public class TestableUtils {
     
     // Log current user out of firebase and out of their google account
     static func logout() {
+        
+        // TODO: Replace all print statements with logs once we have that set up
         
         // Sign out of firebase
         print("About to log out of firebase")
