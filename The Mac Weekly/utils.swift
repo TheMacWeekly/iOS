@@ -182,7 +182,6 @@ public class TestableUtils {
             Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
                 
                 if let error = error {
-                    // TODO: replace this with a logging system
                     print(error)
                 }
                 else {
@@ -190,9 +189,14 @@ public class TestableUtils {
                     print("New user created, about to send email verification")
                     Auth.auth().currentUser?.sendEmailVerification { (error) in
                         
-                        
+                        if let error = error {
+                            print(error)
+                        }
+                        else {
+                            print("Verification email sent successfully")
+                        }
+
                     }
-                    print("Email verification sent")
                 }
             }
         }
