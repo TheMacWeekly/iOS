@@ -73,7 +73,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             return
         }
         
-        if TestableUtils.validateLogin(email: signIn.currentUser.profile.email) {
+        if TestableUtils.isMacalesterEmail(email: signIn.currentUser.profile.email) {
             
             guard let authentication = user.authentication else { return }
             let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,

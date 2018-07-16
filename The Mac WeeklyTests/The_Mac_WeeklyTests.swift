@@ -72,15 +72,15 @@ class The_Mac_WeeklyTests: XCTestCase {
     // MARK: User login tests
     
     func testRejectNonMacEmail() {
-        XCTAssertFalse(TestableUtils.validateLogin(email: "example@yahoo.com"))
+        XCTAssertFalse(TestableUtils.isMacalesterEmail(email: "example@yahoo.com"))
     }
     
     func testAcceptMacEmail() {
-        XCTAssertTrue(TestableUtils.validateLogin(email: "example@macalester.edu"))
+        XCTAssertTrue(TestableUtils.isMacalesterEmail(email: "example@macalester.edu"))
     }
     
     func testCaseInsensitive() {
-        XCTAssertTrue(TestableUtils.validateLogin(email: "example@MaCaLeStEr.EdU"))
+        XCTAssertTrue(TestableUtils.isMacalesterEmail(email: "example@MaCaLeStEr.EdU"))
     }
     
     

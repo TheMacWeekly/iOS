@@ -144,7 +144,7 @@ public class TestableUtils {
     }
     
     // Verify that a user's email meets our standards (ie is a mac.edu email)
-    static func validateLogin(email: String) -> Bool {
+    static func isMacalesterEmail(email: String) -> Bool {
         
         let pattern = "^[A-Z0-9._%+-]+@macalester.edu$"
         // The "^" and "$" characters indicate the start and end of the string, ensuring that the whole string must fit this pattern
@@ -174,7 +174,7 @@ public class TestableUtils {
     // Register a new user
     static func register(email: String, password: String) {
         
-        if validateLogin(email: email) {
+        if isMacalesterEmail(email: email) {
             
             // NOTE: this automatically signs in this new user
             Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
