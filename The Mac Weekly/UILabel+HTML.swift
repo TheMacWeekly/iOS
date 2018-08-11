@@ -3,6 +3,7 @@
 //  The Mac Weekly
 //
 //  Created by Gabriel Brown on 8/1/18.
+//  Original extension pulled from the stackoverflow source by a Library Checkout User (whoever that was)
 //  Copyright © 2018 The Mac Weekly. All rights reserved.
 //
 

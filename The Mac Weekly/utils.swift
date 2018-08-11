@@ -32,6 +32,9 @@ import Kingfisher
 //    }
 //}
 
+// TODO: At this point should we just rename TestableUtils to Utils? I kinda like TestableUtils because I feel like it's a more descriptive name, but I'm open to either one.
+
+// TODO: Rename this file to match whatever we end up wanting to use
 public class TestableUtils {
     
     // Used in conjunction with displaying posts
