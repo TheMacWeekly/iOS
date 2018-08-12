@@ -11,6 +11,11 @@ import Foundation
 import Result
 import Kingfisher
 
+import Firebase
+import FirebaseAuth
+import GoogleSignIn
+
+
 // It doesn't seem like this function is being used. Should we just get rid of it?
 
 //func fixShadowImage(inView view: UIView) {
@@ -96,7 +101,90 @@ public class TestableUtils {
         
     }
     
-    // TODO: Leave a comment describing the purpose of this function
+    // Verify that a user's email meets our standards (ie is a mac.edu email)
+    static func isMacalesterEmail(email: String) -> Bool {
+        
+        let pattern = "^[A-Z0-9._%+-]+@macalester.edu$"
+        // The "^" and "$" characters indicate the start and end of the string, ensuring that the whole string must fit this pattern
+        // ALSO: two slashes are used here instead of one because swift gets weird about regular expressions
+        
+        let doesMatch = email.range(of: pattern, options: [.regularExpression, .caseInsensitive]) != nil
+        
+        return doesMatch
+        
+    }
+    
+    // Log in a user through Firebase
+    static func login(email: String, password: String) {
+        
+        print("About to sign in user")
+        Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
+            
+            if let error = error {
+                print(error)
+            }
+            else {
+                print("User signed in")
+            }
+        }
+    }
+    
+    // Register a new user
+    static func register(email: String, password: String) {
+        
+        // TODO: Replace all print statements with logs once we have that set up
+        
+        if isMacalesterEmail(email: email) {
+            
+            // NOTE: this automatically signs in this new user
+            Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
+                
+                if let error = error {
+                    print(error)
+                }
+                else {
+                    // Assuming nothing goes wrong with creating/signing in a new user, send them an email
+                    print("New user created, about to send email verification")
+                    Auth.auth().currentUser?.sendEmailVerification { (error) in
+                        
+                        if let error = error {
+                            print(error)
+                        }
+                        else {
+                            print("Verification email sent successfully")
+                        }
+
+                    }
+                }
+            }
+        }
+            
+        else {
+            print("Not a valid email")
+        }
+    }
+    
+    // Log current user out of firebase and out of their google account
+    static func logout() {
+        
+        // TODO: Replace all print statements with logs once we have that set up
+        
+        // Sign out of firebase
+        print("About to log out of firebase")
+        do {
+            try Auth.auth().signOut()
+        } catch let signOutError as NSError {
+            print(signOutError)
+        }
+        print("Logged out of Firebase")
+        
+        // Sign out of Google account (without this user gets locked out of trying another account)
+        print("About to log out of Google account")
+        GIDSignIn.sharedInstance().signOut()
+        print("Logged out of Google account")
+    }
+
+        // TODO: Leave a comment describing the purpose of this function
     static func collapse<T>(_ opt: T??) -> T? {
         switch opt {
         case .none:
