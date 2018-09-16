@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		003CB0EC20DDAF18001A790B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003CB0EB20DDAF18001A790B /* LoginViewController.swift */; };
+		00C971A9214DDB26000864BC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00C971A8214DDB26000864BC /* GoogleService-Info.plist */; };
 		2441FE8720717F4700FFF7D4 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2441FE8620717F4700FFF7D4 /* LandingViewController.swift */; };
 		2441FE8920719FE300FFF7D4 /* NavbarExtensionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2441FE8820719FE300FFF7D4 /* NavbarExtensionView.swift */; };
 		24D46E5520704D0600457038 /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24D46E5420704D0600457038 /* PostTableViewCell.xib */; };
@@ -51,6 +52,7 @@
 
 /* Begin PBXFileReference section */
 		003CB0EB20DDAF18001A790B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		00C971A8214DDB26000864BC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1BAAC00BD8C48F155EEFCA94 /* Pods_The_Mac_Weekly.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_The_Mac_Weekly.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2045A2157C41EF5C39A058D3 /* Pods-The Mac WeeklyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-The Mac WeeklyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-The Mac WeeklyTests/Pods-The Mac WeeklyTests.release.xcconfig"; sourceTree = "<group>"; };
 		2441FE8620717F4700FFF7D4 /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				67E2FC2220303277000FD5BE /* InfiniteTableView.swift */,
+				00C971A8214DDB26000864BC /* GoogleService-Info.plist */,
 				6716CA032026BE3300F008C0 /* AppDelegate.swift */,
 				678868312026C734006FCF93 /* api.swift */,
 				67E2FC242030E422000FD5BE /* PostTableViewController.storyboard */,
@@ -321,6 +324,7 @@
 				6716CA0B2026BE3400F008C0 /* Assets.xcassets in Resources */,
 				67E2FC262030E423000FD5BE /* PostTableViewController.storyboard in Resources */,
 				6716CA092026BE3400F008C0 /* Main.storyboard in Resources */,
+				00C971A9214DDB26000864BC /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
