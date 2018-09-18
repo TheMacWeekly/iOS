@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -339,12 +340,29 @@
                             <rect key="frame" x="187.66666666666666" y="22" width="0.0" height="0.0"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo_window" translatesAutoresizingMaskIntoConstraints="NO" id="HQC-XZ-DJV">
-                                    <rect key="frame" x="-120.5" y="-64" width="240" height="128"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                </imageView>
+                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bg9-Rw-Rt3">
+                                    <rect key="frame" x="-101" y="-20" width="202" height="23.333333333333332"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_window" translatesAutoresizingMaskIntoConstraints="NO" id="HQC-XZ-DJV">
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="23.333333333333332"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="200" id="812-qF-2t0"/>
+                                                <constraint firstAttribute="width" secondItem="HQC-XZ-DJV" secondAttribute="height" multiplier="3639:427" id="SvI-RR-VBG"/>
+                                            </constraints>
+                                        </imageView>
+                                        <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="settings_icon" translatesAutoresizingMaskIntoConstraints="NO" id="neb-og-KTF" userLabel="settings">
+                                            <rect key="frame" x="200" y="0.0" width="2" height="23.333333333333332"/>
+                                        </imageView>
+                                    </subviews>
+                                </stackView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="bg9-Rw-Rt3" firstAttribute="top" secondItem="6UF-en-coe" secondAttribute="top" constant="-20" id="5BI-qM-5bq"/>
+                                <constraint firstItem="bg9-Rw-Rt3" firstAttribute="centerX" secondItem="6UF-en-coe" secondAttribute="centerX" id="Z41-Fc-JKt"/>
+                                <constraint firstItem="bg9-Rw-Rt3" firstAttribute="leading" secondItem="6UF-en-coe" secondAttribute="leading" constant="-101" id="pbO-dx-RWF"/>
+                                <constraint firstAttribute="trailing" secondItem="bg9-Rw-Rt3" secondAttribute="trailing" constant="-123" id="yyW-XR-xeF"/>
+                            </constraints>
                         </view>
                     </navigationItem>
                     <connections>
@@ -355,7 +373,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Adc-u2-4fv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-276" y="-233.43328335832086"/>
+            <point key="canvasLocation" x="-276" y="-233.49753694581281"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sGi-IZ-5K0">
@@ -476,6 +494,7 @@
     </scenes>
     <resources>
         <image name="logo_window" width="3639" height="427"/>
+        <image name="settings_icon" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="VXN-qG-xFL"/>
