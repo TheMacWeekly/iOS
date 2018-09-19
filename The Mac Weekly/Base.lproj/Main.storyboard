@@ -179,7 +179,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dU7-Nz-1S2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1274" y="27"/>
+            <point key="canvasLocation" x="2265" y="11"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xhn-kf-VHs">
@@ -373,6 +373,10 @@
                         </view>
                         <barButtonItem key="rightBarButtonItem" title="Settings" image="settings_icon" id="fGY-m4-BzY">
                             <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <connections>
+                                <action selector="goToSettings:" destination="hXK-Ug-ovX" id="xX8-Vv-53k"/>
+                                <segue destination="AQM-Yz-nUS" kind="show" id="61G-fa-F7E"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -384,6 +388,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Adc-u2-4fv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-276" y="-233.49753694581281"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="Yh4-Ec-Ltl">
+            <objects>
+                <viewController id="AQM-Yz-nUS" customClass="SettingsViewController" customModule="The_Mac_Weekly" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="a2K-lU-e5p">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="gKl-xJ-vC7"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Settings" id="IrQ-3u-grz"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D4W-mQ-nG2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="580" y="-841"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sGi-IZ-5K0">
@@ -401,7 +423,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zF1-Na-GJg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="492" y="-575"/>
+            <point key="canvasLocation" x="1338" y="11"/>
         </scene>
         <!--Author Details View Controller-->
         <scene sceneID="bGQ-fX-1Rg">
@@ -481,7 +503,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CGZ-Lx-XwH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2110" y="27"/>
+            <point key="canvasLocation" x="3145" y="12"/>
         </scene>
         <!--PostTableController-->
         <scene sceneID="Qou-7w-8J5">
@@ -489,7 +511,7 @@
                 <viewControllerPlaceholder storyboardName="PostTableViewController" referencedIdentifier="PostTableController" id="85n-ck-v6d" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KkG-3C-Pos" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2902" y="27"/>
+            <point key="canvasLocation" x="3950" y="25"/>
         </scene>
         <!--PostTableController-->
         <scene sceneID="gDt-ZL-bZs">
@@ -499,7 +521,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NQd-fC-lWR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="337" y="203"/>
+            <point key="canvasLocation" x="-276" y="299"/>
         </scene>
     </scenes>
     <resources>
@@ -507,6 +529,6 @@
         <image name="settings_icon" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="VXN-qG-xFL"/>
+        <segue reference="SgM-bE-44t"/>
     </inferredMetricsTieBreakers>
 </document>
