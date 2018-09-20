@@ -23,17 +23,6 @@
 	<key>STORAGE_BUCKET</key>
 	<string>themacweekly-1525124850388.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-<<<<<<< HEAD
-	<true/>
-	<key>IS_ANALYTICS_ENABLED</key>
-	<false/>
-	<key>IS_APPINVITE_ENABLED</key>
-	<false/>
-	<key>IS_GCM_ENABLED</key>
-	<true/>
-	<key>IS_SIGNIN_ENABLED</key>
-	<true/>
-=======
 	<true></true>
 	<key>IS_ANALYTICS_ENABLED</key>
 	<false></false>
@@ -43,14 +32,9 @@
 	<true></true>
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
->>>>>>> 0fe9c734fe87d3d1f637894c880f0971a288c67b
 	<key>GOOGLE_APP_ID</key>
 	<string>1:762024499034:ios:291614528b3666d0</string>
 	<key>DATABASE_URL</key>
 	<string>https://themacweekly-1525124850388.firebaseio.com</string>
 </dict>
-<<<<<<< HEAD
 </plist>
-=======
-</plist>
->>>>>>> 0fe9c734fe87d3d1f637894c880f0971a288c67b
