@@ -56,14 +56,9 @@
 
 /* Begin PBXFileReference section */
 		0014B204211271C1005B410E /* UILabel+HTML.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+HTML.swift"; sourceTree = "<group>"; };
-<<<<<<< HEAD
 		0024649921508FF100DF0038 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		003CB0EB20DDAF18001A790B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		003EC6DA2151EB600005C98B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-=======
-		00153AD52154606E002C1254 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		003CB0EB20DDAF18001A790B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
->>>>>>> 0fe9c734fe87d3d1f637894c880f0971a288c67b
 		1BAAC00BD8C48F155EEFCA94 /* Pods_The_Mac_Weekly.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_The_Mac_Weekly.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2045A2157C41EF5C39A058D3 /* Pods-The Mac WeeklyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-The Mac WeeklyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-The Mac WeeklyTests/Pods-The Mac WeeklyTests.release.xcconfig"; sourceTree = "<group>"; };
 		2441FE8620717F4700FFF7D4 /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
@@ -338,11 +333,7 @@
 				6716CA0B2026BE3400F008C0 /* Assets.xcassets in Resources */,
 				67E2FC262030E423000FD5BE /* PostTableViewController.storyboard in Resources */,
 				6716CA092026BE3400F008C0 /* Main.storyboard in Resources */,
-<<<<<<< HEAD
 				0024649A21508FF100DF0038 /* GoogleService-Info.plist in Resources */,
-=======
-				00153AD62154606E002C1254 /* GoogleService-Info.plist in Resources */,
->>>>>>> 0fe9c734fe87d3d1f637894c880f0971a288c67b
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
