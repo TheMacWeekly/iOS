@@ -4,7 +4,7 @@ The best mobile platform
 
 ## Setting up on your machine
 
-1. Install XCode
+1. Install Xcode
 2. Clone the iOS repo
 3. Install Cocoapods
     1. enter `sudo gem install cocoapods` in the terminal (doesn't matter what directory you're in)
