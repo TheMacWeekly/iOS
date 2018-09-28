@@ -62,11 +62,9 @@ class AccountSettingsTableViewController: UITableViewController {
     
     @objc func logIn(sender: UITapGestureRecognizer) {
         
-        //TODO: Send user to login page
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let loginViewController = storyBoard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
         navigationController?.pushViewController(loginViewController, animated: true)
-        
     }
     
 

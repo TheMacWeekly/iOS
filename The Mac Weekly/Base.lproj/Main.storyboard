@@ -520,6 +520,10 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Settings" id="U51-uX-M9o"/>
+                    <connections>
+                        <outlet property="reportIssueButton" destination="zQr-0w-e3L" id="Jog-Jb-RuC"/>
+                        <outlet property="sendFeedBackButton" destination="cAC-T3-2Pa" id="Wps-cH-Tr1"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gD0-uO-nwz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

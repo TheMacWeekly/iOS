@@ -7,11 +7,22 @@
 //
 
 import UIKit
+import MessageUI
 
-class SettingsTableViewController: UITableViewController {
-
+class SettingsTableViewController: UITableViewController, MFMailComposeViewControllerDelegate {
+    
+    //var mailComposerVC: MFMailComposeViewController
+    
+    @IBOutlet weak var sendFeedBackButton: UITableViewCell!
+    @IBOutlet weak var reportIssueButton: UITableViewCell!
+    
+    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        
+        sendFeedBackButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(sendFeedBack(sender:))))
+        reportIssueButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(reportIssue(sender:))))
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -20,6 +31,56 @@ class SettingsTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
+    
+    // MARK: Actions
+    @objc func sendFeedBack(sender: UITapGestureRecognizer) {
+        if MFMailComposeViewController.canSendMail() {
+            let mailComposeViewController = configuredMailComposeViewController(subject: "Feedback")
+            self.present(mailComposeViewController, animated: true, completion: nil)
+        }
+        else {
+            showSendMailErrorAlert()
+        }
+    }
+    
+    @objc func reportIssue(sender: UITapGestureRecognizer) {
+        if MFMailComposeViewController.canSendMail() {
+            let mailComposeViewController = configuredMailComposeViewController(subject: "Issue Report")
+            self.present(mailComposeViewController, animated: true, completion: nil)
+        }
+        else {
+            showSendMailErrorAlert()
+        }
+    }
+    
+    
+    func configuredMailComposeViewController(subject: String) -> MFMailComposeViewController {
+        let mailComposerVC = MFMailComposeViewController()
+        mailComposerVC.mailComposeDelegate = self as MFMailComposeViewControllerDelegate
+        
+        mailComposerVC.setToRecipients(["themacweeklyapp@gmail.com"])
+        mailComposerVC.setSubject(subject)
+        //mailComposerVC.setMessageBody("", isHTML: false)    //TODO: check what default is, might not be necessary
+        
+        return mailComposerVC
+    }
+    
+    
+    
+    func showSendMailErrorAlert() {
+        let sendMailErrorAlert = UIAlertController(title: "Could Not Send Email", message: "Your device could not send email. Please check your email configuration and try again.", preferredStyle: UIAlertController.Style.actionSheet)
+        
+        sendMailErrorAlert.show(self, sender: nil)
+    }
+    
+    
+    // Called when user eiter cancels or sends email
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
