@@ -169,19 +169,33 @@ public class TestableUtils {
         
         // TODO: Replace all print statements with logs once we have that set up
         
-        // Sign out of firebase
-        print("About to log out of firebase")
-        do {
-            try Auth.auth().signOut()
-        } catch let signOutError as NSError {
-            print(signOutError)
-        }
-        print("Logged out of Firebase")
+        if (Auth.auth().currentUser != nil) {
         
-        // Sign out of Google account (without this user gets locked out of trying another account)
-        print("About to log out of Google account")
-        GIDSignIn.sharedInstance().signOut()
-        print("Logged out of Google account")
+            // Sign out of firebase
+            print("About to log out of firebase")
+            do {
+                try Auth.auth().signOut()
+            } catch let signOutError as NSError {
+                print(signOutError)
+            }
+            print("Logged out of Firebase")
+            
+            // Sign out of Google account (without this user gets locked out of trying another account)
+            print("About to log out of Google account")
+            GIDSignIn.sharedInstance().signOut()
+            print("Logged out of Google account")
+            
+        }
+        else {
+            print("No user signed in")
+        }
+    }
+    
+    // Check login status without having to import firebase auth
+    static func isLoggedIn() -> Bool {
+        
+        return Auth.auth().currentUser != nil
+        
     }
 
         // TODO: Leave a comment describing the purpose of this function

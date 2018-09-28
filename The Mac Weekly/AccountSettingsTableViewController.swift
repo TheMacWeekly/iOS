@@ -10,8 +10,33 @@ import UIKit
 
 class AccountSettingsTableViewController: UITableViewController {
 
+    
+    @IBOutlet weak var login_switchAccountButton: UITableViewCell!
+    @IBOutlet weak var login_switchAccountLabel: UILabel!
+    
+    @IBOutlet weak var logout_BlankButton: UITableViewCell!
+    @IBOutlet weak var logout_BlankLabel: UILabel!
+    
+    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        
+        login_switchAccountButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(logIn(sender:))))
+        
+        if (TestableUtils.isLoggedIn()) {
+            
+            login_switchAccountLabel.text = "Log into another account"
+            logout_BlankLabel.text = "Log Out"
+            
+            logout_BlankButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(logOut(sender:))))
+        }
+        else {
+            
+            login_switchAccountLabel.text = "Log In"
+            logout_BlankLabel.text = ""
+    
+        }
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -24,6 +49,26 @@ class AccountSettingsTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    
+    //MARK: Actions
+    
+    @objc func logOut(sender: UITapGestureRecognizer) {
+        
+        TestableUtils.logout()
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+    
+    @objc func logIn(sender: UITapGestureRecognizer) {
+        
+        //TODO: Send user to login page
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let loginViewController = storyBoard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        navigationController?.pushViewController(loginViewController, animated: true)
+        
+    }
+    
 
     // MARK: - Table view data source
 
