@@ -10,9 +10,9 @@
 		0014B205211271C1005B410E /* UILabel+HTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0014B204211271C1005B410E /* UILabel+HTML.swift */; };
 		0014B206211271C1005B410E /* UILabel+HTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0014B204211271C1005B410E /* UILabel+HTML.swift */; };
 		0024649A21508FF100DF0038 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0024649921508FF100DF0038 /* GoogleService-Info.plist */; };
+		00341DB7215DC85300D07762 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00341DB6215DC85300D07762 /* SettingsTableViewController.swift */; };
+		00341DB8215DC85300D07762 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00341DB6215DC85300D07762 /* SettingsTableViewController.swift */; };
 		003CB0EC20DDAF18001A790B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003CB0EB20DDAF18001A790B /* LoginViewController.swift */; };
-		003EC6DB2151EB600005C98B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003EC6DA2151EB600005C98B /* SettingsViewController.swift */; };
-		003EC6DC2151EB600005C98B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003EC6DA2151EB600005C98B /* SettingsViewController.swift */; };
 		2441FE8720717F4700FFF7D4 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2441FE8620717F4700FFF7D4 /* LandingViewController.swift */; };
 		2441FE8920719FE300FFF7D4 /* NavbarExtensionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2441FE8820719FE300FFF7D4 /* NavbarExtensionView.swift */; };
 		24D46E5520704D0600457038 /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24D46E5420704D0600457038 /* PostTableViewCell.xib */; };
@@ -57,8 +57,8 @@
 /* Begin PBXFileReference section */
 		0014B204211271C1005B410E /* UILabel+HTML.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+HTML.swift"; sourceTree = "<group>"; };
 		0024649921508FF100DF0038 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		00341DB6215DC85300D07762 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		003CB0EB20DDAF18001A790B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		003EC6DA2151EB600005C98B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		1BAAC00BD8C48F155EEFCA94 /* Pods_The_Mac_Weekly.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_The_Mac_Weekly.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2045A2157C41EF5C39A058D3 /* Pods-The Mac WeeklyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-The Mac WeeklyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-The Mac WeeklyTests/Pods-The Mac WeeklyTests.release.xcconfig"; sourceTree = "<group>"; };
 		2441FE8620717F4700FFF7D4 /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
@@ -158,7 +158,6 @@
 		6716CA022026BE3300F008C0 /* The Mac Weekly */ = {
 			isa = PBXGroup;
 			children = (
-				00153AD52154606E002C1254 /* GoogleService-Info.plist */,
 				0014B204211271C1005B410E /* UILabel+HTML.swift */,
 				67E2FC2220303277000FD5BE /* InfiniteTableView.swift */,
 				6716CA032026BE3300F008C0 /* AppDelegate.swift */,
@@ -180,7 +179,7 @@
 				6716CA0F2026BE3400F008C0 /* Info.plist */,
 				4C7FA9FB206EC557008695C1 /* Reachability.swift */,
 				003CB0EB20DDAF18001A790B /* LoginViewController.swift */,
-				003EC6DA2151EB600005C98B /* SettingsViewController.swift */,
+				00341DB6215DC85300D07762 /* SettingsTableViewController.swift */,
 			);
 			path = "The Mac Weekly";
 			sourceTree = "<group>";
@@ -479,10 +478,10 @@
 				6716CA042026BE3300F008C0 /* AppDelegate.swift in Sources */,
 				0014B205211271C1005B410E /* UILabel+HTML.swift in Sources */,
 				2441FE8920719FE300FFF7D4 /* NavbarExtensionView.swift in Sources */,
-				003EC6DB2151EB600005C98B /* SettingsViewController.swift in Sources */,
 				67039EC4202AD158009357FF /* utils.swift in Sources */,
 				67039EC22028BB7C009357FF /* PostViewController.swift in Sources */,
 				4C7FA9FC206EC557008695C1 /* Reachability.swift in Sources */,
+				00341DB7215DC85300D07762 /* SettingsTableViewController.swift in Sources */,
 				2441FE8720717F4700FFF7D4 /* LandingViewController.swift in Sources */,
 				003CB0EC20DDAF18001A790B /* LoginViewController.swift in Sources */,
 				46E48C9520327EB4003F96E9 /* DemoSearchViewController.swift in Sources */,
@@ -495,7 +494,7 @@
 			files = (
 				6716CA192026BE3400F008C0 /* The_Mac_WeeklyTests.swift in Sources */,
 				0014B206211271C1005B410E /* UILabel+HTML.swift in Sources */,
-				003EC6DC2151EB600005C98B /* SettingsViewController.swift in Sources */,
+				00341DB8215DC85300D07762 /* SettingsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
