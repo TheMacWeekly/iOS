@@ -29,10 +29,12 @@ class LandingViewController: UIViewController, UISearchResultsUpdating {
     
     
     
-
+    // MARK: Properties
     @IBOutlet weak var categoriesScrollView: UIScrollView!
     @IBOutlet weak var categoryView: UIStackView!
     @IBOutlet weak var postView: UIView!
+    
+    
     var postTableView: PostTableViewController!
     
     var selectedButton: UIButton!
@@ -131,7 +133,11 @@ class LandingViewController: UIViewController, UISearchResultsUpdating {
         }
     }
     
+    // This happens right before the page is navigated away from
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        //TODO: cache articles here so we don't have to reload them every time we go back?
+        
         switch segue.destination {
         case let view as PostTableViewController:
             postTableView = view
@@ -147,15 +153,15 @@ class LandingViewController: UIViewController, UISearchResultsUpdating {
         refresh()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // MARK: Navigating to settings
+    
+    @IBAction func goToSettings(_ sender: UIBarButtonItem) {
+        
     }
-    */
+    
+    
+    
+    
+    
 
 }

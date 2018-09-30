@@ -3,6 +3,7 @@
 //  The Mac Weekly
 //
 //  Created by Library Checkout User on 2/6/18.
+//  Further modified by Gabriel Brown
 //  Copyright © 2018 The Mac Weekly. All rights reserved.
 //
 
@@ -15,73 +16,30 @@ import FirebaseAuth
 import GoogleSignIn
 
 
-let defaultDateFormat = "MM/dd/YY"
+// It doesn't seem like this function is being used. Should we just get rid of it?
 
-// Source: https://stackoverflow.com/a/30711288
-extension UILabel {
-    func setHTMLFromString(htmlText: String) {
-        let modifiedFont = NSString(format:"<span style=\"font-family: '-apple-system', 'HelveticaNeue'; font-size: \(self.font!.pointSize)\">%@</span>" as NSString, htmlText) as String
-        
-        //process collection values
-        let attrStr = try! NSAttributedString(
-            data: modifiedFont.data(using: .unicode, allowLossyConversion: true)!,
-            options: [NSAttributedString.DocumentReadingOptionKey.documentType:NSAttributedString.DocumentType.html, NSAttributedString.DocumentReadingOptionKey.characterEncoding: String.Encoding.utf8.rawValue],
-            documentAttributes: nil)
-        
-        
-        self.attributedText = attrStr
-    }
-}
-    
-func collapse<T>(_ opt: T??) -> T? {
-    switch opt {
-    case .none:
-        return nil
-    case .some(let res):
-        return res
-    }
-}
+//func fixShadowImage(inView view: UIView) {
+//    if let imageView = view as? UIImageView {
+//        let size = imageView.bounds.size.height
+//        if size <= 1 && size > 0 &&
+//            imageView.subviews.count == 0,
+//            let components = imageView.backgroundColor?.cgColor.components, components == [1, 1, 1, 0.15]
+//        {
+//            print("Fixing shadow image")
+//            let forcedBackground = UIView(frame: imageView.bounds)
+//            forcedBackground.backgroundColor = .white
+//            imageView.addSubview(forcedBackground)
+//            forcedBackground.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+//        }
+//    }
+//    for subview in view.subviews {
+//        fixShadowImage(inView: subview)
+//    }
+//}
 
-func fixShadowImage(inView view: UIView) {
-    if let imageView = view as? UIImageView {
-        let size = imageView.bounds.size.height
-        if size <= 1 && size > 0 &&
-            imageView.subviews.count == 0,
-            let components = imageView.backgroundColor?.cgColor.components, components == [1, 1, 1, 0.15]
-        {
-            print("Fixing shadow image")
-            let forcedBackground = UIView(frame: imageView.bounds)
-            forcedBackground.backgroundColor = .white
-            imageView.addSubview(forcedBackground)
-            forcedBackground.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        }
-    }
-    for subview in view.subviews {
-        fixShadowImage(inView: subview)
-    }
-}
+// TODO: At this point should we just rename TestableUtils to Utils? I kinda like TestableUtils because I feel like it's a more descriptive name, but I'm open to either one.
 
-func getImageFromURLWithCache(key: String, url:URL, completion: @escaping  (Image?) -> Void) {
-    ImageCache.default.retrieveImage(forKey: key, options: nil) { (img, cacheType) in
-        if let img = img {
-            completion(img)
-            return
-        } else {
-            ImageDownloader.default.downloadImage(with: url) { (img, error, url, data) in
-                if let img = img {
-                    ImageCache.default.store(img, forKey: key)
-                    completion(img)
-                    return
-                }
-            }
-        }
-        completion(nil)
-    }
-}
-
-
-
-// I had a hard time getting test files to work with utils as is, so I made a class just to test in the time being. I suspect utils could do with a large refactoring
+// TODO: Rename this file to match whatever we end up wanting to use
 public class TestableUtils {
     
     // Used in conjunction with displaying posts
@@ -211,19 +169,61 @@ public class TestableUtils {
         
         // TODO: Replace all print statements with logs once we have that set up
         
-        // Sign out of firebase
-        print("About to log out of firebase")
-        do {
-            try Auth.auth().signOut()
-        } catch let signOutError as NSError {
-            print(signOutError)
-        }
-        print("Logged out of Firebase")
+        if (Auth.auth().currentUser != nil) {
         
-        // Sign out of Google account (without this user gets locked out of trying another account)
-        print("About to log out of Google account")
-        GIDSignIn.sharedInstance().signOut()
-        print("Logged out of Google account")
+            // Sign out of firebase
+            print("About to log out of firebase")
+            do {
+                try Auth.auth().signOut()
+            } catch let signOutError as NSError {
+                print(signOutError)
+            }
+            print("Logged out of Firebase")
+            
+            // Sign out of Google account (without this user gets locked out of trying another account)
+            print("About to log out of Google account")
+            GIDSignIn.sharedInstance().signOut()
+            print("Logged out of Google account")
+            
+        }
+        else {
+            print("No user signed in")
+        }
+    }
+    
+    // Check login status without having to import firebase auth
+    static func isLoggedIn() -> Bool {
+        
+        return Auth.auth().currentUser != nil
+        
+    }
+
+        // TODO: Leave a comment describing the purpose of this function
+    static func collapse<T>(_ opt: T??) -> T? {
+        switch opt {
+        case .none:
+            return nil
+        case .some(let res):
+            return res
+        }
+    }
+
+    static func getImageFromURLWithCache(key: String, url:URL, completion: @escaping  (Image?) -> Void) {
+        ImageCache.default.retrieveImage(forKey: key, options: nil) { (img, cacheType) in
+            if let img = img {
+                completion(img)
+                return
+            } else {
+                ImageDownloader.default.downloadImage(with: url) { (img, error, url, data) in
+                    if let img = img {
+                        ImageCache.default.store(img, forKey: key)
+                        completion(img)
+                        return
+                    }
+                }
+            }
+            completion(nil)
+        }
     }
 
 }

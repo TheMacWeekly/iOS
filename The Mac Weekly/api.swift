@@ -191,7 +191,7 @@ class TMWAPI {
             guard let rawValue = rawValue as? Data else {
                 return nil
             }
-            return collapse(try? JSON.init(data: rawValue).array?.map { post in
+            return TestableUtils.collapse(try? JSON.init(data: rawValue).array?.map { post in
                 return Post(json: post)
                 })
         }
@@ -315,7 +315,7 @@ public struct Post {
     func thumbnail(completion: @escaping  (Image?) -> Void) {
         let key = "thumbnail:post-\(self.id)"
         if let url = self.thumbnailURL {
-            getImageFromURLWithCache(key: key, url: url, completion: completion)
+            TestableUtils.getImageFromURLWithCache(key: key, url: url, completion: completion)
         } else {
             completion(nil)
         }
@@ -323,7 +323,7 @@ public struct Post {
     func displayImage(completion: @escaping  (Image?) -> Void) {
         let key = "displayImage:post-\(self.id)"
         if let url = self.displayImageURL {
-            getImageFromURLWithCache(key: key, url: url, completion: completion)
+            TestableUtils.getImageFromURLWithCache(key: key, url: url, completion: completion)
         } else {
             completion(nil)
         }
