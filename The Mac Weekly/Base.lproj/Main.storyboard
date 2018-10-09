@@ -397,7 +397,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <view key="tableFooterView" contentMode="scaleToFill" id="vWe-zH-wWj">
+                        <view key="tableFooterView" contentMode="scaleToFill" misplaced="YES" id="vWe-zH-wWj">
                             <rect key="frame" x="0.0" y="220" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -427,9 +427,6 @@
                                         <constraints>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="rhm-ey-SPh" secondAttribute="trailing" id="5Vd-dN-fOG"/>
                                         </constraints>
-                                        <connections>
-                                            <segue destination="ZQx-Rb-1cR" kind="show" id="bL0-ih-FFl"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="cAC-T3-2Pa">
                                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -521,6 +518,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Settings" id="U51-uX-M9o"/>
                     <connections>
+                        <outlet property="accountSettingsButton" destination="szu-6l-RhZ" id="xkj-nh-q5l"/>
                         <outlet property="reportIssueButton" destination="zQr-0w-e3L" id="Jog-Jb-RuC"/>
                         <outlet property="sendFeedBackButton" destination="cAC-T3-2Pa" id="Wps-cH-Tr1"/>
                     </connections>
@@ -663,12 +661,12 @@
         <!--Account Settings-->
         <scene sceneID="2bS-1S-UhF">
             <objects>
-                <tableViewController title="Account Settings" id="ZQx-Rb-1cR" customClass="AccountSettingsTableViewController" customModule="The_Mac_Weekly" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="AccountSettings" title="Account Settings" id="ZQx-Rb-1cR" customClass="AccountSettingsTableViewController" customModule="The_Mac_Weekly" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Mgo-IY-hLU">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <view key="tableFooterView" contentMode="scaleToFill" id="mOj-9T-nXB">
+                        <view key="tableFooterView" contentMode="scaleToFill" misplaced="YES" id="mOj-9T-nXB">
                             <rect key="frame" x="0.0" y="88" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -683,8 +681,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login / Switch Account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BXt-0h-ogL">
-                                                    <rect key="frame" x="20" y="11.5" width="176" height="21"/>
+                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Switch Account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BXt-0h-ogL">
+                                                    <rect key="frame" x="20" y="11.5" width="120" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -706,8 +704,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log out / blank" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BTz-ua-nKO">
-                                                    <rect key="frame" x="20" y="11.5" width="114" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log out" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BTz-ua-nKO">
+                                                    <rect key="frame" x="20" y="11.5" width="58" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -730,10 +728,8 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Account Settings" id="Bbv-Wv-2yY"/>
                     <connections>
-                        <outlet property="login_switchAccountButton" destination="ayp-D0-L34" id="GNg-7V-VtJ"/>
-                        <outlet property="login_switchAccountLabel" destination="BXt-0h-ogL" id="5Gy-Fp-jeR"/>
-                        <outlet property="logout_BlankButton" destination="zpF-jY-Rr3" id="hnF-sc-P4y"/>
-                        <outlet property="logout_BlankLabel" destination="BTz-ua-nKO" id="J0z-pS-FV8"/>
+                        <outlet property="logoutButton" destination="zpF-jY-Rr3" id="hnF-sc-P4y"/>
+                        <outlet property="switchAccountButton" destination="ayp-D0-L34" id="GNg-7V-VtJ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8bV-Em-Ilf" userLabel="First Responder" sceneMemberID="firstResponder"/>
