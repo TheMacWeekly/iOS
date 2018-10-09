@@ -243,7 +243,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="g0M-V0-Jft"/>
                                                 </constraints>
-                                                <state key="normal" title="Login">
+                                                <state key="normal" title="Log In">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
@@ -305,6 +305,7 @@
                     <connections>
                         <outlet property="emailEntry" destination="Do9-XL-J7G" id="AMP-or-Bwj"/>
                         <outlet property="passwordEntry" destination="16h-38-rRj" id="UmY-Jv-7sg"/>
+                        <outlet property="scrollView" destination="W9n-74-RRK" id="3IK-zu-AAC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fLK-Wy-OXj" userLabel="First Responder" sceneMemberID="firstResponder"/>
