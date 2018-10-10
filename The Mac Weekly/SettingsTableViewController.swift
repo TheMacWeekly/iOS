@@ -56,7 +56,7 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
     
     @objc func sendFeedBack(sender: UITapGestureRecognizer) {
         if MFMailComposeViewController.canSendMail() {
-            let mailComposeViewController = configuredMailComposeViewController(subject: "[FEEDBACK]")
+            let mailComposeViewController = configuredMailComposeViewController(subject: "[FEEDBACK][iOS]")
             self.present(mailComposeViewController, animated: true, completion: nil)
         }
         else {
@@ -66,7 +66,7 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
     
     @objc func reportIssue(sender: UITapGestureRecognizer) {
         if MFMailComposeViewController.canSendMail() {
-            let mailComposeViewController = configuredMailComposeViewController(subject: "[ISSUE]")
+            let mailComposeViewController = configuredMailComposeViewController(subject: "[ISSUE][iOS]")
             self.present(mailComposeViewController, animated: true, completion: nil)
         }
         else {
