@@ -256,14 +256,14 @@
                                         </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XAh-Qh-1mU">
-                                        <rect key="frame" x="118.5" y="334" width="83" height="40"/>
+                                        <rect key="frame" x="116.5" y="334" width="87" height="40"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" button="YES" image="YES"/>
                                         </accessibility>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="vlr-96-u1a"/>
                                         </constraints>
-                                        <state key="normal" title="  Sign In" image="google.png">
+                                        <state key="normal" title="  Sign In " image="google.png">
                                             <color key="titleColor" red="0.023529411760000001" green="0.25882352939999997" blue="0.41176470590000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                     </button>
