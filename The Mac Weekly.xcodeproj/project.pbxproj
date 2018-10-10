@@ -15,6 +15,7 @@
 		0039066F215E81E80001A88A /* AccountSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0039066E215E81E80001A88A /* AccountSettingsTableViewController.swift */; };
 		00390670215E81E80001A88A /* AccountSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0039066E215E81E80001A88A /* AccountSettingsTableViewController.swift */; };
 		003CB0EC20DDAF18001A790B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003CB0EB20DDAF18001A790B /* LoginViewController.swift */; };
+		00C971A9214DDB26000864BC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00C971A8214DDB26000864BC /* GoogleService-Info.plist */; };
 		2441FE8720717F4700FFF7D4 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2441FE8620717F4700FFF7D4 /* LandingViewController.swift */; };
 		2441FE8920719FE300FFF7D4 /* NavbarExtensionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2441FE8820719FE300FFF7D4 /* NavbarExtensionView.swift */; };
 		24D46E5520704D0600457038 /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24D46E5420704D0600457038 /* PostTableViewCell.xib */; };
@@ -62,6 +63,7 @@
 		00341DB6215DC85300D07762 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		0039066E215E81E80001A88A /* AccountSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingsTableViewController.swift; sourceTree = "<group>"; };
 		003CB0EB20DDAF18001A790B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		00C971A8214DDB26000864BC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1BAAC00BD8C48F155EEFCA94 /* Pods_The_Mac_Weekly.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_The_Mac_Weekly.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2045A2157C41EF5C39A058D3 /* Pods-The Mac WeeklyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-The Mac WeeklyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-The Mac WeeklyTests/Pods-The Mac WeeklyTests.release.xcconfig"; sourceTree = "<group>"; };
 		2441FE8620717F4700FFF7D4 /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 			children = (
 				0014B204211271C1005B410E /* UILabel+HTML.swift */,
 				67E2FC2220303277000FD5BE /* InfiniteTableView.swift */,
+				00C971A8214DDB26000864BC /* GoogleService-Info.plist */,
 				6716CA032026BE3300F008C0 /* AppDelegate.swift */,
 				678868312026C734006FCF93 /* api.swift */,
 				67E2FC242030E422000FD5BE /* PostTableViewController.storyboard */,
@@ -336,7 +339,7 @@
 				6716CA0B2026BE3400F008C0 /* Assets.xcassets in Resources */,
 				67E2FC262030E423000FD5BE /* PostTableViewController.storyboard in Resources */,
 				6716CA092026BE3400F008C0 /* Main.storyboard in Resources */,
-				0024649A21508FF100DF0038 /* GoogleService-Info.plist in Resources */,
+				00C971A9214DDB26000864BC /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -672,11 +675,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B3GBL8CYN5;
+				DEVELOPMENT_TEAM = KQ2D936C95;
 				INFOPLIST_FILE = "The Mac Weekly/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.tmw.The-Mac-Weekly.test";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.tmw.The-Mac-Weekly-brighten";
+
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -689,11 +693,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B3GBL8CYN5;
+
+				DEVELOPMENT_TEAM = KQ2D936C95;
 				INFOPLIST_FILE = "The Mac Weekly/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.tmw.The-Mac-Weekly.test";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.tmw.The-Mac-Weekly-brighten";
+
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
