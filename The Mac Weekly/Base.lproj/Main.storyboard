@@ -289,7 +289,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fWh-hh-npi">
-                                        <rect key="frame" x="-68" y="0.0" width="375" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="jgA-Au-j6i">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
@@ -311,6 +311,7 @@
                                     <constraint firstItem="fWh-hh-npi" firstAttribute="top" secondItem="gwE-DA-GCn" secondAttribute="top" id="GYg-r0-gmF"/>
                                     <constraint firstAttribute="trailing" secondItem="fWh-hh-npi" secondAttribute="trailing" id="GoS-Zu-hlx"/>
                                     <constraint firstAttribute="height" secondItem="fWh-hh-npi" secondAttribute="height" id="LKs-75-sQd"/>
+                                    <constraint firstItem="fWh-hh-npi" firstAttribute="centerX" secondItem="gwE-DA-GCn" secondAttribute="centerX" id="Z8I-D6-NM8"/>
                                     <constraint firstItem="fWh-hh-npi" firstAttribute="leading" secondItem="gwE-DA-GCn" secondAttribute="leading" id="eMQ-Dt-mNO"/>
                                     <constraint firstAttribute="bottom" secondItem="fWh-hh-npi" secondAttribute="bottom" id="x33-1D-o1J"/>
                                 </constraints>
@@ -397,7 +398,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <view key="tableFooterView" contentMode="scaleToFill" misplaced="YES" id="vWe-zH-wWj">
+                        <view key="tableFooterView" contentMode="scaleToFill" id="vWe-zH-wWj">
                             <rect key="frame" x="0.0" y="220" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -639,13 +640,13 @@ Amanda Doan, Juan David Garrido, Spencer Grant, Brighten Jelke and George Clare 
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Hgq-nv-KVn">
                                                 <rect key="frame" x="115" y="0.0" width="230" height="100"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Johnny Appleseed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KlF-xE-4eT">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Johnny Appleseed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KlF-xE-4eT">
                                                         <rect key="frame" x="0.0" y="0.0" width="230" height="33.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                                         <color key="textColor" red="0.37639653497409331" green="0.37639653497409331" blue="0.37639653497409331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" placeholderIntrinsicWidth="40" placeholderIntrinsicHeight="80" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T6d-c7-jLE">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" placeholderIntrinsicWidth="40" placeholderIntrinsicHeight="80" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T6d-c7-jLE">
                                                         <rect key="frame" x="0.0" y="33.5" width="230" height="66.5"/>
                                                         <attributedString key="attributedText">
                                                             <fragment content="Johnny Appleseed has been writing for the Mac Weekly for nearly 50 years now. He is an expert author and a genius author.">
@@ -671,7 +672,6 @@ Amanda Doan, Juan David Garrido, Spencer Grant, Brighten Jelke and George Clare 
                                     <constraint firstAttribute="trailing" secondItem="Wa9-gy-7Q1" secondAttribute="trailing" id="4v2-Q8-tE3"/>
                                     <constraint firstAttribute="trailing" secondItem="gmR-uw-LMJ" secondAttribute="trailing" constant="15" id="9iS-2e-EtH"/>
                                     <constraint firstItem="Wa9-gy-7Q1" firstAttribute="leading" secondItem="BUv-Pi-aGu" secondAttribute="leading" id="IRU-YU-aGm"/>
-                                    <constraint firstItem="gmR-uw-LMJ" firstAttribute="top" secondItem="BUv-Pi-aGu" secondAttribute="top" constant="15" id="PwR-YC-n8y"/>
                                     <constraint firstItem="gmR-uw-LMJ" firstAttribute="leading" secondItem="BUv-Pi-aGu" secondAttribute="leading" constant="15" id="j8T-N2-nwR"/>
                                 </constraints>
                             </stackView>
