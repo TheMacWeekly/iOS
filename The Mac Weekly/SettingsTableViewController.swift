@@ -13,6 +13,7 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
     
     //var mailComposerVC: MFMailComposeViewController
     
+    @IBOutlet weak var accountSettingsButton: UITableViewCell!
     @IBOutlet weak var sendFeedBackButton: UITableViewCell!
     @IBOutlet weak var reportIssueButton: UITableViewCell!
     
@@ -21,6 +22,7 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
         
         super.viewDidLoad()
         
+        accountSettingsButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(accountSettingsTapped(sender:))))
         sendFeedBackButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(sendFeedBack(sender:))))
         reportIssueButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(reportIssue(sender:))))
 
@@ -33,9 +35,28 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
 
     
     // MARK: Actions
+    
+    // Either send user to login page if not logged in or continue to account settings
+    @objc func accountSettingsTapped(sender: UITapGestureRecognizer) {
+        
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        if (TestableUtils.isLoggedIn()) {
+            
+            let accountSettingsViewController = storyBoard.instantiateViewController(withIdentifier: "AccountSettings") as! AccountSettingsTableViewController
+            navigationController?.pushViewController(accountSettingsViewController, animated: true)
+        }
+        else {
+            
+            let loginViewController = storyBoard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+            navigationController?.pushViewController(loginViewController, animated: true)
+        }
+    }
+    
+    
     @objc func sendFeedBack(sender: UITapGestureRecognizer) {
         if MFMailComposeViewController.canSendMail() {
-            let mailComposeViewController = configuredMailComposeViewController(subject: "[FEEDBACK]")
+            let mailComposeViewController = configuredMailComposeViewController(subject: "[FEEDBACK] [iOS]")
             self.present(mailComposeViewController, animated: true, completion: nil)
         }
         else {
@@ -45,7 +66,7 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
     
     @objc func reportIssue(sender: UITapGestureRecognizer) {
         if MFMailComposeViewController.canSendMail() {
-            let mailComposeViewController = configuredMailComposeViewController(subject: "[ISSUE]")
+            let mailComposeViewController = configuredMailComposeViewController(subject: "[ISSUE] [iOS]")
             self.present(mailComposeViewController, animated: true, completion: nil)
         }
         else {

@@ -11,30 +11,22 @@ import UIKit
 class AccountSettingsTableViewController: UITableViewController {
 
     
-    @IBOutlet weak var login_switchAccountButton: UITableViewCell!
-    @IBOutlet weak var login_switchAccountLabel: UILabel!
-    
-    @IBOutlet weak var logout_BlankButton: UITableViewCell!
-    @IBOutlet weak var logout_BlankLabel: UILabel!
+    @IBOutlet weak var switchAccountButton: UITableViewCell!
+    @IBOutlet weak var logoutButton: UITableViewCell!
     
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
-        login_switchAccountButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(logIn(sender:))))
-        
         if (TestableUtils.isLoggedIn()) {
             
-            login_switchAccountLabel.text = "Log into another account"
-            logout_BlankLabel.text = "Log Out"
-            
-            logout_BlankButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(logOut(sender:))))
+            switchAccountButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(logIn(sender:))))
+            logoutButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(logOut(sender:))))
         }
         else {
             
-            login_switchAccountLabel.text = "Log In"
-            logout_BlankLabel.text = ""
+            fatalError("Shouldn't be able to get to this screen without being logged in")
     
         }
 
