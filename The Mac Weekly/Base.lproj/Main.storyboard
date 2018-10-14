@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView autoresizesSubviews="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aeB-Sa-gIj">
-                                <rect key="frame" x="0.0" y="64" width="375" height="1136"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="1180"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IgA-Ap-A6f">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="736"/>
@@ -598,24 +598,6 @@ Amanda Doan, Juan David Garrido, Spencer Grant, Brighten Jelke and George Clare 
             </objects>
             <point key="canvasLocation" x="1784.8" y="-397.15142428785612"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="sGi-IZ-5K0">
-            <objects>
-                <navigationController id="YtU-Lb-9YS" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xV2-uT-E8R">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BBj-33-sjC" kind="relationship" relationship="rootViewController" id="ndA-4p-IXa"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zF1-Na-GJg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3215.1999999999998" y="10.344827586206897"/>
-        </scene>
         <!--Author Details View Controller-->
         <scene sceneID="bGQ-fX-1Rg">
             <objects>
@@ -625,7 +607,7 @@ Amanda Doan, Juan David Garrido, Spencer Grant, Brighten Jelke and George Clare 
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="BUv-Pi-aGu">
-                                <rect key="frame" x="0.0" y="79" width="375" height="588"/>
+                                <rect key="frame" x="0.0" y="35" width="375" height="632"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="gmR-uw-LMJ">
                                         <rect key="frame" x="15" y="0.0" width="345" height="100"/>
@@ -662,7 +644,7 @@ Amanda Doan, Juan David Garrido, Spencer Grant, Brighten Jelke and George Clare 
                                         </subviews>
                                     </stackView>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wa9-gy-7Q1">
-                                        <rect key="frame" x="0.0" y="110" width="375" height="478"/>
+                                        <rect key="frame" x="0.0" y="110" width="375" height="522"/>
                                         <connections>
                                             <segue destination="85n-ck-v6d" kind="embed" identifier="" id="vSG-Wa-Vip"/>
                                         </connections>
@@ -701,7 +683,7 @@ Amanda Doan, Juan David Garrido, Spencer Grant, Brighten Jelke and George Clare 
                 <viewControllerPlaceholder storyboardName="PostTableViewController" referencedIdentifier="PostTableController" id="85n-ck-v6d" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KkG-3C-Pos" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3950" y="25"/>
+            <point key="canvasLocation" x="5023" y="492"/>
         </scene>
         <!--PostTableController-->
         <scene sceneID="gDt-ZL-bZs">
