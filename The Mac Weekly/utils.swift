@@ -114,6 +114,18 @@ public class TestableUtils {
         
     }
     
+    // verify that input is a valid email format (not specifically macalester)
+    // the text box expects email input, but as far as I can tell it only uses that to set the keyboard
+    // code from: https://stackoverflow.com/a/35789191
+    static func isEmail(email:String) -> Bool {
+        
+        let emailFormat = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailFormat)
+        // guide to filtering with predicate: https://nshipster.com/nspredicate/
+        return emailPredicate.evaluate(with: email)
+        
+    }
+    
     // Log in a user through Firebase
     static func login(email: String, password: String) {
         
@@ -134,7 +146,7 @@ public class TestableUtils {
         
         // TODO: Replace all print statements with logs once we have that set up
         
-        if isMacalesterEmail(email: email) {
+        if isEmail(email: email) {
             
             // NOTE: this automatically signs in this new user
             Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
