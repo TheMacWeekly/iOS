@@ -50,6 +50,8 @@ class LandingViewController: UIViewController, UISearchResultsUpdating {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.definesPresentationContext = true  // Ensures search bar doesn't disappear after viewing article
+        
         curPostsAPI = TMWAPI.postsAPI
         postTableView.infiniteTableView.fetchPage = {(pageNum, pageLen) in
             return self.curPostsAPI.page(pageNum).pageLen(pageLen).loadSingle()
