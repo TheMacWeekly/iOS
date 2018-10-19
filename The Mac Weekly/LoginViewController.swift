@@ -23,7 +23,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         
         // This is essential for our final login view controller!
         GIDSignIn.sharedInstance().uiDelegate = self
-        GIDSignIn.sharedInstance().signIn()
+        //GIDSignIn.sharedInstance().signIn()
     }
     
     @IBAction func login(_ sender: UIButton) {
@@ -38,6 +38,9 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         TestableUtils.logout()
     }
     
+    @IBAction func googleSignIn(_ sender: UIButton){
+        GIDSignIn.sharedInstance().signIn()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

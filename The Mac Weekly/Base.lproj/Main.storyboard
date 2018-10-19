@@ -263,9 +263,12 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="vlr-96-u1a"/>
                                         </constraints>
-                                        <state key="normal" title="  Sign In " image="google.png">
+                                        <state key="normal" title="  Sign In " image="google">
                                             <color key="titleColor" red="0.023529411760000001" green="0.25882352939999997" blue="0.41176470590000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="googleSignIn:" destination="mfN-CY-j8u" eventType="touchUpInside" id="gHb-st-dQE"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="flq-RB-QWf">
                                         <rect key="frame" x="89.5" y="384" width="141" height="40"/>
@@ -828,7 +831,7 @@ Amanda Doan, Juan David Garrido, Spencer Grant, Brighten Jelke and George Clare 
         </scene>
     </scenes>
     <resources>
-        <image name="google.png" width="18" height="18"/>
+        <image name="google" width="18" height="18"/>
         <image name="logo" width="356" height="354"/>
         <image name="logo_window" width="3639" height="427"/>
         <image name="settings_icon" width="24" height="24"/>

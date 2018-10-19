@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		0014B205211271C1005B410E /* UILabel+HTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0014B204211271C1005B410E /* UILabel+HTML.swift */; };
 		0014B206211271C1005B410E /* UILabel+HTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0014B204211271C1005B410E /* UILabel+HTML.swift */; };
-		0024649A21508FF100DF0038 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0024649921508FF100DF0038 /* GoogleService-Info.plist */; };
 		00341DB7215DC85300D07762 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00341DB6215DC85300D07762 /* SettingsTableViewController.swift */; };
 		00341DB8215DC85300D07762 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00341DB6215DC85300D07762 /* SettingsTableViewController.swift */; };
 		0039066F215E81E80001A88A /* AccountSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0039066E215E81E80001A88A /* AccountSettingsTableViewController.swift */; };
@@ -39,6 +38,8 @@
 		67E2FC262030E423000FD5BE /* PostTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67E2FC242030E422000FD5BE /* PostTableViewController.storyboard */; };
 		AE7E53254523D4266FBF195F /* Pods_The_Mac_Weekly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BAAC00BD8C48F155EEFCA94 /* Pods_The_Mac_Weekly.framework */; };
 		CBFB36ABF45CD017F26735B5 /* Pods_The_Mac_WeeklyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC1B70C2E1F13089716348D /* Pods_The_Mac_WeeklyUITests.framework */; };
+		DF1537F22179256800EC048B /* utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67039EC3202AD158009357FF /* utils.swift */; };
+		DF1537F32179257A00EC048B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003CB0EB20DDAF18001A790B /* LoginViewController.swift */; };
 		FC129842C382CCC0B5715925 /* Pods_The_Mac_WeeklyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F064AFB1504B1B2B0F0DA185 /* Pods_The_Mac_WeeklyTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -505,9 +506,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF1537F32179257A00EC048B /* LoginViewController.swift in Sources */,
 				00390670215E81E80001A88A /* AccountSettingsTableViewController.swift in Sources */,
 				6716CA192026BE3400F008C0 /* The_Mac_WeeklyTests.swift in Sources */,
 				0014B206211271C1005B410E /* UILabel+HTML.swift in Sources */,
+				DF1537F22179256800EC048B /* utils.swift in Sources */,
 				00393585216D461D00464D95 /* AboutViewController.swift in Sources */,
 				00341DB8215DC85300D07762 /* SettingsTableViewController.swift in Sources */,
 			);
@@ -686,7 +689,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.tmw.The-Mac-Weekly-brighten";
-
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -699,13 +701,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-
 				DEVELOPMENT_TEAM = KQ2D936C95;
 				INFOPLIST_FILE = "The Mac Weekly/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.tmw.The-Mac-Weekly-brighten";
-
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

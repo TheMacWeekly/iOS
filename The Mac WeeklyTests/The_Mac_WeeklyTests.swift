@@ -83,6 +83,11 @@ class The_Mac_WeeklyTests: XCTestCase {
         XCTAssertTrue(TestableUtils.isMacalesterEmail(email: "example@MaCaLeStEr.EdU"))
     }
     
+//    func testRejectInvalidEmailFormat(){
+//        
+//    }
+    
+    
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
