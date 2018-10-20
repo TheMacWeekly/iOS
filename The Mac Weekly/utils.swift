@@ -115,7 +115,6 @@ public class TestableUtils {
     }
     
     // verify that input is a valid email format (not specifically macalester)
-    // the text box expects email input, but as far as I can tell it only uses that to set the keyboard
     // code from: https://stackoverflow.com/a/35789191
     static func isEmail(email:String) -> Bool {
         

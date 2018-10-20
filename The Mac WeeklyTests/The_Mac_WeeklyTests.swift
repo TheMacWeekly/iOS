@@ -83,10 +83,21 @@ class The_Mac_WeeklyTests: XCTestCase {
         XCTAssertTrue(TestableUtils.isMacalesterEmail(email: "example@MaCaLeStEr.EdU"))
     }
     
-//    func testRejectInvalidEmailFormat(){
-//        
-//    }
+    func testRejectInvalidEmailFormat(){
+        XCTAssertFalse(TestableUtils.isEmail(email: "example.com"))
+        XCTAssertFalse(TestableUtils.isEmail(email: "example@yahoo"))
+        XCTAssertFalse(TestableUtils.isEmail(email: "@yahoo.net"))
+        XCTAssertFalse(TestableUtils.isEmail(email: "@."))
+        XCTAssertFalse(TestableUtils.isEmail(email: "example@gmail."))
+        XCTAssertFalse(TestableUtils.isEmail(email: "example@.edu"))
+    }
     
+    func testAcceptAnyEmail(){
+        XCTAssertTrue(TestableUtils.isEmail(email: "example@yahoo.com"))
+        XCTAssertTrue(TestableUtils.isEmail(email: "example@macalester.edu"))
+        XCTAssertTrue(TestableUtils.isEmail(email: "example@gmail.com"))
+        XCTAssertTrue(TestableUtils.isEmail(email: "ANyThiNG@cOMCaSt.NeT"))
+    }
     
     
     func testPerformanceExample() {
