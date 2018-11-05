@@ -17,7 +17,7 @@ class InfinitePostTableView: InfiniteTableView<Post?> {
 }
 
 class PostTableViewController: UITableViewController {
-    let pullToRefresh = UIRefreshControl()
+    //let pullToRefresh = UIRefreshControl()
     
     var leadPost: Post?
     
@@ -79,11 +79,11 @@ class PostTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if #available(iOS 10.0, *) {
-            tableView.refreshControl = pullToRefresh
+            //tableView.refreshControl = pullToRefresh
         } else {
-            tableView.addSubview(pullToRefresh)
+            //tableView.addSubview(pullToRefresh)
         }
-        pullToRefresh.addTarget(self, action: #selector(refreshView(_:)), for: .valueChanged)
+        //pullToRefresh.addTarget(self, action: #selector(refreshView(_:)), for: .valueChanged)
         let isBigCell = (indexPath.row == 0 && leadPost != nil)
         let identifier = isBigCell ? "PostTableViewCellBig" : "PostTableViewCell"
         guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? PostTableViewCell else {
