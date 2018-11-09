@@ -35,6 +35,8 @@ class LandingViewController: UIViewController, UISearchResultsUpdating {
     @IBOutlet weak var postView: UIView!
     
     
+    
+    
     var postTableView: PostTableViewController!
     
     var selectedButton: UIButton!

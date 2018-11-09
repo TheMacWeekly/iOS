@@ -507,6 +507,15 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pSA-bS-Dex" id="tef-sy-99N">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="~" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Hh-1H-qrm">
+                                                    <rect key="frame" x="16" y="12" width="11" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -520,6 +529,7 @@
                     <navigationItem key="navigationItem" title="Settings" id="U51-uX-M9o"/>
                     <connections>
                         <outlet property="accountSettingsButton" destination="szu-6l-RhZ" id="xkj-nh-q5l"/>
+                        <outlet property="crashButton" destination="pSA-bS-Dex" id="Vwf-LJ-HP6"/>
                         <outlet property="reportIssueButton" destination="zQr-0w-e3L" id="Jog-Jb-RuC"/>
                         <outlet property="sendFeedBackButton" destination="cAC-T3-2Pa" id="Wps-cH-Tr1"/>
                     </connections>
