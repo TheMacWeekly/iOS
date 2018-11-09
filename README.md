@@ -10,6 +10,8 @@ The best mobile platform
     1. enter `sudo gem install cocoapods` in the terminal (doesn't matter what directory you're in)
     2. `cd` into the iOS repo on your machine (if you use `ls` you should be able to see the .xcodeproj file among others)
     3. enter `pod install`
+    
+**NOTE:** If you already have Cocoapods installed, you may need to enter `pod repo update` and then `pod install`. The first command might take literally forever to run but trust me, it gets there eventually. 
   
 Finally, in Xcode open the **The Mac Weekly.xcodeworkspace** file, **NOT The Mac Weekly.xcodeproj** file.
 
