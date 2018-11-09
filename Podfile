@@ -25,6 +25,9 @@ target 'The Mac Weekly' do
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'GoogleSignIn'
+
+  pod 'Fabric', '~> 1.8.2'
+  pod 'Crashlytics', '~> 3.11.1'
     
   target 'The Mac WeeklyTests' do
     inherit! :search_paths
