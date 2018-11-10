@@ -7,15 +7,33 @@
 //
 
 import UIKit
+import Crashlytics
 
 class AboutViewController: UIViewController {
     
+    var numTaps: Int = 0
+    
     @IBOutlet weak var versionLabel: UILabel!
-
+    @IBOutlet weak var logo: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         versionLabel.text = "Version " + (Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String)
+        logo.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(logoTapped(sender:))))
     }
+    
+    // Manually crash the app to test Crashlytics
+    @objc func logoTapped(sender: UITapGestureRecognizer) {
+        
+        numTaps += 1
+        
+        if (numTaps == 5) {
+            print("\n==============================================\nManual crash, for testing firebase crashlytics\n==============================================\n")
+            Crashlytics.sharedInstance().crash()
+        }
+    }
+    
     
 
     /*

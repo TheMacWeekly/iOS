@@ -8,7 +8,6 @@
 
 import UIKit
 import MessageUI
-import Crashlytics
 
 class SettingsTableViewController: UITableViewController, MFMailComposeViewControllerDelegate {
     
@@ -17,8 +16,6 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
     @IBOutlet weak var accountSettingsButton: UITableViewCell!
     @IBOutlet weak var sendFeedBackButton: UITableViewCell!
     @IBOutlet weak var reportIssueButton: UITableViewCell!
-    
-    @IBOutlet weak var crashButton: UITableViewCell!
     
     
     
@@ -30,7 +27,6 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
         accountSettingsButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(accountSettingsTapped(sender:))))
         sendFeedBackButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(sendFeedBack(sender:))))
         reportIssueButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(reportIssue(sender:))))
-        crashButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(crash(sender:))))
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -78,13 +74,6 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
         else {
             showSendMailErrorAlert()
         }
-    }
-    
-    // Manually crash the app to test Crashlytics
-    @objc func crash(sender: UITapGestureRecognizer) {
-        
-        print("\n==============================================\nManual crash, for testing firebase crashlytics\n==============================================\n")
-        Crashlytics.sharedInstance().crash()
     }
     
     
