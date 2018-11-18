@@ -90,6 +90,8 @@ class The_Mac_WeeklyTests: XCTestCase {
         XCTAssertFalse(TestableUtils.isEmail(email: "@."))
         XCTAssertFalse(TestableUtils.isEmail(email: "example@gmail."))
         XCTAssertFalse(TestableUtils.isEmail(email: "example@.edu"))
+        XCTAssertFalse(TestableUtils.isEmail(email: "example@gmail.comexample@.edu"))
+        XCTAssertFalse(TestableUtils.isEmail(email: "exa mple@gma il.ed u"))
     }
     
     func testAcceptAnyEmail(){

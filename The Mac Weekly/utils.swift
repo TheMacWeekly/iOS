@@ -101,6 +101,7 @@ public class TestableUtils {
         
     }
     
+    // This function is no longer used
     // Verify that a user's email meets our standards (ie is a mac.edu email)
     static func isMacalesterEmail(email: String) -> Bool {
         
@@ -111,7 +112,6 @@ public class TestableUtils {
         let doesMatch = email.range(of: pattern, options: [.regularExpression, .caseInsensitive]) != nil
         
         return doesMatch
-        
     }
     
     // verify that input is a valid email format (not specifically macalester)
@@ -126,32 +126,33 @@ public class TestableUtils {
     }
     
     // Log in a user through Firebase
-    static func login(email: String, password: String) {
-        
+    static func login(email: String, password: String) -> String{
+        var m = ""
         print("About to sign in user")
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
             
             if let error = error {
-                print(error)
+                m = "Invalid email or password"
             }
             else {
-                print("User signed in")
+                // user signed in
             }
         }
+        return m
     }
     
     // Register a new user
-    static func register(email: String, password: String) {
-        
-        // TODO: Replace all print statements with logs once we have that set up
+    static func register(email: String, password: String) -> String{
         
         if isEmail(email: email) {
+            
+            var message = ""
             
             // NOTE: this automatically signs in this new user
             Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
                 
                 if let error = error {
-                    print(error)
+                    message = error.localizedDescription
                 }
                 else {
                     // Assuming nothing goes wrong with creating/signing in a new user, send them an email
@@ -159,26 +160,23 @@ public class TestableUtils {
                     Auth.auth().currentUser?.sendEmailVerification { (error) in
                         
                         if let error = error {
-                            print(error)
+                            message = "error creating user account"
                         }
-                        else {
-                            print("Verification email sent successfully")
-                        }
-
                     }
                 }
             }
+            return message
         }
             
         else {
-            print("Not a valid email")
+          return "not a valid email address"
         }
     }
     
     // Log current user out of firebase and out of their google account
-    static func logout() {
+    static func logout() -> String{
         
-        // TODO: Replace all print statements with logs once we have that set up
+        var message = ""
         
         if (Auth.auth().currentUser != nil) {
         
@@ -187,7 +185,7 @@ public class TestableUtils {
             do {
                 try Auth.auth().signOut()
             } catch let signOutError as NSError {
-                print(signOutError)
+                message = signOutError.localizedDescription
             }
             print("Logged out of Firebase")
             
@@ -195,11 +193,16 @@ public class TestableUtils {
             print("About to log out of Google account")
             GIDSignIn.sharedInstance().signOut()
             print("Logged out of Google account")
+            if (message == ""){ // no firebase sign out errors
+                message = "Logged out of Google account"
+            }
             
         }
         else {
-            print("No user signed in")
+            message = "No user signed in"
         }
+        
+        return message
     }
     
     // Check login status without having to import firebase auth

@@ -26,15 +26,41 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
     }
     
     @IBAction func login(_ sender: UIButton) {
-        TestableUtils.login(email: emailEntry.text!, password: passwordEntry.text!)
+        let m = TestableUtils.login(email: emailEntry.text!, password: passwordEntry.text!)
+        
+        if (m != ""){
+            let alert = UIAlertController(title: "Error", message: "Invalid username or password", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Go back", comment: "Default action"), style: .default, handler: { _ in
+                NSLog("Invalid username or password")
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     @IBAction func register(_ sender: UIButton) {
-        TestableUtils.register(email: emailEntry.text!, password: passwordEntry.text!)
+        let m = TestableUtils.register(email: emailEntry.text!, password: passwordEntry.text!)
+        
+        let alert = UIAlertController(title: "Error", message: m, preferredStyle: .alert)
+        
+        if (m != ""){
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Go back", comment: "Default action"), style: .default, handler: { _ in
+                NSLog(m)
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     @IBAction func SignOut(_ sender: UIButton) {
-        TestableUtils.logout()
+        let m = TestableUtils.logout()
+        let alert = UIAlertController(title: "Error", message: m, preferredStyle: .alert)
+        
+        if (m != ""){
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Go back", comment: "Default action"), style: .default, handler: { _ in
+                NSLog(m)
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
+        
     }
     
     @IBAction func googleSignIn(_ sender: UIButton){
