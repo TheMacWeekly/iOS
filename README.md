@@ -25,3 +25,9 @@ _**If you open the .xcodeproj file, you will not be able to build and run**_
     3. Add your account information, then go back to the blueprint page and follow any instructions it has for you about certificates and signing. You might need to log in to your developer account at https://developer.apple.com/account/.
 4. Now you should be able to build and test the app on any simulator you like! And if you have a phone, you'll need to jump through a few more hoops and add your device to your account, but it should give you information about how to do that if you plug in your phone and try to run the app on it. Happy developing!
 
+## Working on and Submitting new features
+
+Whenever you're about to start working on a new feature, make sure you follow the procedures outlined in this doc: https://docs.google.com/document/d/14I2RP-D0HfQESTgWpX3R9mOpl9t9DLK9Dow1e1ytq1M/edit?usp=sharing
+
+If you have any questions about any of the procedures, feel free to ask one of the leads or anyone else who's been on the team for a bit!
+
