@@ -26,32 +26,65 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
     }
     
     @IBAction func login(_ sender: UIButton) {
-        let m = TestableUtils.login(email: emailEntry.text!, password: passwordEntry.text!)
         
-        if (m != ""){
-            let alert = UIAlertController(title: "Error", message: "Invalid username or password", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: NSLocalizedString("Go back", comment: "Default action"), style: .default, handler: { _ in
-                NSLog("Invalid username or password")
-            }))
-            self.present(alert, animated: true, completion: nil)
+        Auth.auth().signIn(withEmail: emailEntry.text!, password: passwordEntry.text!) { user, error in
+            if let error = error, user == nil {
+                let alert = UIAlertController(title: "Error",
+                                              message: error.localizedDescription,
+                                              preferredStyle: .alert)
+                
+                alert.addAction(UIAlertAction(title: NSLocalizedString("Go back", comment: "Default action"), style: .default, handler: { _ in
+                    NSLog("Invalid username or password")
+                }))
+                self.present(alert, animated: true, completion: nil)
+            }
         }
     }
     
     @IBAction func register(_ sender: UIButton) {
-        let m = TestableUtils.register(email: emailEntry.text!, password: passwordEntry.text!)
-        
-        let alert = UIAlertController(title: "Error", message: m, preferredStyle: .alert)
-        
-        if (m != ""){
-            alert.addAction(UIAlertAction(title: NSLocalizedString("Go back", comment: "Default action"), style: .default, handler: { _ in
-                NSLog(m)
-            }))
-            self.present(alert, animated: true, completion: nil)
+        if TestableUtils.isEmail(email: emailEntry.text!){
+            Auth.auth().createUser(withEmail: emailEntry.text!, password: passwordEntry.text!){ (authResult, error) in
+                if let error = error {
+                    let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: NSLocalizedString("Go back", comment: "Default action"), style: .default, handler: { _ in
+                        NSLog("error creating new user")
+                    }))
+                    self.present(alert, animated: true, completion: nil)
+                }
+                else{
+                    Auth.auth().currentUser?.sendEmailVerification { (error) in
+                        if let error = error{
+                            let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+                            alert.addAction(UIAlertAction(title: NSLocalizedString("Go back", comment: "Default action"), style: .default, handler: { _ in
+                                NSLog("error with verication email")
+                            }))
+                            self.present(alert, animated: true, completion: nil)
+                        }
+                        
+                    }
+                }
+            }
         }
+        // TODO: decompose alert creation method
     }
     
     @IBAction func SignOut(_ sender: UIButton) {
-        let m = TestableUtils.logout()
+        var m = ""
+        
+        if (Auth.auth().currentUser != nil){
+            do{
+                try Auth.auth().signOut()
+            }
+            catch let signOutError as NSError {
+                m = signOutError.localizedDescription
+            }
+            
+            GIDSignIn.sharedInstance().signOut()
+        }
+        else{
+            m = "no user signed in"
+        }
+        
         let alert = UIAlertController(title: "Error", message: m, preferredStyle: .alert)
         
         if (m != ""){
