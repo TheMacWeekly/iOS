@@ -29,14 +29,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         
         Auth.auth().signIn(withEmail: emailEntry.text!, password: passwordEntry.text!) { user, error in
             if let error = error, user == nil {
-                let alert = UIAlertController(title: "Error",
-                                              message: error.localizedDescription,
-                                              preferredStyle: .alert)
-                
-                alert.addAction(UIAlertAction(title: NSLocalizedString("Go back", comment: "Default action"), style: .default, handler: { _ in
-                    NSLog("Invalid username or password")
-                }))
-                self.present(alert, animated: true, completion: nil)
+                self.showAlert(message: error.localizedDescription, log: "Invalid username or password")
             }
         }
     }
@@ -45,53 +38,44 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         if TestableUtils.isEmail(email: emailEntry.text!){
             Auth.auth().createUser(withEmail: emailEntry.text!, password: passwordEntry.text!){ (authResult, error) in
                 if let error = error {
-                    let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: NSLocalizedString("Go back", comment: "Default action"), style: .default, handler: { _ in
-                        NSLog("error creating new user")
-                    }))
-                    self.present(alert, animated: true, completion: nil)
+                    self.showAlert(message: error.localizedDescription, log: "error creating new user")
                 }
                 else{
                     Auth.auth().currentUser?.sendEmailVerification { (error) in
                         if let error = error{
-                            let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
-                            alert.addAction(UIAlertAction(title: NSLocalizedString("Go back", comment: "Default action"), style: .default, handler: { _ in
-                                NSLog("error with verication email")
-                            }))
-                            self.present(alert, animated: true, completion: nil)
+                            self.showAlert(message: error.localizedDescription, log: "error with verication email")
                         }
-                        
                     }
                 }
             }
         }
-        // TODO: decompose alert creation method
+        else{
+            self.showAlert(message: "incorrect email address format", log: "incorrect email address format")
+        }
+    }
+    
+    func showAlert(message: String, log: String){
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Go back", comment: "Default action"), style: .default, handler: { _ in
+            NSLog(log)
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
     
     @IBAction func SignOut(_ sender: UIButton) {
-        var m = ""
         
         if (Auth.auth().currentUser != nil){
             do{
                 try Auth.auth().signOut()
             }
             catch let signOutError as NSError {
-                m = signOutError.localizedDescription
+                self.showAlert(message: signOutError.localizedDescription, log: signOutError.localizedDescription)
             }
             
             GIDSignIn.sharedInstance().signOut()
         }
         else{
-            m = "no user signed in"
-        }
-        
-        let alert = UIAlertController(title: "Error", message: m, preferredStyle: .alert)
-        
-        if (m != ""){
-            alert.addAction(UIAlertAction(title: NSLocalizedString("Go back", comment: "Default action"), style: .default, handler: { _ in
-                NSLog(m)
-            }))
-            self.present(alert, animated: true, completion: nil)
+            self.showAlert(message: "no user signed in", log: "no user signed in")
         }
         
     }
