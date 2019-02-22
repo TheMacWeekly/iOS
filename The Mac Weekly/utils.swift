@@ -196,7 +196,7 @@ public class TestableUtils {
             print("Logged out of Google account")
             
         }
-        else if (GIDSignIn.sharedInstance()?.currentUser != nil){
+        else if (GIDSignIn.sharedInstance().currentUser != nil){
             GIDSignIn.sharedInstance().signOut()
         }
         else {
@@ -208,7 +208,7 @@ public class TestableUtils {
     // Check login status without having to import firebase auth
     static func isLoggedIn() -> Bool {
         
-        return Auth.auth().currentUser != nil || GIDSignIn.sharedInstance()?.currentUser != nil
+        return Auth.auth().currentUser != nil || GIDSignIn.sharedInstance().currentUser != nil
         
     }
 
