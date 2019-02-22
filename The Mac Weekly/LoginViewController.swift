@@ -31,6 +31,9 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
             if let error = error, user == nil {
                 self.showAlert(message: error.localizedDescription, log: "Invalid username or password")
             }
+            else{
+                self.navigationController?.popToRootViewController(animated: true)
+            }
         }
     }
     
@@ -46,6 +49,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
                             self.showAlert(message: error.localizedDescription, log: "error with verication email")
                         }
                     }
+                    self.navigationController?.popToRootViewController(animated: true)
                 }
             }
         }
@@ -62,6 +66,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         self.present(alert, animated: true, completion: nil)
     }
     
+    // is this method used?
     @IBAction func SignOut(_ sender: UIButton) {
         
         if (Auth.auth().currentUser != nil){
@@ -82,6 +87,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
     
     @IBAction func googleSignIn(_ sender: UIButton){
         GIDSignIn.sharedInstance().signIn()
+        self.navigationController?.popToRootViewController(animated: true)
     }
 
     override func didReceiveMemoryWarning() {
