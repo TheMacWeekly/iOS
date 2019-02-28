@@ -17,6 +17,8 @@
 		00393584216D461D00464D95 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00393583216D461D00464D95 /* AboutViewController.swift */; };
 		00393585216D461D00464D95 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00393583216D461D00464D95 /* AboutViewController.swift */; };
 		003CB0EC20DDAF18001A790B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003CB0EB20DDAF18001A790B /* LoginViewController.swift */; };
+		0066226522272F4B008E31FD /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0066226422272F4A008E31FD /* NotificationService.swift */; };
+		0066226922272F4B008E31FD /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0066226222272F4A008E31FD /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		2441FE8720717F4700FFF7D4 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2441FE8620717F4700FFF7D4 /* LandingViewController.swift */; };
 		2441FE8920719FE300FFF7D4 /* NavbarExtensionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2441FE8820719FE300FFF7D4 /* NavbarExtensionView.swift */; };
 		24D46E5520704D0600457038 /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24D46E5420704D0600457038 /* PostTableViewCell.xib */; };
@@ -37,11 +39,19 @@
 		67E2FC2320303277000FD5BE /* InfiniteTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E2FC2220303277000FD5BE /* InfiniteTableView.swift */; };
 		67E2FC262030E423000FD5BE /* PostTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67E2FC242030E422000FD5BE /* PostTableViewController.storyboard */; };
 		AE7E53254523D4266FBF195F /* Pods_The_Mac_Weekly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BAAC00BD8C48F155EEFCA94 /* Pods_The_Mac_Weekly.framework */; };
+		C390C9D624DAA59973AED5D4 /* Pods_OneSignalNotificationServiceExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9429FBA3BBA72559E1D6BE6E /* Pods_OneSignalNotificationServiceExtension.framework */; };
 		CBFB36ABF45CD017F26735B5 /* Pods_The_Mac_WeeklyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC1B70C2E1F13089716348D /* Pods_The_Mac_WeeklyUITests.framework */; };
 		FC129842C382CCC0B5715925 /* Pods_The_Mac_WeeklyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F064AFB1504B1B2B0F0DA185 /* Pods_The_Mac_WeeklyTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		0066226722272F4B008E31FD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6716C9F82026BE3300F008C0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0066226122272F4A008E31FD;
+			remoteInfo = OneSignalNotificationServiceExtension;
+		};
 		6716CA152026BE3400F008C0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6716C9F82026BE3300F008C0 /* Project object */;
@@ -58,6 +68,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		0066226D22272F4B008E31FD /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				0066226922272F4B008E31FD /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		0014B204211271C1005B410E /* UILabel+HTML.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+HTML.swift"; sourceTree = "<group>"; };
 		0024649921508FF100DF0038 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -65,6 +89,9 @@
 		0039066E215E81E80001A88A /* AccountSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingsTableViewController.swift; sourceTree = "<group>"; };
 		00393583216D461D00464D95 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		003CB0EB20DDAF18001A790B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		0066226222272F4A008E31FD /* OneSignalNotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneSignalNotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		0066226422272F4A008E31FD /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		0066226622272F4B008E31FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1BAAC00BD8C48F155EEFCA94 /* Pods_The_Mac_Weekly.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_The_Mac_Weekly.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2045A2157C41EF5C39A058D3 /* Pods-The Mac WeeklyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-The Mac WeeklyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-The Mac WeeklyTests/Pods-The Mac WeeklyTests.release.xcconfig"; sourceTree = "<group>"; };
 		2441FE8620717F4700FFF7D4 /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
@@ -93,15 +120,26 @@
 		67E2FC2220303277000FD5BE /* InfiniteTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfiniteTableView.swift; sourceTree = "<group>"; };
 		67E2FC252030E423000FD5BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "The Mac Weekly/Base.lproj/PostTableViewController.storyboard"; sourceTree = "<group>"; };
 		6F207B3E1B8E3F0EDB8610E4 /* Pods-The Mac WeeklyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-The Mac WeeklyUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-The Mac WeeklyUITests/Pods-The Mac WeeklyUITests.release.xcconfig"; sourceTree = "<group>"; };
+		8BC15B2E18AEFC43B06650B1 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
+		9429FBA3BBA72559E1D6BE6E /* Pods_OneSignalNotificationServiceExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneSignalNotificationServiceExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97D9A86A5E26DA4CE10195BD /* Pods-The Mac WeeklyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-The Mac WeeklyUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-The Mac WeeklyUITests/Pods-The Mac WeeklyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		BBFDD34752FA0A1EAFB6BC6C /* Pods-The Mac WeeklyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-The Mac WeeklyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-The Mac WeeklyTests/Pods-The Mac WeeklyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CEC1B70C2E1F13089716348D /* Pods_The_Mac_WeeklyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_The_Mac_WeeklyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2FF6C3764CE9C04118D904E /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
 		DD809222C92AEDAEF8C6C32A /* Pods-The Mac Weekly.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-The Mac Weekly.debug.xcconfig"; path = "Pods/Target Support Files/Pods-The Mac Weekly/Pods-The Mac Weekly.debug.xcconfig"; sourceTree = "<group>"; };
 		E84886F0192DE95D72C6134C /* Pods-The Mac Weekly.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-The Mac Weekly.release.xcconfig"; path = "Pods/Target Support Files/Pods-The Mac Weekly/Pods-The Mac Weekly.release.xcconfig"; sourceTree = "<group>"; };
 		F064AFB1504B1B2B0F0DA185 /* Pods_The_Mac_WeeklyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_The_Mac_WeeklyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0066225F22272F4A008E31FD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C390C9D624DAA59973AED5D4 /* Pods_OneSignalNotificationServiceExtension.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6716C9FD2026BE3300F008C0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -129,12 +167,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0066226322272F4A008E31FD /* OneSignalNotificationServiceExtension */ = {
+			isa = PBXGroup;
+			children = (
+				0066226422272F4A008E31FD /* NotificationService.swift */,
+				0066226622272F4B008E31FD /* Info.plist */,
+			);
+			path = OneSignalNotificationServiceExtension;
+			sourceTree = "<group>";
+		};
 		111A3028EAD8BA8B59C492F2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				1BAAC00BD8C48F155EEFCA94 /* Pods_The_Mac_Weekly.framework */,
 				F064AFB1504B1B2B0F0DA185 /* Pods_The_Mac_WeeklyTests.framework */,
 				CEC1B70C2E1F13089716348D /* Pods_The_Mac_WeeklyUITests.framework */,
+				9429FBA3BBA72559E1D6BE6E /* Pods_OneSignalNotificationServiceExtension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -145,6 +193,7 @@
 				6716CA022026BE3300F008C0 /* The Mac Weekly */,
 				6716CA172026BE3400F008C0 /* The Mac WeeklyTests */,
 				6716CA222026BE3400F008C0 /* The Mac WeeklyUITests */,
+				0066226322272F4A008E31FD /* OneSignalNotificationServiceExtension */,
 				6716CA012026BE3300F008C0 /* Products */,
 				7CCA455B6EB4A92ABB709033 /* Pods */,
 				111A3028EAD8BA8B59C492F2 /* Frameworks */,
@@ -157,6 +206,7 @@
 				6716CA002026BE3300F008C0 /* The Mac Weekly.app */,
 				6716CA142026BE3400F008C0 /* The Mac WeeklyTests.xctest */,
 				6716CA1F2026BE3400F008C0 /* The Mac WeeklyUITests.xctest */,
+				0066226222272F4A008E31FD /* OneSignalNotificationServiceExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -219,6 +269,8 @@
 				2045A2157C41EF5C39A058D3 /* Pods-The Mac WeeklyTests.release.xcconfig */,
 				97D9A86A5E26DA4CE10195BD /* Pods-The Mac WeeklyUITests.debug.xcconfig */,
 				6F207B3E1B8E3F0EDB8610E4 /* Pods-The Mac WeeklyUITests.release.xcconfig */,
+				8BC15B2E18AEFC43B06650B1 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */,
+				D2FF6C3764CE9C04118D904E /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -226,6 +278,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		0066226122272F4A008E31FD /* OneSignalNotificationServiceExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0066226A22272F4B008E31FD /* Build configuration list for PBXNativeTarget "OneSignalNotificationServiceExtension" */;
+			buildPhases = (
+				799C465F81E9097A4B8FE39D /* [CP] Check Pods Manifest.lock */,
+				0066225E22272F4A008E31FD /* Sources */,
+				0066225F22272F4A008E31FD /* Frameworks */,
+				0066226022272F4A008E31FD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OneSignalNotificationServiceExtension;
+			productName = OneSignalNotificationServiceExtension;
+			productReference = 0066226222272F4A008E31FD /* OneSignalNotificationServiceExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		6716C9FF2026BE3300F008C0 /* The Mac Weekly */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6716CA282026BE3400F008C0 /* Build configuration list for PBXNativeTarget "The Mac Weekly" */;
@@ -236,10 +306,12 @@
 				6716C9FE2026BE3300F008C0 /* Resources */,
 				BD9C3BAA9C60E0096418AADF /* [CP] Embed Pods Frameworks */,
 				742E9A5C464A1798E825C6CB /* [CP] Copy Pods Resources */,
+				0066226D22272F4B008E31FD /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				0066226822272F4B008E31FD /* PBXTargetDependency */,
 			);
 			name = "The Mac Weekly";
 			productName = "The Mac Weekly";
@@ -290,13 +362,22 @@
 		6716C9F82026BE3300F008C0 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0920;
+				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "The Mac Weekly";
 				TargetAttributes = {
+					0066226122272F4A008E31FD = {
+						CreatedOnToolsVersion = 10.1;
+						ProvisioningStyle = Automatic;
+					};
 					6716C9FF2026BE3300F008C0 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					6716CA132026BE3400F008C0 = {
 						CreatedOnToolsVersion = 9.2;
@@ -326,11 +407,19 @@
 				6716C9FF2026BE3300F008C0 /* The Mac Weekly */,
 				6716CA132026BE3400F008C0 /* The Mac WeeklyTests */,
 				6716CA1E2026BE3400F008C0 /* The Mac WeeklyUITests */,
+				0066226122272F4A008E31FD /* OneSignalNotificationServiceExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		0066226022272F4A008E31FD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6716C9FE2026BE3300F008C0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -395,6 +484,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-The Mac Weekly/Pods-The Mac Weekly-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		799C465F81E9097A4B8FE39D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OneSignalNotificationServiceExtension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		826E864CFB6014A1F01F4058 /* [CP] Check Pods Manifest.lock */ = {
@@ -474,6 +581,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0066225E22272F4A008E31FD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0066226522272F4B008E31FD /* NotificationService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6716C9FC2026BE3300F008C0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -521,6 +636,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		0066226822272F4B008E31FD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0066226122272F4A008E31FD /* OneSignalNotificationServiceExtension */;
+			targetProxy = 0066226722272F4B008E31FD /* PBXContainerItemProxy */;
+		};
 		6716CA162026BE3400F008C0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 6716C9FF2026BE3300F008C0 /* The Mac Weekly */;
@@ -561,6 +681,45 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		0066226B22272F4B008E31FD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8BC15B2E18AEFC43B06650B1 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8Z7KYT9YVF;
+				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.tmw.The-Mac-Weekly.OneSignalNotificationServiceExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0066226C22272F4B008E31FD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D2FF6C3764CE9C04118D904E /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8Z7KYT9YVF;
+				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.tmw.The-Mac-Weekly.OneSignalNotificationServiceExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		6716CA262026BE3400F008C0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -676,13 +835,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DD809222C92AEDAEF8C6C32A /* Pods-The Mac Weekly.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B3GBL8CYN5;
+				DEVELOPMENT_TEAM = 8Z7KYT9YVF;
 				INFOPLIST_FILE = "The Mac Weekly/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.tmw.The-Mac-Weekly.test";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.tmw.The-Mac-Weekly";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -693,13 +853,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E84886F0192DE95D72C6134C /* Pods-The Mac Weekly.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B3GBL8CYN5;
+				DEVELOPMENT_TEAM = 8Z7KYT9YVF;
 				INFOPLIST_FILE = "The Mac Weekly/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.tmw.The-Mac-Weekly.test";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.tmw.The-Mac-Weekly";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -779,6 +940,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0066226A22272F4B008E31FD /* Build configuration list for PBXNativeTarget "OneSignalNotificationServiceExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0066226B22272F4B008E31FD /* Debug */,
+				0066226C22272F4B008E31FD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		6716C9FB2026BE3300F008C0 /* Build configuration list for PBXProject "The Mac Weekly" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

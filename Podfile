@@ -25,6 +25,8 @@ target 'The Mac Weekly' do
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'GoogleSignIn'
+  
+  pod 'OneSignal', '>= 2.6.2', '< 3.0'
     
   target 'The Mac WeeklyTests' do
     inherit! :search_paths
@@ -36,5 +38,9 @@ target 'The Mac Weekly' do
     # Pods for testing
   end
 
+end
+
+target 'OneSignalNotificationServiceExtension' do
+  pod 'OneSignal', '>= 2.6.2', '< 3.0'
 end
 
