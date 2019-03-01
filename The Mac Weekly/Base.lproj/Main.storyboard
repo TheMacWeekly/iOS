@@ -475,7 +475,7 @@
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Eqp-xx-bx0" secondAttribute="trailing" id="aw3-cH-2eb"/>
                                         </constraints>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="UVb-kj-hLc" userLabel="Privacy Policy">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="UVb-kj-hLc" userLabel="Privacy Policy Button">
                                         <rect key="frame" x="0.0" y="132" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UVb-kj-hLc" id="IRr-Cj-a37">
@@ -543,6 +543,7 @@
                     <navigationItem key="navigationItem" title="Settings" id="U51-uX-M9o"/>
                     <connections>
                         <outlet property="accountSettingsButton" destination="szu-6l-RhZ" id="xkj-nh-q5l"/>
+                        <outlet property="privacyPolicyButton" destination="UVb-kj-hLc" id="jQT-sc-DtY"/>
                         <outlet property="reportIssueButton" destination="zQr-0w-e3L" id="Jog-Jb-RuC"/>
                         <outlet property="sendFeedBackButton" destination="cAC-T3-2Pa" id="Wps-cH-Tr1"/>
                     </connections>

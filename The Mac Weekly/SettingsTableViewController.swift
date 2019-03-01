@@ -8,14 +8,18 @@
 
 import UIKit
 import MessageUI
+import WebKit
 
-class SettingsTableViewController: UITableViewController, MFMailComposeViewControllerDelegate {
+class SettingsTableViewController: UITableViewController, MFMailComposeViewControllerDelegate, WKNavigationDelegate {
     
     //var mailComposerVC: MFMailComposeViewController
     
     @IBOutlet weak var accountSettingsButton: UITableViewCell!
     @IBOutlet weak var sendFeedBackButton: UITableViewCell!
     @IBOutlet weak var reportIssueButton: UITableViewCell!
+    @IBOutlet weak var privacyPolicyButton: UITableViewCell!
+    
+    var webView: WKWebView!
     
     
     override func viewDidLoad() {
@@ -25,6 +29,8 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
         accountSettingsButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(accountSettingsTapped(sender:))))
         sendFeedBackButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(sendFeedBack(sender:))))
         reportIssueButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(reportIssue(sender:))))
+        
+        privacyPolicyButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showPrivacyPolicy(sender:))))
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -52,6 +58,24 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
             navigationController?.pushViewController(loginViewController, animated: true)
         }
     }
+    
+    @objc func showPrivacyPolicy(sender: UITapGestureRecognizer) {
+        // set up web view
+        webView = WKWebView()
+        webView.navigationDelegate = self
+        view = webView
+        
+        // load page
+        let url = URL(string: "https://sites.google.com/view/tmw-privacy-policy/home")!
+        webView.load(URLRequest(url: url))
+        
+        // handle refresh button
+        let refresh = UIBarButtonItem(barButtonSystemItem: .refresh, target: webView, action: #selector(webView.reload))
+        toolbarItems = [refresh]
+        navigationController?.isToolbarHidden = false
+    }
+    
+    
     
     
     @objc func sendFeedBack(sender: UITapGestureRecognizer) {
