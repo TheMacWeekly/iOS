@@ -26,7 +26,16 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
         
         super.viewDidLoad()
         
-        accountSettingsButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(accountSettingsTapped(sender:))))
+       /*
+         DISABLE ACCOUNT SETTINGS---------------------------------------------------------------
+         */
+        
+        //accountSettingsButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(accountSettingsTapped(sender:))))
+        
+        accountSettingsButton.isHidden = true; // REMOVE THIS LINE AND UNCOMMENT ABOVE TO PUT IT BACK
+        
+        //--------------------------------------------------------------------------------------
+        
         sendFeedBackButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(sendFeedBack(sender:))))
         reportIssueButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(reportIssue(sender:))))
         
