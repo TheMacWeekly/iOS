@@ -236,7 +236,6 @@
 				6716C9FE2026BE3300F008C0 /* Resources */,
 				BD9C3BAA9C60E0096418AADF /* [CP] Embed Pods Frameworks */,
 				742E9A5C464A1798E825C6CB /* [CP] Copy Pods Resources */,
-				003DDFB521961B3A000F0591 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -362,24 +361,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		003DDFB521961B3A000F0591 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\"${PODS_ROOT}/Fabric/run\"\n\"${PODS_ROOT}/Fabric/run\"\n";
-		};
 		72CEAA139273D7301432AEB7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -698,11 +679,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 8Z7KYT9YVF;
+				DEVELOPMENT_TEAM = B3GBL8CYN5;
 				INFOPLIST_FILE = "The Mac Weekly/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.tmw.The-Mac-Weekly";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.tmw.The-Mac-Weekly.brown";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -715,11 +696,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8Z7KYT9YVF;
+				DEVELOPMENT_TEAM = B3GBL8CYN5;
 				INFOPLIST_FILE = "The Mac Weekly/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.tmw.The-Mac-Weekly";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.tmw.The-Mac-Weekly.brown";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
