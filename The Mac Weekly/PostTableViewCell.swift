@@ -11,7 +11,7 @@ import Kingfisher
 
 class PostTableViewCell: UITableViewCell {
     
-    let defaultImage = UIImage(named: "logo")
+    let defaultImage = UIImage(named: "logo2")
     // MARK: Properties
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
