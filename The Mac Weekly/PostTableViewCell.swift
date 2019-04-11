@@ -11,8 +11,7 @@ import Kingfisher
 
 class PostTableViewCell: UITableViewCell {
     
-    
-    
+    let defaultImage = UIImage(named: "default_article_logo")
     // MARK: Properties
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -49,7 +48,9 @@ class PostTableViewCell: UITableViewCell {
             self.previewImage.layer.cornerRadius = 8
             self.previewImageContainer.isHidden = false
         } else {
-            self.previewImageContainer.isHidden = true
+            self.previewImage.image = defaultImage
+            self.previewImage.layer.cornerRadius = 8
+            self.previewImageContainer.isHidden = false
         }
     }
     

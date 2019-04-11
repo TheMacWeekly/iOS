@@ -20,7 +20,7 @@ class PostTableViewController: UITableViewController {
     //let pullToRefresh = UIRefreshControl()
     
     var leadPost: Post?
-    
+
     var infiniteTableView: InfinitePostTableView {
         return self.tableView as! InfinitePostTableView
     }
