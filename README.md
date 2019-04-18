@@ -27,7 +27,26 @@ _**If you open the .xcodeproj file, you will not be able to build and run**_
 
 ## Working on and Submitting new features
 
-Whenever you're about to start working on a new feature, make sure you follow the procedures outlined in this doc: https://docs.google.com/document/d/14I2RP-D0HfQESTgWpX3R9mOpl9t9DLK9Dow1e1ytq1M/edit?usp=sharing
+Whenever you're about to start working on a new feature, make sure you follow the procedures below:
+
+### When getting ready to start work on a new feature
+1. Make a new branch based on master
+2. Checkout this new branch on your machine
+3. Work on the feature, ONLY committing and pushing to the new branch
+### When the feature is ready for review
+1. Prepare your branch for a pull request
+    1. Make sure all your changes have been committed and pushed
+    2. Pull from the master branch, and fix any merge conflicts
+    3. Run your code again, make sure that no new issues were introduced with the merge
+    4. Once you’re sure that everything is running smoothly, commit and push to your new branch one last time
+    
+2. Submit the pull request
+    1. Under the “Code” tab in the repository you’ve been working in (either iOS or Android), click where it says “Branch: master” and select your new branch.
+    2. Next to that same button (which should now read “Branch: <yourbranch>”), click “New Pull Request”
+    3. Right below where it says “Open a new pull request”, make sure that one button reads “base: master” and the other reads “compare: <yourbranch>”
+    4. Make sure the title has the name of your new feature and describe what it does and how it works in the comment below the title.
+    5. That’s it! Click the submit button and let one of your leads know you need a review.
+
 
 If you have any questions about any of the procedures, feel free to ask one of the leads or anyone else who's been on the team for a bit!
 
