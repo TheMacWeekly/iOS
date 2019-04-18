@@ -26,14 +26,11 @@ extension CALayer {
 
 class LandingViewController: UIViewController, UISearchResultsUpdating {
     
-    
-    
-    
     // MARK: Properties
     @IBOutlet weak var categoriesScrollView: UIScrollView!
     @IBOutlet weak var categoryView: UIStackView!
     @IBOutlet weak var postView: UIView!
-    
+    var activityIndicator : UIActivityIndicatorView = UIActivityIndicatorView()
     
     var postTableView: PostTableViewController!
     
@@ -80,7 +77,16 @@ class LandingViewController: UIViewController, UISearchResultsUpdating {
             extendedLayoutIncludesOpaqueBars = true
             postTableView.refreshControl = nil
         }
-
+        
+        do {
+            activityIndicator.center = self.view.center
+            activityIndicator.hidesWhenStopped = true
+            activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+            view.addSubview(activityIndicator)
+            
+            activityIndicator.startAnimating()
+            UIApplication.shared.beginIgnoringInteractionEvents()
+        }
                 
         categoriesScrollView.canCancelContentTouches = true
         
@@ -99,8 +105,8 @@ class LandingViewController: UIViewController, UISearchResultsUpdating {
             button.addTarget(self, action: #selector(buttonAction(sender:)), for: UIControlEvents.touchUpInside)
             
             categoryView.addArrangedSubview(button)
-            
         }
+        
         // Do any additional setup after loading the view.
     }
     
@@ -112,6 +118,7 @@ class LandingViewController: UIViewController, UISearchResultsUpdating {
         let cat = PostCategory.order[sender.tag]
         
         curPostsAPI = curPostsAPI.category(cat)
+        
         refresh()
         
     }
