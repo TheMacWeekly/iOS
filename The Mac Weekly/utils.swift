@@ -45,6 +45,8 @@ import GoogleSignIn
 
 // String extension to fix JSON encoding issue.
 // code taken from here, with some modifications for Swift updates: https://stackoverflow.com/questions/25607247/how-do-i-decode-html-entities-in-swift
+// converts raw text to proper html format (so that special characters are rendered properly)
+// can be accessed from any file
 extension String {
     
     init?(htmlEncodedString: String) {
@@ -233,11 +235,6 @@ public class TestableUtils {
         case .some(let res):
             return res
         }
-    }
-    
-    // converts raw text to proper html format (so that special characters are rendered properly)
-    static func convertToUnicode(input: String) -> String {
-        return String.init(htmlEncodedString: input) ?? ""
     }
     
     static func getImageFromURLWithCache(key: String, url:URL, completion: @escaping  (Image?) -> Void) {
