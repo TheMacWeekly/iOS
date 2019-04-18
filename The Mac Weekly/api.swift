@@ -271,8 +271,8 @@ public struct Post {
     init?(json:JSON) {
         if let id=json["id"].number, let title = json["title"]["rendered"].string, let body = json["content"]["rendered"].string, let timeString = json["date"].string, let linkString = json["link"].string, let excerpt = json["excerpt_plaintext"].string {
             self.id = Int(truncating: id)
-            self.title = title
-            self.body = body
+            self.title = TestableUtils.convertToUnicode(input: title)
+            self.body = TestableUtils.convertToUnicode(input: body)
             self.excerptHTML = excerpt
             
             let formatter = DateFormatter()

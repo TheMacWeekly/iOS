@@ -40,6 +40,33 @@ import GoogleSignIn
 // TODO: At this point should we just rename TestableUtils to Utils? I kinda like TestableUtils because I feel like it's a more descriptive name, but I'm open to either one.
 
 // TODO: Rename this file to match whatever we end up wanting to use
+
+
+
+// String extension to fix JSON encoding issue.
+// code taken from here, with some modifications for Swift updates: https://stackoverflow.com/questions/25607247/how-do-i-decode-html-entities-in-swift
+extension String {
+    
+    init?(htmlEncodedString: String) {
+        
+        guard let data = htmlEncodedString.data(using: .utf8) else {
+            return nil
+        }
+        
+        let options: [NSAttributedString.DocumentReadingOptionKey: Any] = [
+            NSAttributedString.DocumentReadingOptionKey(rawValue: NSAttributedString.DocumentAttributeKey.documentType.rawValue): NSAttributedString.DocumentType.html,
+            NSAttributedString.DocumentReadingOptionKey(rawValue: NSAttributedString.DocumentAttributeKey.characterEncoding.rawValue): String.Encoding.utf8.rawValue
+        ]
+        
+        guard let attributedString = try? NSAttributedString(data: data, options: options, documentAttributes: nil) else {
+            return nil
+        }
+        
+        self.init(attributedString.string)
+    }
+}
+
+
 public class TestableUtils {
     
     // Used in conjunction with displaying posts
@@ -207,7 +234,12 @@ public class TestableUtils {
             return res
         }
     }
-
+    
+    // converts raw text to proper html format (so that special characters are rendered properly)
+    static func convertToUnicode(input: String) -> String {
+        return String.init(htmlEncodedString: input) ?? ""
+    }
+    
     static func getImageFromURLWithCache(key: String, url:URL, completion: @escaping  (Image?) -> Void) {
         ImageCache.default.retrieveImage(forKey: key, options: nil) { (img, cacheType) in
             if let img = img {
@@ -225,6 +257,7 @@ public class TestableUtils {
             completion(nil)
         }
     }
+    
 
 }
 
